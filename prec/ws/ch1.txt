@@ -1,0 +1,44 @@
+<html>
+
+    <code>
+
+       // prec Monoalphabetic Cipher  cipher
+
+package monoalphabetic;
+import java.util.Scanner; 
+public class MonoAlphabetic {
+String ct="";
+String alpha="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+public void Encryption(String p,String k)
+{
+p=p.toUpperCase();
+for(int i=0;i<p.length();i++)
+{
+char ch=p.charAt(i);
+int pos=alpha.indexOf(ch); ct+=k.charAt(pos);
+}
+
+}
+public void Decryption(String ct,String k,String p)
+{
+ct=ct.toUpperCase();
+for(int i=0;i<ct.length();i++)
+{
+char ch=ct.charAt(i);
+
+int pos=alpha.indexOf(ch); p+=k.charAt(pos);
+}
+}
+public static void main(String[] args) { Scanner sc=new Scanner(System.in); System.out.println("Enter the plaintext: "); String p=sc.next();
+String k="NOATRBECFUXDQGYLKHVIJMPZSW";
+MonoAlphabetic m=new MonoAlphabetic(); m.Encryption(p,k); System.out.println("Encryption: "); System.out.println("Plaintext: "+p); System.out.println("Cipher text: "+m.ct); m.Decryption(m.ct, k,p); System.out.println("Decryption: "); System.out.println("Cipher text: "+m.ct); System.out.println("plaintext: "+p);
+}
+
+}
+
+
+
+
+    </code>
+
+</html>

@@ -1,0 +1,18 @@
+<html>
+  <code>
+    ch1 ---- Install Selenium IDE; Write a test suite containing minimum 4 test cases for different forma ||
+    ch2 ---- Conduct a test suite for any two web sites. ||
+    ch3 ---- Install Selenium server (Selenium RC) and demonstrate it using a script in Java/PHP ||
+    ch4 ---- Write and test a program to login a specific web page ||
+    ch5 ---- Write and test a program to update 10 student records into table into Excel file ||
+    ch6 ---- Write and test a program to select the number of students who have scored more than 60 in any
+one subject ||
+    ch7 --- Write and test a program to provide total number of objects present / available on the page ||
+    ch8 --- Write and test a program to get the number of items in a list / combo box.
+ ||
+    ch9 --- Write and test a program to count the number of check boxes on the page checked and
+unchecked count ||
+    ch10 --- Load Testing using JMeter, Android Application testing using Appium Tools, Bugzilla Bug
+tracking tools
+  </code>
+</html>

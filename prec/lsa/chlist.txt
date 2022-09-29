@@ -1,0 +1,17 @@
+<html>
+  <code>
+	// linux prec list
+    ch1 ---- Install DHCP Server in Ubuntu  ||
+    ch2 ---- Initial settings: Add a User, Network Settings, Change to static IP address ||
+    ch3 ---- Configure NTP Server (NTPd), Install and Configure NTPd ||
+    ch4 ---- Configure SSH Server to manage a server from the remote computer ||
+    ch5 ---- Install DNS Server BIND, Configure DNS server ||
+    ch6 ---- Configure DHCP Server, Configure NFS Server to share directories on your Network||
+    ch7 --- Configure LDAP Server, Configure LDAP Server in order to share users'Install phpLDAPadmin to operate LDAP
+server via Web browser ||
+    ch8 --- Configure NIS Server ||
+    ch9 --- Install MySQL to configure database server, Install phpMyAdmin to operate MySQL on web
+browser from Clients ||
+    ch10 --- Install Samba to share folders or files between Windows and Linux
+  </code>
+</html>
