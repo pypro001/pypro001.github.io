@@ -2,7 +2,160 @@
 
     <code>
 
-       // prec 3
+       // prec 3.1
+      // Rail Fence Cipher-||
+      
+package railfence;
+import java.util.Scanner;
+public class Railfence {
+String Encryption(String plainText)throws Exception{
+if(plainText.length()%2!=0)
+plainText+="x";
+System.out.println("After add the x in end of plainText:\n"+plainText);
+ int len=plainText.length();
+ int r=2;
+ int c=len/2;
+ char mat[][]=new char[r][c];
+ int k=0;
+ String cipherText="";
+for(int i=0;i<c;i++)
+ {
+for(int j=0;j<r;j++)
+ {
+ if(k!=len)
+ mat[j][i]=plainText.charAt(k++);
+ else
+ mat[j][i]='X';
+ }
+ }
+for(int i=0;i<r;i++)
+{
+for(int j=0;j<c;j++)
+ {
+cipherText+=mat[i][j];
+ }
+ }
+ return cipherText;
+ }
+ String Decryption(String cipherText)throws Exception{
+ int r=2;
+ int len=cipherText.length();
+ int c=len/2;
+ char mat[][]=new char[r][c];
+ int k=0;
+ String plainText="";
+for(int i=0;i<r;i++)
+ {
+for(int j=0;j<c;j++)
+ {
+ mat[i][j]=cipherText.charAt(k++);
+ }
+ }
+for(int i=0;i<c;i++)
+ {
+for(int j=0;j<r;j++)
+ {
+plainText+=mat[j][i];
+ }
+ }
+ return plainText;
+ }
+
+
+    public static void main(String[] args)throws Exception {
+Railfence rf=new Railfence();
+ Scanner scn=new Scanner(System.in);
+ String plainText,cipherText,decryptedText;
+
+System.out.println("Enter plain text:");
+plainText=scn.nextLine();
+
+cipherText=rf.Encryption(plainText);
+System.out.println("Encrypted text is:\n"+cipherText);
+
+decryptedText=rf.Decryption(cipherText);
+System.out.println("Decrypted text is:\n"+decryptedText);
+    }
+    }
+
+------------------------------------
+
+//prac-3.2
+//Simple columnar technique ||
+
+package simplecolumnar;
+import java.util.Scanner;
+
+public class Simplecolumnar {
+String Encryption(String plainText)throws Exception{
+if(plainText.length()%2!=0)
+plainText+="x";
+System.out.println("After add the x in end of plainText:\n"+plainText);
+ int len=plainText.length();
+ int r=2;
+ int c=len/2;
+ char mat[][]=new char[r][c];
+ int k=0;
+ String cipherText="";
+for(int i=0;i<c;i++)
+ {
+for(int j=0;j<r;j++)
+ {
+ if(k!=len)
+ mat[j][i]=plainText.charAt(k++);
+ else
+ mat[j][i]='X';
+ }
+ }
+for(int i=0;i<r;i++)
+ {
+for(int j=0;j<c;j++)
+ {
+cipherText+=mat[i][j];
+ }
+ }
+ return cipherText;
+ }
+ String Decryption(String cipherText)throws Exception{
+ int r=2;
+ int len=cipherText.length();
+ int c=len/2;
+ char mat[][]=new char[r][c];
+ int k=0;
+ String plainText="";
+for(int i=0;i<r;i++)
+ {
+for(int j=0;j<c;j++)
+ {
+ mat[i][j]=cipherText.charAt(k++);
+ }
+ }
+for(int i=0;i<c;i++)
+ {
+for(int j=0;j<r;j++)
+ {
+plainText+=mat[j][i];
+ }
+ }
+ return plainText;
+}
+
+
+ public static void main(String[] args)throws Exception {
+Simplecolumnarscol=new Simplecolumnar();
+ Scanner scn=new Scanner(System.in);
+ String plainText,cipherText,decryptedText;
+
+System.out.println("Enter plain text:");
+plainText=scn.nextLine();
+
+cipherText=scol.Encryption(plainText);
+System.out.println("Encrypted text is:\n"+cipherText);
+
+decryptedText=scol.Decryption(cipherText);
+System.out.println("Decrypted text is:\n"+decryptedText);
+} }
+
 
 
     </code>
