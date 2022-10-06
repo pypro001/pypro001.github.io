@@ -2,8 +2,129 @@
 
     <code>
 
-       // prec 4
+       // prec 4.1
+      // DES Algorithm||
+      package destest;
+import com.sun.crypto.provider.DESKeyFactory;
+import javax.crypto.Cipher;
+import javax.crypto.SecretKeyFactory;
+import javax.crypto.SecretKey;
+import javax.crypto.spec.DESKeySpec;
+import sun.misc.BASE64Decoder;
+import sun.misc.BASE64Encoder;
 
+
+public class DesTest {
+private SecretKey key;
+public String theKey;
+public void generateKey() throws Exception
+{
+DESKeySpecdeskeySpec=new DESKeySpec(theKey.getBytes());
+SecretKeyFactorykeyFactory=SecretKeyFactory.getInstance("DES");
+key=keyFactory.generateSecret(deskeySpec);
+}
+private String encrypt(String messg) throws Exception
+{
+    Cipher cipher=Cipher.getInstance("DES");
+cipher.init(cipher.ENCRYPT_MODE,key);
+byte [] stringBytes=messg.getBytes("UTF8");
+byte [] raw=cipher.doFinal(stringBytes);
+BASE64Encoder encode=new BASE64Encoder();
+String base64=encode.encode(raw);
+return base64;
+}
+private String decrypt(String encrypted) throws Exception
+{
+Cipher cipher=Cipher.getInstance("DES");
+cipher.init(Cipher.DECRYPT_MODE,key);
+BASE64Decoder decode=new BASE64Decoder();
+byte [] raw=decode.decodeBuffer(encrypted);
+byte [] stringBytes=cipher.doFinal(raw);
+String clear=new String(stringBytes,"UTF8");
+return clear;
+}
+public static void main(String[] args) {
+String messg="Abhishek";
+String decrypted ;
+String encrypted;
+DesTest des=new DesTest();
+des.theKey="Abhishek";
+try
+{
+des.generateKey();
+System.out.println("Clear Message:"+messg);
+encrypted=des.encrypt(messg);
+decrypted=des.decrypt(encrypted);
+System.out.println("Encrypted Message:"+encrypted);
+System.out.println("decrypted Message:"+decrypted);
+}catch(Exception e)
+{
+}
+}
+}
+
+-------------------------------------------
+
+||prac4.2
+|| AES Algorithm||
+ 
+ package aestest;
+import java.security.Key;
+import javax.crypto.Cipher;
+import javax.crypto.spec.SecretKeySpec;
+import sun.misc.BASE64Decoder;
+import sun.misc.BASE64Encoder; 
+
+public class AESTest {
+ private static final String ALGO="AES";
+ private final byte[] keyValue; 
+ public AESTest(String key)
+ {
+keyValue=key.getBytes();
+ }
+
+ public Key generateKey() throws Exception
+ {
+     Key key=new SecretKeySpec(keyValue,ALGO);
+ return key;
+ }
+ public String encrypt(String messg) throws Exception
+ {
+ Key key=generateKey();
+ Cipher cipher=Cipher.getInstance(ALGO);
+cipher.init(Cipher.ENCRYPT_MODE,key);
+ byte [] raw=cipher.doFinal(messg.getBytes());
+ BASE64Encoder encode=new BASE64Encoder();
+ String base64=encode.encode(raw);
+ return base64;
+ }
+ private String decrypt(String encrypted) throws Exception
+ {
+ Key key=generateKey();
+ Cipher cipher=Cipher.getInstance(ALGO);
+cipher.init(cipher.DECRYPT_MODE,key);
+ BASE64Decoder decode=new BASE64Decoder();
+ byte [] raw=decode.decodeBuffer(encrypted);
+ byte [] stringBytes=cipher.doFinal(raw);
+ String clear=new String(stringBytes,"UTF8");
+ return clear;
+ }
+ public static void main(String[] args) {
+ String messg="Abhishek Yadav";
+ String decrypted ;
+ String encrypted;
+AESTestaes=new AESTest("16charactersreqd");
+ try
+ {
+System.out.println("clear Message:"+messg);
+ encrypted=aes.encrypt(messg);
+ decrypted=aes.decrypt(encrypted);
+System.out.println("Encrypted Message:"+encrypted);
+System.out.println("decrypted Message:"+decrypted);
+ }
+catch(Exception e){}
+ }
+}    
     </code>
 
 </html>
