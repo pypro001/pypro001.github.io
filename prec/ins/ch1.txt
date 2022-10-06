@@ -35,9 +35,57 @@ MonoAlphabetic m=new MonoAlphabetic(); m.Encryption(p,k); System.out.println("En
 }
 
 }
+----------------------------------------------------
+||prac1.1
+|| Caesar Cipher||
+package caesarcipher;
+import static java.awt.SystemColor.text;
+import java.io.PrintStream;
+import java.util.Scanner;
 
+public class Caesarcipher {
 
-
+  public static void main(String[] args) {
+System.out.println("Encryption using Caesar Cypher...\n ");
+ Scanner sc=new Scanner(System.in);
+System.out.println("Enter the text: ");
+ String text=sc.nextLine().toUpperCase();
+System.out.println("Enter the key: ");
+ int key = sc.nextInt();
+System.out.println("\nEncryption");
+System.out.println("Text is: " + text);
+System.out.println("Shift: " + key );
+ String ct = encrypt(text, key).toString();
+System.out.println("Encrypted Cipher is: " + ct);
+System.out.println("\nDecryption");
+System.out.println("Encrypted Cipher was: " + ct);
+System.out.println("Shift: " + key);
+ String dpt = Decrypt(ct, 26 - key).toString();
+System.out.println("Decrypted Message is: " + dpt);
+}
+public static StringBufferencrypt(String text, int key) {
+StringBuffer result= new StringBuffer();
+for (int i=0; i<text.length(); i++) {
+if (Character.isUpperCase(text.charAt(i))) {
+//int key;
+char ch1 = (char)(((int)text.charAt(i) + key - 65) % 26 + 65);
+result.append(ch1);
+}
+}
+return result;
+}
+public static StringBufferDecrypt(String ct, int shift) {
+StringBuffer result = new StringBuffer();
+for (int i = 0; i<ct.length(); i++) {
+if (Character.isUpperCase(ct.charAt(i))) {
+char ch1= (char) (((int) ct.charAt(i) + shift - 65) % 26 +
+65);
+result.append(ch1);
+}
+}
+return result;
+}
+}
 
     </code>
 
