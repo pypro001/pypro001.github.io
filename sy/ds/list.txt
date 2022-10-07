@@ -1,4 +1,4 @@
-la prec list
+DS prec list
 ---------------------------------------
 1 ---  singly linked list insertion deletion traversal
 2 --- 
@@ -10,4 +10,5 @@ la prec list
 8 ---
 9 --- travelling sales man
 10---
-11---
+11---Write a program to create hash table to handle collisions using overflow chaining
+
