@@ -7,4 +7,4 @@ la prec list
 4  ---  Write a program to convert a matrix into its echelon form,Write a program to find rank of matrix
 5  ---  Enter a vector b and find the projection of b orthogonal to given vector of u.A python program to illustrate orthogonal vector
 6  ---  Write a program to calculate 
-eigenvalue and eigenvector (order 2 and 3)
+7  ---  huffmans coding 
