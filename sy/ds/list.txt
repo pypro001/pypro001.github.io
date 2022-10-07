@@ -4,9 +4,10 @@ la prec list
 2 --- 
 3 ---  STACK OPRATION
 4 ---  QUEUE OPERATION
-4  ---  Write a program to convert a matrix into its echelon form,Write a program to find rank of matrix
-5  ---  Enter a vector b and find the projection of b orthogonal to given vector of u.A python program to illustrate orthogonal vector
-6  ---  Write a program to calculate 
-7  ---  huffmans coding 
-8
-9  --- travelling sales man
+5 ---  Priority Queue with insertion, deletion, traversal 
+6 ---  binary search tree 
+7 ---  huffmans coding 
+8 ---
+9 --- travelling sales man
+10---
+11---
