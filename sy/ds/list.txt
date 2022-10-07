@@ -1,11 +1,8 @@
 la prec list
 ---------------------------------------
 1 ---  singly linked list insertion deletion traversal
-1b ---  DISPLAYING CONJUGATE OF A COMPLEX NUMBER
-1c ---  PLOTING A SET OF COMPLEX
-2  ---  ENTER A VECTOR u AS A n-list,ENTER ANOTHER VECTOR v AS n-list,FIND THE VECTOR au + bv FOR
-3  ---  Matrix addition,subtraction and multiplication 
-DIFFERENT VALUES OF a AND b,FIND DOT PRODUCT OF u AND v
+2 ---  STACK OPRATION
+3 ---  QUEUE OPERATION
 4  ---  Write a program to convert a matrix into its echelon form,Write a program to find rank of matrix
 5  ---  Enter a vector b and find the projection of b orthogonal to given vector of u.A python program to illustrate orthogonal vector
 6  ---  Write a program to calculate 
