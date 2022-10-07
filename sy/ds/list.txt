@@ -1,7 +1,7 @@
 DS prec list
 ---------------------------------------
 1 ---  singly linked list insertion deletion traversal
-2 --- 
+2 ---  doubly linked list
 3 ---  STACK OPRATION
 4 ---  QUEUE OPERATION
 5 ---  Priority Queue with insertion, deletion, traversal 
