@@ -1,6 +1,6 @@
 la prec list
 ---------------------------------------
-1a ---  ADDITION OF TWO COMPLEX NUMBERS
+1 ---  singly linked list insertion deletion traversal
 1b ---  DISPLAYING CONJUGATE OF A COMPLEX NUMBER
 1c ---  PLOTING A SET OF COMPLEX
 2  ---  ENTER A VECTOR u AS A n-list,ENTER ANOTHER VECTOR v AS n-list,FIND THE VECTOR au + bv FOR
