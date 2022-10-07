@@ -1,0 +1,56 @@
+#graph operation
+
+<code>
+class Node:
+        def __init__(self, data):
+                self.data = data
+                self.edge = []
+
+        def add_edge(self,edge):
+                self.edge.append(edge)
+
+        def traverse(self):
+                traversed = []
+                queue = []
+                for ed in self.edge:
+                    queue.append(ed)
+                while len(queue) != 0:
+                        vertex = queue.pop()
+                        if vertex not in traversed:
+                            print(vertex.data)
+                            traversed.append(vertex)
+                            for ed in vertex.edge:
+                                    queue.append(ed)
+
+
+
+graphroot = Node(3)
+
+# Lets add a new vertex
+
+vert = Node(4)
+
+# Lets connect the vertex.
+
+vert.add_edge(graphroot)
+graphroot.add_edge(vert)
+
+# adding more vertices
+
+vert2=Node(6)
+vert2.add_edge(graphroot)
+
+graphroot.add_edge(vert)
+
+vert3= Node(5)
+vert2.add_edge(vert)
+vert.add_edge(vert2)
+
+vert3.add_edge(vert2)
+vert2.add_edge(vert3)
+
+graphroot.traverse()
+
+
+
+</code>
