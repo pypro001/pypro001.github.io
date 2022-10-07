@@ -8,3 +8,5 @@ la prec list
 5  ---  Enter a vector b and find the projection of b orthogonal to given vector of u.A python program to illustrate orthogonal vector
 6  ---  Write a program to calculate 
 7  ---  huffmans coding 
+8
+9  --- travelling sales man
