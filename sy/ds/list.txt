@@ -7,7 +7,7 @@ DS prec list
 5 ---  Priority Queue with insertion, deletion, traversal 
 6 ---  binary search tree 
 7 ---  huffmans coding 
-8 ---
+8 ---  graph operation
 9 --- travelling sales man
 10---
 11---Write a program to create hash table to handle collisions using overflow chaining
