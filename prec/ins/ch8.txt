@@ -3,7 +3,7 @@
     <code>
 
        // prec 8
-       ||
+       ||HMAC-SHA1 Signature||
 
     </code>
 
