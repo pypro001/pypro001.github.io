@@ -4,6 +4,44 @@
 
        // prec 8
        ||HMAC-SHA1 Signature||
+       package hmac;
+import java.io.UnsupportedEncodingException;
+import java.math.BigInteger;
+import javax.crypto.Mac;
+import javax.crypto.spec.SecretKeySpec;
+
+public class HMAC {
+ static public byte[] calcHmacSha1(byte[] secretKey, byte[] message) {
+ byte[] hmacSha1 = null;
+ try 
+ {
+ Mac mac = Mac.getInstance("HmacSHA1");
+ SecretKeySpec secretKeySpec = new SecretKeySpec(secretKey, "HmacSHA1");
+ mac.init(secretKeySpec);
+
+ hmacSha1 = mac.doFinal(message);
+ } 
+ catch (Exception e) 
+ {
+ throw new RuntimeException("Failed to calculate hmac-sha256", e);
+ }
+ return hmacSha1;
+ }
+ public static void main(String[] args) {
+ try {
+ byte[] hmacSha1;
+ hmacSha1 = HMAC.calcHmacSha1("secret123".getBytes("UTF-8"), 
+ "hello world".getBytes("UTF-8"));
+ System.out.println(String.format("Hex: %032x",
+ new BigInteger(1, hmacSha1)));
+ }
+ catch (UnsupportedEncodingException e) {
+ e.printStackTrace();
+ }
+ }
+}
+
+
 
     </code>
 
