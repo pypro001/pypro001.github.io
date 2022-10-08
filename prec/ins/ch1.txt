@@ -5,7 +5,7 @@
        // prec Monoalphabetic Cipher  cipher \n \
 
 package monoalphabetic; /n
-import java.util.Scanner; /n
+import java.util.Scanner; %n 
 public class MonoAlphabetic { /n
 String ct="";
 String alpha="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
