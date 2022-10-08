@@ -99,6 +99,17 @@ public class JavaSSLClient {
  }
  
 }
+---------------------------------
+STEP 1: To get the output first we need to create KeyStore using the below command in cmd C:\Users\Rohit>keytool -genkey -alias signFiles -keystore testStr
+
+STEP 2: Now in cmd write the below command and give the jar file path of server file (toget the jar file path build the project then copy the path from there i.e. given below:-)
+
+C:\Users\Rohit>java -jar -Djavax.net.ssl.keyStore=testStr Djavax.net.ssl.keyStorePassword=password "C:\Users\Rohit\Documents\NetBeansProjects\SSLServer\dist\SSLServer.jar"
+
+STEP 3:Now open another cmd & write the below command and give the jar file path of client file (to get the jar file path build the project then copy the path from there i.e. givenbelow
+
+C:\Users\Rohit>java -jar -Djavax.net.ssl.trustStore=testStr -Djavax.net.ssl.trustStorePassword=password "C:\Users\Rohit\Documents\NetBeansProjects\SSLClient\dist\SSLClient.jar"
+
 
     </code>
 
