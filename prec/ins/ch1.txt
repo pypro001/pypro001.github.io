@@ -38,54 +38,36 @@ MonoAlphabetic m=new MonoAlphabetic(); m.Encryption(p,k); System.out.println("En
 ----------------------------------------------------
 ||prac1.1
 || Caesar Cipher||
-package caesarcipher;
-import static java.awt.SystemColor.text;
-import java.io.PrintStream;
-import java.util.Scanner;
+package caesarcipher1; 
+import java.util.Scanner; 
+public class CaesarCipher1 {
+public String Encryption(String pt,int k)
+{
+char ch;
+String ct="";
+pt= pt.toUpperCase().trim(); for(int i=0;i<pt.length();i++)
+{
+ch=(char)(((int)(pt.charAt(i))+k-65)%26+65); ct+=ch;
+}
+return ct;
+}
+public String Decryption(String ct,int k)
+{
+char ch; String pt="";
+ct= ct.toUpperCase().trim(); for(int i=0;i<ct.length();i++)
+{
+ch=(char)(((int)(ct.charAt(i))-k+65)%26+65); pt+=ch;
+}
+return pt;
+}
 
-public class Caesarcipher {
+public static void main(String[] args) { CaesarCipher1 c=new CaesarCipher1(); Scanner sc=new Scanner(System.in); System.out.println("Caesar Cipher "); System.out.println("Enter the plaintext: "); String pt=sc.next(); System.out.println("Enter the key: ");
+int k=sc.nextInt();
+String ct=c.Encryption(pt, k); System.out.println("Encryption: "); System.out.println("Plaintext: "+pt);
+ 
+System.out.println("Ciphertext: "+ct); pt=c.Decryption(ct, k); System.out.println("Decryption: "); System.out.println("Ciphertext: "+ct); System.out.println("Plaintext: "+pt);
+}
 
-  public static void main(String[] args) {
-System.out.println("Encryption using Caesar Cypher...\n ");
- Scanner sc=new Scanner(System.in);
-System.out.println("Enter the text: ");
- String text=sc.nextLine().toUpperCase();
-System.out.println("Enter the key: ");
- int key = sc.nextInt();
-System.out.println("\nEncryption");
-System.out.println("Text is: " + text);
-System.out.println("Shift: " + key );
- String ct = encrypt(text, key).toString();
-System.out.println("Encrypted Cipher is: " + ct);
-System.out.println("\nDecryption");
-System.out.println("Encrypted Cipher was: " + ct);
-System.out.println("Shift: " + key);
- String dpt = Decrypt(ct, 26 - key).toString();
-System.out.println("Decrypted Message is: " + dpt);
-}
-public static StringBufferencrypt(String text, int key) {
-StringBuffer result= new StringBuffer();
-for (int i=0; i<text.length(); i++) {
-if (Character.isUpperCase(text.charAt(i))) {
-//int key;
-char ch1 = (char)(((int)text.charAt(i) + key - 65) % 26 + 65);
-result.append(ch1);
-}
-}
-return result;
-}
-public static StringBufferDecrypt(String ct, int shift) {
-StringBuffer result = new StringBuffer();
-for (int i = 0; i<ct.length(); i++) {
-if (Character.isUpperCase(ct.charAt(i))) {
-char ch1= (char) (((int) ct.charAt(i) + shift - 65) % 26 +
-65);
-result.append(ch1);
-}
-}
-return result;
-}
-}
 
     </code>
 
