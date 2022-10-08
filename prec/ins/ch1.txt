@@ -2,11 +2,11 @@
 
     <code>
 
-       // prec Monoalphabetic Cipher  cipher \n
+       // prec Monoalphabetic Cipher  cipher /n
 
-package monoalphabetic; \n
-import java.util.Scanner; \n
-public class MonoAlphabetic { \n
+package monoalphabetic; /n
+import java.util.Scanner; /n
+public class MonoAlphabetic { /n
 String ct="";
 String alpha="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 public void Encryption(String p,String k)
