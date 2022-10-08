@@ -2,7 +2,7 @@
 
     <code>
 
-       // prec Monoalphabetic Cipher  cipher /n
+       // prec Monoalphabetic Cipher  cipher \n \
 
 package monoalphabetic; /n
 import java.util.Scanner; /n
