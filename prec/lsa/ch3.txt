@@ -3,6 +3,20 @@
     <code>
 
        // prec 3
+       ||Configure NTP Server (NTPd), Install and Configure NTPd||
+       Step:-
+1.	Update and Upgrade System 
+$ sudo apt-get update 
+$ sudo apt-get upgrade
+2. Install NTP $ sudo apt install ntp
+
+	
+3. Open ntpd configuration file $ sudo nano /etc/ntp.conf
+4. Remove the pool and replace it with server in conf file
+5. Restarting the NTP Service. $ sudo service ntp restart 
+6. To Check the status of service. $ sudo service ntp status
+7. Check the current ntp server. $ ntpq -p
+
 
 
     </code>
