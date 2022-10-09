@@ -3,6 +3,38 @@
     <code>
 
        // prec 8
+       || Configure NIS Server ||
+       Steps:- 
+1.Open terminal in Ubuntu 18.04. 
+$ sudo apt-get update
+$sudo apt-get upgrade
+
+2.To install the NIS Server : sudo apt –u install nis
+
+3. This type of window will pop-up during Installation. Enter the NIS Domain name :
+
+4. Using nano Editor for Editing file : sudo nano /etc/default/nis
+
+5. Modify “NISSERVER=master” on 6th line
+
+6. Using nano Editor for Editing file : sudo nano /etc/ypserv.securenets
+
+7. Specify the range of start and end Ip-Address in which your Ip-Address is present.
+
+8. Using nano Editor for Editing file : sudo nano /var/yp/Makefile
+
+9. Modify “MERGE_PASSWD=true MERGE_GROUP=true”.
+
+10. Using nano Editor for Editing file : sudo nano /etc/hosts.
+
+11. Specify your Ip-Address, hostname.domain_name , hostname respectively
+
+12. Type “sudo /usr/lib/yp/ypinit –m”.
+
+13. To Restart the Service: sudo systemctl restart nis
+
+14. To check the Status : sudo service nis status
+
 
     </code>
 
