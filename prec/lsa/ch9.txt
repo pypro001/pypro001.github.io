@@ -3,6 +3,30 @@
     <code>
 
        // prec 9
+       || Install MySQL to configure database server, Install phpMyAdmin to operate MySQL on web
+browser from Clients ||
+Steps:- 
+1. Update and Upgrade $sudo apt update $sudo apt upgrade 
+
+2. Instal mysql-server
+
+3. Check if mysql installed properly
+
+4. Perform simple commands in mysql to check it works
+ i) select user from mysql.user;
+ii) show database;
+iii) exit
+
+5.Install phpMyAdmin
+
+6. During installation there would be a few configuration screens as follows:- Set appropriate options as listed below.
+ i) Select apahe2 as web server
+iii) Set a proper password for phpmyadmin and re-enter same password to confirm.
+
+7. Go to localhost/phpmyadmin/index.php on your browser.
+You can now login with the credentials ypu provided in the earlier steps
+You have successfully login in phpMyAdmin
+
        
 
     </code>
