@@ -3,6 +3,21 @@
     <code>
 
        // prec 3
+package gcd;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+public class gcd {
+public static void main(String[] args) {
+System.setProperty("webdriver.chrome.driver", "C:\\software testing\\chromedriver.exe");
+WebDriver driver=new ChromeDriver();
+driver.get("file:///C:/software%20testing/gcd.html");
+driver.findElement(By.name("n1")).sendKeys("20");
+driver.findElement(By.name("n2")).sendKeys("15");
+driver.findElement(By.name("btn")).click();
+String result=driver.findElement(By.name("result")).getAttribute("name=result");
+}
+}
 
 
     </code>
