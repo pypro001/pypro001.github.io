@@ -3,6 +3,47 @@
     <code>
 
        // prec 5
+       || Install DNS Server BIND, Configure DNS server ||
+       Steps:- 
+1) $ sudo apt update and $ sudo apt upgrade
+
+2) Install BIND9
+
+3) named -v
+
+4) $ sudo systemctl status bind9
+If not running give this command 
+$ sudo systemctl start bind9 
+To enable it to run at boot time 
+$ sudo systemctl enable bind9 
+
+5) The BIND server will run as bind user,which is created during installation and listens to TCP & UDP port 53; as can be seen by running the following command: 
+$ sudo netstat -lnptu | grep named 
+If netstat is not found give this command 
+$ sudo apt install net-tools
+
+6)the status of the BIND name server 
+$ sudo rndc status
+
+7) The main BIND configuration file etc/bind/named.conf sources the settings from 3 other files. etc/bind/named.conf.options 
+etc/bind/named.conf.local 
+etc/bind/named.conf.default_zones 
+Edit the etc/bind/named.conf.options 
+$sudo nano etc/bind/named.conf.options
+Add the following lines in the above file.
+ // hide versions number from clients to security reasons 
+version "not currently available"; 
+// disable recursion on DNS server 
+recursion no; 
+// enable the query log 
+querylog yes; 
+// disallow zone transfer
+allow-transfer { none; };
+
+8) Restart bind9 and check the status again 
+$ sudo systemctl restart bind9 
+$ sudo systemctl status bind9
+
 
     </code>
 
