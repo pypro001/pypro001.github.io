@@ -3,6 +3,19 @@
     <code>
 
        // prec 4
+       || Configure SSH Server to manage a server from the remote computer ||
+       Steps :-
+1.	 $sudo apt-get update
+2.	$sudo apt-get upgrade
+3.	Install openssh-server
+4.	Check the status of ssh server.
+5.	To connect to your Ubuntu machine over LAN you only need to enter the following command 
+$ sudo ssh username@ip-address
+
+	
+6. To stop service $ sudo systemctl stop ssh
+7. To start service $ sudo systemctl start ssh
+
 
     </code>
 
