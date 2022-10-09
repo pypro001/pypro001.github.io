@@ -3,6 +3,40 @@
     <code>
 
        // prec 7
+       ||Configure LDAP Server, Configure LDAP Server in order to share users'Install phpLDAPadmin to operate LDAP
+server via Web browser ||
+Steps :- 
+1.To install ldap server open terminal 
+$ sudo apt update 
+$sudo apt upgrade
+
+2.$sudo apt install slapd ldap-utils
+
+3.Check the status of the ldap server 
+$ systemctl status slapd
+
+4.Basic post installation configuration 
+$sudo dpkg-reconfigure slapd
+
+5.Configuration the LDAP CLIENTS 
+$sudo nano /etc/ldap/ldap.conf 
+Add below 
+BASE dc-menon,dc=com 
+URI ldap://localhost
+
+6.Testing open ldap sever
+
+7. sudo apt install phpldapadmin
+
+8. systemctl status slapd
+
+9.sudo nano /etc/phpldapadmin/config.php 
+Delete the array value in line number 300 using (shift+ctrl+-)key
+
+10.Remove the comment in line number 161
+
+11. Open the browser and refresh it. Localhost/phpldapadmin/
+
 
 
 
