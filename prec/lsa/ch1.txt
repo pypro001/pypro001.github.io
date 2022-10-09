@@ -2,7 +2,7 @@
 
     <code>
 
-       // prec Monoalphabetic Cipher  cipher
+       // prec Install DHCP Server in Ubuntu
 
 Steps :-
 1.	$sudo apt-get update
