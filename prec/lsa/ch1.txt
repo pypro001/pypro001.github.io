@@ -2,7 +2,7 @@
 
     <code>
 
-       //   prec
+       //   prec  1
        || Install DHCP Server in Ubuntu ||
 
 Steps :-
