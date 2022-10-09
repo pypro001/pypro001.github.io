@@ -3,6 +3,40 @@
     <code>
 
        // prec 10
+       ||  Install Samba to share folders or files between Windows and Linux ||
+       Steps:- 
+1) sudo apt update
+
+2) sudo apt install samba
+
+3) sudo systemctl status smbd 
+sudo systemctl status nmbd
+
+4) sudo mkdir /samba
+
+5) Sudo gedit /etc/samba/smb.conf 
+Add following line to bottom of 
+smb.conf file[samba-share] 
+comment= Samba on Ubuntu 
+path=/samba
+ read only=no 
+browsable=yes
+
+Where 
+[samba-share] = name of the share 
+comment = Add a brief description of the share 
+path = It is directory of your share 
+read only= it specifies whether or not a user is allowed to write 
+browsable = whether the share should be listed in the share list
+
+6) Restart Samba service sudo systemctl restart smbd.service
+
+7 ) Check IP address of machine ifconfig
+
+8 ) Access the windows machine and open the Run dialog using ctrl+R Here enter the address in form \\[IP-Address]\[folder-name-shared]
+
+9) Enter the credentials to connect to the samba share you have create
+
 
     </code>
 
