@@ -2,7 +2,7 @@
 
     <code>
 
-       // prec 3
+       // gcd script demonstrate use of selenium server
 package gcd;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
