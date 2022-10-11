@@ -3,7 +3,7 @@
     <code>
 
        // prec 9
-       || Demonstrates using the binding attribute of an endpoint element in WCF.||
+       ||  Use WCF to create a basic ASP.NET Asynchronous JavaScript and XML (AJAX) service. ||||
        In default.aspx page-create textfield
 
 <br />
