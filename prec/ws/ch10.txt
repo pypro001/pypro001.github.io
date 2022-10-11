@@ -3,6 +3,8 @@
     <code>
 
        // prec 10
+       || Demonstrates using the binding attribute of an endpoint element in WCF.||
+       
 
     </code>
 
