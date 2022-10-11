@@ -8,7 +8,7 @@ one subject ||
     ch7 --- Write and test a program to provide total number of objects present / available on the page ||
     ch8 --- Write and test a program to get the number of items in a list / combo box.
  ||
-    ch9 --- Write and test a program to count the number of check boxes on the page checked and
+    ch6 --- Write and test a program to count the number of check boxes on the page checked and
 unchecked count ||
     
   </code>
