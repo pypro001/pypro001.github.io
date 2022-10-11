@@ -2,40 +2,42 @@
 
     <code>
 
-       // prec Monoalphabetic Cipher  cipher
+       // prec 1
+       ||temperature from
 
-package monoalphabetic;
-import java.util.Scanner; 
-public class MonoAlphabetic {
-String ct="";
-String alpha="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-public void Encryption(String p,String k)
-{
-p=p.toUpperCase();
-for(int i=0;i<p.length();i++)
-{
-char ch=p.charAt(i);
-int pos=alpha.indexOf(ch); ct+=k.charAt(pos);
-}
-
-}
-public void Decryption(String ct,String k,String p)
-{
-ct=ct.toUpperCase();
-for(int i=0;i<ct.length();i++)
-{
-char ch=ct.charAt(i);
-
-int pos=alpha.indexOf(ch); p+=k.charAt(pos);
-}
-}
-public static void main(String[] args) { Scanner sc=new Scanner(System.in); System.out.println("Enter the plaintext: "); String p=sc.next();
-String k="NOATRBECFUXDQGYLKHVIJMPZSW";
-MonoAlphabetic m=new MonoAlphabetic(); m.Encryption(p,k); System.out.println("Encryption: "); System.out.println("Plaintext: "+p); System.out.println("Cipher text: "+m.ct); m.Decryption(m.ct, k,p); System.out.println("Decryption: "); System.out.println("Cipher text: "+m.ct); System.out.println("plaintext: "+p);
+package org.me.conversion;
+import javax.jws.WebService;
+import javax.jws.WebMethod;
+import javax.jws.WebParam;
+@WebService(serviceName = "conversion")
+public class conversion {
+ @WebMethod(operationName = "fahrenheittocelciues")
+ public double temptofarh(@WebParam(name = "F") double F) {
+ double c=((F-32)*5)/9;
+ return c; 
+ }
+ @WebMethod(operationName = "celciuestofahrenheit")
+ public double farhtotemp(@WebParam(name = "C") double C) {
+ double f=(C*9/5)+32;
+ return f;
+ }
 }
 
-}
-
+create asp.net page
+<html> 
+    <head>
+        <title>Temperature converter</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initialscale=1.0">
+    </head> 
+    <body> 
+        <form> 
+            <br><input type="text" name="data"><br>
+            <br><input type="submit" value="Convert F to C" name="ftoc" formaction="f_to_c.jsp"><br>
+            <br><input type="submit" value="Convert C to F" name="ctof" formaction="c_to_f.jsp">
+        </form> 
+    </body> 
+</html>
 
 
 
