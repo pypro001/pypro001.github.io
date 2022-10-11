@@ -5,6 +5,36 @@
        // prec 4
         || Write a JAX-WS web service to perform the following operations. Define a Servlet / JSP that
 consumes the web service. ||
+package org.me.operation;
+import javax.jws.WebService;
+import javax.jws.WebMethod;
+import javax.jws.WebParam;
+@WebService(serviceName = "Operation")
+public class Operation {
+ 
+ @WebMethod(operationName = "add")
+ public int add(@WebParam(name = "n1") int n1, @WebParam(name = "n2") int n2) {
+ int c=n1+n2;
+ return c;
+ }
+
+ 
+ @WebMethod(operationName = "sub")
+ public int sub(@WebParam(name = "n1") int n1, @WebParam(name = "n2") int n2) {
+ int c=n1-n2;
+ return c;
+ }
+ @WebMethod(operationName = "Mul")
+ public int Mul(@WebParam(name = "n1") int n1, @WebParam(name = "n2") int n2) {
+ int c=n1*n2;
+ return c;
+ }
+ @WebMethod(operationName = "div")
+ public int div(@WebParam(name = "n1") int n1, @WebParam(name = "n2") int n2) {
+ int c=n1/n2;
+ return c;
+ }
+}
 
 
 <!DOCTYPE html>
