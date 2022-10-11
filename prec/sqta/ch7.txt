@@ -2,7 +2,7 @@
 
     <code>
 
-       // prec 7
+       // total number of objects present on page
 
 import java.util.List;
 import org.openqa.selenium.By;
