@@ -3,13 +3,15 @@
     ch3 ---- Install Selenium server (Selenium RC) and demonstrate it using a script in Java/PHP ||
     
     ch5 ---- Write and test a program to update 10 student records into table into Excel file ||
-    ch6 ---- Write and test a program to select the number of students who have scored more than 60 in any
+   
 one subject ||
     ch7 --- Write and test a program to provide total number of objects present / available on the page ||
     ch8 --- Write and test a program to get the number of items in a list / combo box.
  ||
     ch6 --- Write and test a program to count the number of check boxes on the page checked and
 unchecked count ||
+    ch9 --- update 10 records in excel
+    ch10 --- more then 60 marks student list
     
   </code>
 </html>
