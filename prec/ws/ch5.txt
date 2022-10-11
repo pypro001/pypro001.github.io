@@ -3,6 +3,29 @@
     <code>
 
        // prec 5
+       || To develop a basic “Hello World” restful web service and test it.||
+       
+       package helloRest;
+import javax.ws.rs.core.Context; import javax.ws.rs.core.UriInfo; import javax.ws.rs.Consumes; import javax.ws.rs.Produces; import javax.ws.rs.GET;
+import javax.ws.rs.Path; import javax.ws.rs.PUT;
+import javax.ws.rs.core.MediaType;
+
+
+@Path("hellorest") public class Hellorest {
+
+@Context
+private UriInfo context; public Hellorest() {
+}
+
+
+@GET
+@Produces(MediaType.TEXT_HTML) public String getHtml() {
+return ("<html><body>Hello Wellcome to RESTful Application</body></html>");
+} @PUT
+@Consumes(MediaType.TEXT_HTML) public void putHtml(String content) {
+}
+}
+
 
     </code>
 
