@@ -3,8 +3,26 @@
     <code>
 
        // prec 2
+       || Write a program to implement the operation can receive request and will return a response in
+two ways. a) One - Way operation b) Request –Response ||
 
-p
+package server;
+
+import javax.jws.WebService; import javax.jws.WebMethod; import javax.jws.WebParam;
+@WebService(serviceName = "Oneway") public class Oneway
+{ private int age; @WebMethod(operationName = "age") @javax.jws.Oneway
+public void age(@WebParam(name = "age") int age)
+
+{ this.age=age;
+
+}
+
+@WebMethod(operationName = "check_eligibility")
+
+public String check_eligibility(@WebParam(name = "name") String name) { if(age>=18)
+return " Dear " +name+ " You are eligibile "; else
+return " Dear " +name+ " You are not eligible "; } }
+
     </code>
 
 </html>
