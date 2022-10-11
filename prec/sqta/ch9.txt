@@ -2,7 +2,7 @@
 
     <code>
 
-       // prec 9
+       // update 10 records in excel
 package studrecords;
 import jxl.*;
 import jxl.write.*;
