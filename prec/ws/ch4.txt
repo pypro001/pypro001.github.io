@@ -3,6 +3,43 @@
     <code>
 
        // prec 4
+        || Write a JAX-WS web service to perform the following operations. Define a Servlet / JSP that
+consumes the web service. ||
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>JSP Page</title>
+</head>
+<body>
+<%-- start web service invocation --%><hr/>
+<%
+org.me.diffopt.Operations_Service service = new org.me.diffopt.Operations_Service(); org.me.diffopt.Operations port = service.getOperationsPort();
+// TODO initialize WS operation arguments here
+int n1 = Integer.parseInt(request.getParameter("num1")); int n2 = Integer.parseInt(request.getParameter("num2"));
+int result;
+char r1=request.getParameter("r1").toCharArray()[0]; %>
+<%
+switch(r1){ case '+':{
+result=port.add(n1, n2); out.println("result is:"+result); break;
+}
+case '-':{ result=port.sub(n1, n2);
+out.println("result is:"+result); break;
+}
+case '*':{ result=port.mul(n1, n2);
+out.println("result is:"+result); break;
+}
+case '/':{ result=port.div(n1, n2);
+out.println("result is:"+result); break;
+}
+}
+%>
+<%-- end web service invocation --%><hr/>
+</body>
+</html>
+
 
     </code>
 
