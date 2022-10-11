@@ -2,7 +2,7 @@
 
     <code>
 
-       // prec 10
+       // student who have score more then 60
 package javaApplication22;
 import org.testng.annotations.Test;
 import java.io.FileInputStream;
