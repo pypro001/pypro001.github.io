@@ -4,7 +4,34 @@
 
        // prec 2
 
-p
+network settings 
+1. ifconfig -a
+2. sudo netplan generate
+
+3. sudo nano /etc/netplan/01-network-manager-all.yml
+ add following line
+ 
+ network:
+  renderer: NetworkManager
+  ethernets:
+   enp0s3:
+    dhcp4: no
+    dhcp6: no
+    addresses:
+     - 10.0.2.15/24
+     gateway4: 10.0.2.15
+     nameservers:
+      addresses: [8.8.8.8]
+     
+4. sudo netplan apply
+change ip to static ip addrs
+1. sudo ifconfig enp0s3 10.0.2.15
+disabling ipv6
+1. sudo sysctl -w net.ipv6.conf.all.disable_ipv6=1
+
+
+
+
     </code>
 
 </html>
