@@ -4,10 +4,10 @@
 from Fahrenheit to Celsius and vice a versa. ||
     ch2 ---- Write a program to implement the operation can receive request and will return a response in
 two ways. a) One - Way operation b) Request –Response ||
-    ch3 ---- Write a program to implement business UDDI Registry entry ||
-    ch4 ---- Develop client which consumes web services developed in different platform ||
-    ch5 ---- Write a JAX-WS web service to perform the following operations. Define a Servlet / JSP that
+    ch3 ---- Develop client which consumes web services developed in different platform ||
+    ch4 ----  Write a JAX-WS web service to perform the following operations. Define a Servlet / JSP that
 consumes the web service. ||
+    ch5 ---- To develop a basic “Hello World” restful web service and test it.||
     ch6 ---- Define a web service method that returns the contents of a database in a JSON string. The
 contents should be displayed in a tabular format ||
     ch7 --- Define a RESTful web service that accepts the details to be stored in a database and performs
