@@ -11,11 +11,13 @@ Steps :-
 3.	Install isc-dhcp-server
 $sudo apt-get install isc-dhcp-server
 4.	  $sudo vi /etc/default/isc-dhcp-server
-5.	$sudo vi /etc/dhcp/dhcpd.conf
-6.	$sudo vi /etc/dhcp/dhcpd.conf
-7.	$ifconfig
-8.	$sudo systemctl restart isc-dhcp-server
-9.	$sudo service isc-dhcp-server status
+5.	sudo vi /etc/dhcp/dhcpd.conf
+uncomment authoritative 
+6.	sudo vi /etc/dhcp/dhcpd.conf
+
+7.	ifconfig
+8.	sudo systemctl restart isc-dhcp-server
+9.	sudo service isc-dhcp-server status
 
 
 
