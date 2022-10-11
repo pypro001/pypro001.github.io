@@ -3,6 +3,33 @@
     <code>
 
        // prec 3
+        || Develop client which consumes web services developed in different platform ||
+        
+        package server;
+import javax.jws.WebService; import javax.jws.WebMethod; import javax.jws.WebParam;
+@WebService(serviceName = "operation")
+
+public class operation {
+
+@WebMethod(operationName = "add")
+public String add(@WebParam(name = "a") int a, @WebParam(name = "b") int b) { int sum=a+b;
+return new String(""+sum);
+
+}
+@WebMethod(operationName = "sub")
+public String sub(@WebParam(name = "a") int a, @WebParam(name = "b") int b) { int sub=a-b;
+return new String(""+sub);
+}
+
+@WebMethod(operationName = "mul")
+public String mul(@WebParam(name = "a") int a, @WebParam(name = "b") int b) { int mul=a*b;
+}
+@WebMethod(operationName = "div")
+public String div(@WebParam(name = "a") int a, @WebParam(name = "b") int b) { int div=a/b;
+return new String(""+div);
+}
+}
+
 
 
     </code>
