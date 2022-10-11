@@ -2,7 +2,7 @@
 
     <code>
 
-       // prec 6
+       // count checkboxes
        
        package checkbox;
 import java.util.List;
