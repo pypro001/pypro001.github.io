@@ -4,7 +4,24 @@
 start selenium server java -jar location of server standlon
        // prec dropdown menu list/combo
        
-       import java.util.List;
+1.	Write an HTML Program for Combo box.
+
+<html>
+<body>
+<select id="country">
+<option>India</option>
+<option>Africa</option>
+<option>America</option>
+<option>Italy</option>
+<option>Belgium</option>
+<option>Canada</option>
+<option>Fiji</option>
+</select>
+</body>
+</html>
+
+
+import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
