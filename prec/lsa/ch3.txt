@@ -7,10 +7,12 @@
        The Network Time Protocol (NTP) is a protocol used to synchronize computer system clock 
 automatically over a networks. The machine can have the system clock use Coordinated 
 Universal Time (UTC) rather than local time.
+
 Maintaining accurate time on Linux systems especially servers is a important task for many 
 reasons. For example, in a networked environment, accurate timekeeping is required for accurate
 timestamps in packets and system logs for root-cause analysis, determining when problems 
 occurred, and finding correlations.
+
 Chrony is now the default NTP implementation package on the latest versions of Linux operating 
 systems such as CentOS, RHEL, Fedora and Ubuntu/Debian among others and comes preinstalled by default. The package consists of chronyd, a daemon that runs in userspace, and 
 chronyc a command-line program for monitoring and controlling chronyd
