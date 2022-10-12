@@ -3,6 +3,7 @@
   ch1----Install Selenium IDE. Write a test case suite containing minimum 4 test cases for different formats.||
   
     ch3 ---- Install Selenium server (Selenium RC) and demonstrate it using a script in Java/PHP ||
+    ch4 -----Write and test a program to login to a specific web page.||
     
     ch5 ---- Write and test a program to get the number of items in a list / combo box.
    ch6 --- Write and test a program to count the number of check boxes on the page checked and
