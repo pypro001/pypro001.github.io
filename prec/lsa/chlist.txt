@@ -2,15 +2,25 @@
   <code>
 	// linux prec list
     ch1 ---- Install DHCP Server in Ubuntu  ||
+    
     ch2 ---- Add a User, Network Settings, Change to static IP address ||
+    
     ch3 ---- Configure NTP Server (NTPd) ||
+    
     ch4 ---- Configure SSH Server  ||
+    
     ch5 ---- Install DNS Server BIND, Configure DNS server ||
+    
     ch6 ---- Configure DHCP Server, Configure NFS Server to ||
+    
     ch7 --- Configure LDAP Server, 'Install phpLDAPadmin to operate LDAP||
+    
     ch8 --- Configure NIS Server ||
+    
     ch9 --- Install MySQL to configure database server, Install php
 browser from Clients ||
+
     ch10 --- Install Samba to share 
+    
   </code>
 </html>
