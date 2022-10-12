@@ -5,34 +5,74 @@
        // base code
 
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
-public class Program
-{
-    public static void main(String[] args)throws IOException {
-        try{
-            URL url = new URL("https://pypro001.github.io/prec/ins/chlist.txt");
-            HttpURLConnection con = (HttpURLConnection) url.openConnection();
-            con.setRequestMethod("GET");
-            BufferedReader in = new BufferedReader(new InputStreamReader( con.getInputStream()  ));
-            String inputLine;
-            StringBuffer res = new StringBuffer();
-            while((inputLine = in.readLine()) != null){
-                res.append(inputLine);
-                res.append("\n");
-            }
-            in.close();
-            
-            System.out.println(res.toString());
-        }catch(Exception e){
-            System.out.print(e);
-        }
-    }
-}
+Pract no :-1
+History of Selenium
+•	In 2004 invented by Jason R. Huggins and team.
+•	Original name is JavaScript Functional Tester [JSFT]
+•	Open source browser based integration test frame work built originally by Thought works.
+•	100% JavaScript and HTML
+•	Web testing tool
+•	That supports testing Web 2.0 applications
+•	Supports for Cross-Browser Testing(ON Multiple Browsers)
+•	And multiple Operating Systems
+•	Cross browser – IE 6/7, Firefox .8+, Opera, Safari 2.0+
+What is Selenium?
+•	Acceptance Testing tool for web-apps
+•	Tests run directly in browser
+•	Selenium can be deployed on Windows, Linux, and Macintosh.
+•	Implemented entirely using browser technologies - JavaScript, DHTML, Frames
 
+Selenium Components
+•	Selenium IDE
+•	Selenium Core
+•	Selenium RC
+•	Selenium Grid
+
+Selenium IDE
+•	TheSelenium-IDE(IntegratedDevelopmentEnvironment)is the tool you use to develop your Selenium test cases.
+•	It is Chrome plug-in
+•	Chrome extension which allows record/play testing paradigm
+•	Automates commands, but asserts must be entered by hand
+•	Creates the simplest possibleLocator
+•	Based on Selena Overview of Selenium IDE:
+A.Test Case Pane B.Toolbar C.Menu Bar
+D.Log/Reference/UI-Element/Rollup Pane
+
+REQUIREMENTS:
+1.	Selenium IDE extension on a browser.
+2.	Visual Studio Code IDE for creating test case files.
+ 
+Code:-
+<!doctype html>
+<html>
+<head>
+<script> function add(){ var a,b,c;
+a=Number(document.getElementById("first").value); b=Number(document.getElementById("second").value); c= a + b;
+document.getElementById("answer").value= c;
+}
+function sub(){ var a,b,c;
+a=Number(document.getElementById("first").value); b=Number(document.getElementById("second").value); c= a - b;
+document.getElementById("answer").value= c;
+}
+function multi(){ var a,b,c;
+a=Number(document.getElementById("first").value); b=Number(document.getElementById("second").value); c= a * b;
+document.getElementById("answer").value= c;
+}
+function div(){ var a,b,c;
+a=Number(document.getElementById("first").value); b=Number(document.getElementById("second").value); c= a / b;
+document.getElementById("answer").value= c;}
+</script>
+</head>
+<body>
+Enter the First number : <input id="first">
+Enter the Second number: <input id="second"><br><br>
+<button onclick="add()">Add</button>
+<button onclick="sub()">Sub</button>
+<button onclick="multi()">Multi</button>
+<button onclick="div()">Div</button>
+<input id="answer">
+</body>
+</html>
 
 
     </code>
