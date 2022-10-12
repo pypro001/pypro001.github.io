@@ -4,6 +4,31 @@
 
        // count checkboxes
        
+Html Code:
+<html>
+<head>
+<style>
+.cen{
+text-align: left;
+}
+.bg{
+background-color: aquamarine;
+}
+</style>
+</head>
+<body class ="cen">
+<form class="bg">
+UserName:<input type="text" name="n1"><br><br> Password:<input type="password" name="p1"><br><br>
+select your city:<br><br>
+<input type="checkbox" name="c1">Mumbai<br>
+<input type="checkbox" name="c2">Pune<br>
+<input type="checkbox" name="c3">Thane<br>
+<input type="Submit" value="Done" name="b1">
+</form>
+</body>
+</html>
+
+       
        package checkbox;
 import java.util.List;
 import org.openqa.selenium.By;
