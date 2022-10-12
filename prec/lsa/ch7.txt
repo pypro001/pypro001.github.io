@@ -5,6 +5,26 @@
        // prec 7
        ||Configure LDAP Server, Configure LDAP Server in order to share users'Install phpLDAPadmin to operate LDAP
 server via Web browser ||
+The Lightweight Directory Access Protocol (LDAP) is an open, cross-platform software 
+protocol used for authentication and communication in directory services. LDAP provides the 
+language that applications use to communicate with each other in directory services, which 
+store computer accounts, users, and passwords and share them with other entities on 
+networks. This allows applications and users to find and verify the information they need 
+from across their organization.
+
+LDAP has a wide range of uses, but the most popular is as a central hub for organizations to 
+manage authentication. It is very effective for helping organizations store, manage, and 
+access usernames and passwords across their networks and applications. If organizations use 
+the right plugins, LDAP enables them to store and verify credentials every time a user 
+attempts to access applications, directories, and systems.
+
+LDAP credentials do not only involve the standard username and password combinations. 
+The protocol can also be used to manage other organizational attributes—such as storing 
+addresses, structural data, and telephone numbers—which makes it crucial to managing and 
+protecting user identities. LDAP also connects users with information on devices attached to 
+a network, such as files, printers, and shared resources.
+
+
 Steps :- 
 1.To install ldap server open terminal 
 $ sudo apt update 
