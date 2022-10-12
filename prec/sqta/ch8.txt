@@ -3,6 +3,24 @@
     <code>
 
        // prec 8
+       jmeter steps.||
+       1. Download Apache-JMeter-5.5 source file. https://jmeter.apache.org/download_jmeter.cgi
+ 
+2. Run JMeter from :-C:\Users\Labpc-51\Downloads\apache-jmeter-5.5\apache- jmeter 5.5\bin\ApacheJMeter
+3. Add Thread Group:-
+Test Plan→ Add → Threads → Thread Group
+4. Add HTTP Request to Thread Group:-
+Thread Group → Add → Sampler → HTTP Request
+5.Server name or IP :-⦁www.amazon.in 	
+6.Path :- /
+7.Add View Result tree in HTTP Request
+HTTP Request → Add →Listener → View Result Tree
+8.Click on Start Button to start the Process
+Sampler result tab:- It shows all the Response headers sent by the web server
+9.Request tab :-It shows all the data sent to the web server as part of the request.
+10.Response data :- It shows the data received from the server in text format.
+
+
 
     </code>
 
