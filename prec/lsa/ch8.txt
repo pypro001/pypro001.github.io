@@ -4,6 +4,23 @@
 
        // prec 8
        || Configure NIS Server ||
+       The Network Information Service, or NIS (initially called YP or yellow pages), is a 
+mainframe-client index service convention for circulating server configuration information, for 
+example, client and host names between PCs on a PC network. Sun Microsystems built up the 
+NIS; the innovation is authorized to essentially all other Unix merchants.
+
+Since British Telecom PLC claimed the name “Yellow Pages” as an enlisted brand name in the 
+United Kingdom for its paper-based, business phone catalog, Sun changed the name of its 
+framework to NIS, however, all the orders capacities actually start with “yp”.
+
+By running NIS, the framework administrator can disperse administrative information bases, 
+called maps, among an assortment of mainframes (ace and slaves). The administrator can 
+refresh those information bases from a brought together area in a programmed and solid design 
+to guarantee that all customers share a similar naming service information predictably all 
+through the network. NIS was grown freely of DNS and has a marginally extraordinary core 
+interest
+
+
        Steps:- 
 1.Open terminal in Ubuntu 18.04. 
 $ sudo apt-get update
