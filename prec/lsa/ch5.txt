@@ -4,6 +4,18 @@
 
        // prec 5
        || Install DNS Server BIND, Configure DNS server ||
+       BIND or BIND 9 is an open source implementation of DNS, available for almost all Linux distributions. BIND stands Berkeley Internet Name Domain & it allows us to publish DNS information 
+on internet as well as allows us to resolve DNS queries for the users. BIND is by far the most used 
+DNS software on Internet.
+
+The Domain Name System (DNS) turns domain names into IP addresses, which browsers use to 
+load internet pages. Every device connected to the internet has its own IP address, which is used by 
+other devices to locate the device. DNS servers make it possible for people to input normal words 
+into their browsers, such as Fortinet.com, without having to keep track of the IP address for every 
+website.
+Set up authoritative DNS server on Ubuntu 18.04 with BIND9
+
+
        Steps:- 
 1) $ sudo apt update and $ sudo apt upgrade
 
