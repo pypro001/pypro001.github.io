@@ -1,5 +1,7 @@
 <html>
   <code>
+  ch1----Install Selenium IDE. Write a test case suite containing minimum 4 test cases for different formats.||
+  
     ch3 ---- Install Selenium server (Selenium RC) and demonstrate it using a script in Java/PHP ||
     
     ch5 ---- Write and test a program to get the number of items in a list / combo box.
