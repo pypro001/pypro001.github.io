@@ -1,6 +1,7 @@
 <html>
   <code>
   ch1----Install Selenium IDE. Write a test case suite containing minimum 4 test cases for different formats.||
+  ch2-----Conduct a test case suite for any two websites.
   
     ch3 ---- Install Selenium server (Selenium RC) and demonstrate it using a script in Java/PHP ||
     ch4 -----Write and test a program to login to a specific web page.||
