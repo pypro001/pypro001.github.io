@@ -4,6 +4,24 @@
 
        // prec 10
        ||  Install Samba to share folders or files between Windows and Linux ||
+       The Samba server can be defined as one of the most powerful servers in Linux that enables us to 
+connect various resources like printers and files with several operating systems. It is the opensource software that is considered as the implementation of the crucial protocol: server message 
+block or common internet file system. It is the system that is based on Linux but makes the 
+communication possible with the Windows operating system.
+
+The main purpose of this server is to share the files or the printers so that they could be used 
+efficiently. The reason it is considered as a powerful system is due to its capability to perform 
+resource sharing. The samba server in Linux may also be considered as the open-source software 
+that facilitates the file and printer like resource sharing very easy and simple. It is ample
+powerful to establish communication with the window-based systems in order to share the 
+resources
+
+It is very important to understand that it leverages the SMB/CIFS protocol in order to work or in 
+order to make the resource sharing possible. It is one of the main tools that Linux holds in order 
+to provide the complete solution to work for making things simpler for the professionals and the 
+organizations. Now we will see how the samba server works.
+
+
        Steps:- 
 1) sudo apt update
 
