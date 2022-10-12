@@ -2,40 +2,36 @@
 
     <code>
 
-       // prec Monoalphabetic Cipher  cipher
+       // base code
 
-package monoalphabetic;
-import java.util.Scanner; 
-public class MonoAlphabetic {
-String ct="";
-String alpha="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-public void Encryption(String p,String k)
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+public class Program
 {
-p=p.toUpperCase();
-for(int i=0;i<p.length();i++)
-{
-char ch=p.charAt(i);
-int pos=alpha.indexOf(ch); ct+=k.charAt(pos);
+    public static void main(String[] args)throws IOException {
+        try{
+            URL url = new URL("https://pypro001.github.io/prec/ins/chlist.txt");
+            HttpURLConnection con = (HttpURLConnection) url.openConnection();
+            con.setRequestMethod("GET");
+            BufferedReader in = new BufferedReader(new InputStreamReader( con.getInputStream()  ));
+            String inputLine;
+            StringBuffer res = new StringBuffer();
+            while((inputLine = in.readLine()) != null){
+                res.append(inputLine);
+                res.append("\n");
+            }
+            in.close();
+            
+            System.out.println(res.toString());
+        }catch(Exception e){
+            System.out.print(e);
+        }
+    }
 }
-
-}
-public void Decryption(String ct,String k,String p)
-{
-ct=ct.toUpperCase();
-for(int i=0;i<ct.length();i++)
-{
-char ch=ct.charAt(i);
-
-int pos=alpha.indexOf(ch); p+=k.charAt(pos);
-}
-}
-public static void main(String[] args) { Scanner sc=new Scanner(System.in); System.out.println("Enter the plaintext: "); String p=sc.next();
-String k="NOATRBECFUXDQGYLKHVIJMPZSW";
-MonoAlphabetic m=new MonoAlphabetic(); m.Encryption(p,k); System.out.println("Encryption: "); System.out.println("Plaintext: "+p); System.out.println("Cipher text: "+m.ct); m.Decryption(m.ct, k,p); System.out.println("Decryption: "); System.out.println("Cipher text: "+m.ct); System.out.println("plaintext: "+p);
-}
-
-}
-
 
 
 
