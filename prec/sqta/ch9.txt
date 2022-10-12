@@ -1,8 +1,13 @@
 <html>
 
     <code>
-
+	 
        // update 10 records in excel
+       
+Download jxl-2.6.10 jarfile. 
+http://www.java2s.com/Code/Jar/j/Downloadjxl2610jar.html
+
+
 package studrecords;
 import jxl.*;
 import jxl.write.*;
