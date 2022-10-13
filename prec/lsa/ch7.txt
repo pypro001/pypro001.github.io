@@ -45,6 +45,7 @@ BASE dc-menon,dc=com
 URI ldap://localhost
 
 6.Testing open ldap sever
+Ldapserach -x
 
 7. sudo apt install phpldapadmin
 
