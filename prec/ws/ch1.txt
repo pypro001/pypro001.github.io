@@ -2,43 +2,66 @@
 
     <code>
 
-       // prec 1
-       ||temperature from
-
-package org.me.conversion;
-import javax.jws.WebService;
-import javax.jws.WebMethod;
-import javax.jws.WebParam;
-@WebService(serviceName = "conversion")
-public class conversion {
- @WebMethod(operationName = "fahrenheittocelciues")
- public double temptofarh(@WebParam(name = "F") double F) {
- double c=((F-32)*5)/9;
- return c; 
- }
- @WebMethod(operationName = "celciuestofahrenheit")
- public double farhtotemp(@WebParam(name = "C") double C) {
- double f=(C*9/5)+32;
- return f;
- }
+       // prec 1 
+       Perform 2D Translation and 2D Scaling of triangle. ||
+       Program Code :-
+#include <stdio.h>
+#include <conio.h>
+#include <graphics.h>
+void main()
+{
+int x1,x2,x3,y1,y2,y3,xt,yt;
+int gd=DETECT,gm=DETECT;
+initgraph(&gd,&gm,"C:\\TURBOC3\\BGI");
+printf("Enter the values of vertex v1: ");
+scanf("%d%d",&x1,&y1);
+printf("Enter the values of vertex v2: ");
+scanf("%d%d",&x2,&y2);
+printf("Enter the values of vertex v3: ");
+scanf("%d%d",&x3,&y3);
+line(x1,y1,x2,y2);
+line(x2,y2,x3,y3);
+line(x1,y1,x3,y3);
+printf("Enter the values for translating x coordinate: ");
+scanf("%d",&xt);
+printf("Enter the values for translating y coordinate: ");
+scanf("%d",&yt);
+line(x1+xt,y1+yt,x2+xt,y2+yt);
+line(x2+xt,y2+yt,x3+xt,y3+yt);
+line(x1+xt,y1+yt,x3+xt,y3+yt);
+getch();
+closegraph();
 }
 
-create asp.net page
-<html> 
-    <head>
-        <title>Temperature converter</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initialscale=1.0">
-    </head> 
-    <body> 
-        <form> 
-            <br><input type="text" name="data"><br>
-            <br><input type="submit" value="Convert F to C" name="ftoc" formaction="f_to_c.jsp"><br>
-            <br><input type="submit" value="Convert C to F" name="ctof" formaction="c_to_f.jsp">
-        </form> 
-    </body> 
-</html>
 
+Program Code :-
+#include <stdio.h>
+#include <conio.h>
+#include <graphics.h>
+void main()
+{
+int x1,x2,x3,y1,y2,y3,t;
+int gd=DETECT,gm=DETECT;
+initgraph(&gd,&gm,"C:\\TURBOC3\\BGI");
+printf("Enter the values of vertex v1: ");
+scanf("%d%d",&x1,&y1);
+printf("Enter the values of vertex v2: ");
+scanf("%d%d",&x2,&y2);
+printf("Enter the values of vertex v3: ");
+scanf("%d%d",&x3,&y3);
+line(x1,y1,x2,y2);
+line(x2,y2,x3,y3);
+line(x1,y1,x3,y3);
+printf("Enter the values for multiple coordinate: ");
+scanf("%d",&t);
+line(x1*t,y1*t,x2*t,y2*t);
+line(x2*t,y2*t,x3*t,y3*t);
+line(x1*t,y1*t,x3*t,y3*t);
+getch();
+closegraph();
+}
+
+      
 
 
     </code>
