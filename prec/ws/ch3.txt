@@ -3,67 +3,57 @@
     <code>
 
        // prec 3
-        || Develop client which consumes web services developed in different platform ||
+        || Setup DirectX 11, Windows Framework and Initialise Direct3D Device ||
         
-        package server;
-import javax.jws.WebService; import javax.jws.WebMethod; import javax.jws.WebParam;
-@WebService(serviceName = "operation")
+Write the following code in the app config file.
+AppConfig:-
+<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+  <startup useLegacyV2RuntimeActivationPolicy="true">
+    <supportedRuntime version="v4.0" sku=".NetFramework,Version=V4.5"/>
+  </startup>
+</configuration>
 
-public class operation {
-
-@WebMethod(operationName = "add")
-public String add(@WebParam(name = "a") int a, @WebParam(name = "b") int b) { int sum=a+b;
-return new String(""+sum);
-
-}
-@WebMethod(operationName = "sub")
-public String sub(@WebParam(name = "a") int a, @WebParam(name = "b") int b) { int sub=a-b;
-return new String(""+sub);
-}
-
-@WebMethod(operationName = "mul")
-public String mul(@WebParam(name = "a") int a, @WebParam(name = "b") int b) { int mul=a*b;
-}
-@WebMethod(operationName = "div")
-public String div(@WebParam(name = "a") int a, @WebParam(name = "b") int b) { int div=a/b;
-return new String(""+div);
-}
-}
-
-Create asp.net page
+Then write the following code in form1.cs
+Code:-
 using System;
- using System.Collections.Generic;
- using System.Web; 
-using System.Web.UI; 
-using System.Web.UI.WebControls; 
-namespace addClient 
+usingSystem.Collections.Generic;
+usingSystem.ComponentModel;
+usingSystem.Data;
+usingSystem.Drawing;
+usingSystem.Linq;
+usingSystem.Text;
+usingSystem.Windows.Forms;
+using Microsoft.DirectX.Direct3D;
+usingMicrosoft.DirectX;
+
+namespace WindowsFormsApplication1
 {
-using Operation; 
-public partial class _Default : System.Web.UI. Page
-{
-Operation.addws proxy; 
-protected void Page_Load(object sender, EventArgs e)
-{ 
-     proxy=new Operation.addws(); 
-}
-protected void Button1_Click(object sender, EventArgs e)
-{ 
-Try
-{
-          Label3.Text = proxy.add(Int32.Parse(TextBox1.Text), Int32.Parse(TextBox2.Text)); 
-      }
-      catch (FormatException)
-     {
-      }
- protected void Button2_Click(object sender, EventArgs e)
-{ 
-Try
-{
-         Label3. Text - proxy.sub(Int32.Parse(TextBox1.Text), Int32.Parse(TextBox2.Text)); 
-     }
-        catch (FormatException)
-{
-}
+    public partial class Form1 : Form
+    {
+        Microsoft.DirectX.Direct3D.Device device;
+        public Form1()
+        {
+            InitializeComponent();
+            InitDevice();
+        }
+        private void InitDevice() 
+        {
+            PresentParameterspp = new PresentParameters();
+            pp.Windowed = true;
+            pp.SwapEffect = SwapEffect.Discard;
+            device = new Device(0, DeviceType.Hardware, this, CreateFlags.HardwareVertexProcessing, pp);
+        }
+        private void Render() 
+        {
+            device.Clear(ClearFlags.Target, Color.BlanchedAlmond, 0, 1);
+            device.Present();
+        }
+        private void Form1_Paint(object sender, PaintEventArgs e)
+        {
+            Render();
+        }
+    }
 }
 
 
