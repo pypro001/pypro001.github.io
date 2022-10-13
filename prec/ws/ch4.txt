@@ -3,73 +3,72 @@
     <code>
 
        // prec 4
-        || Write a JAX-WS web service to perform the following operations. Define a Servlet / JSP that
-consumes the web service. ||
-package org.me.operation;
-import javax.jws.WebService;
-import javax.jws.WebMethod;
-import javax.jws.WebParam;
-@WebService(serviceName = "Operation")
-public class Operation {
- 
- @WebMethod(operationName = "add")
- public int add(@WebParam(name = "n1") int n1, @WebParam(name = "n2") int n2) {
- int c=n1+n2;
- return c;
- }
+        || Draw a triangle using Direct3D 11. ||
 
- 
- @WebMethod(operationName = "sub")
- public int sub(@WebParam(name = "n1") int n1, @WebParam(name = "n2") int n2) {
- int c=n1-n2;
- return c;
- }
- @WebMethod(operationName = "Mul")
- public int Mul(@WebParam(name = "n1") int n1, @WebParam(name = "n2") int n2) {
- int c=n1*n2;
- return c;
- }
- @WebMethod(operationName = "div")
- public int div(@WebParam(name = "n1") int n1, @WebParam(name = "n2") int n2) {
- int c=n1/n2;
- return c;
- }
-}
+Write the following code in the app config file
+AppConfig:-
+<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+  <startup useLegacyV2RuntimeActivationPolicy="true">
+    <supportedRuntime version="v4.0" sku=".NetFramework,Version=V4.5"/>
+  </startup>
+</configuration>
 
+Write the following code in form1.cs
+Code:-
+using System;
+usingSystem.Collections.Generic;
+usingSystem.ComponentModel;
+usingSystem.Data;
+usingSystem.Drawing;
+usingSystem.Text;
+usingSystem.Windows.Forms;
+usingMicrosoft.DirectX;
+using Microsoft.DirectX.Direct3D;
 
-<!DOCTYPE html>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>JSP Page</title>
-</head>
-<body>
-<%-- start web service invocation --%><hr/>
-<%
-org.me.diffopt.Operations_Service service = new org.me.diffopt.Operations_Service(); org.me.diffopt.Operations port = service.getOperationsPort();
-// TODO initialize WS operation arguments here
-int n1 = Integer.parseInt(request.getParameter("num1")); int n2 = Integer.parseInt(request.getParameter("num2"));
-int result;
-char r1=request.getParameter("r1").toCharArray()[0]; %>
-<%
-switch(r1){ case '+':{
-result=port.add(n1, n2); out.println("result is:"+result); break;
-}
-case '-':{ result=port.sub(n1, n2);
-out.println("result is:"+result); break;
-}
-case '*':{ result=port.mul(n1, n2);
-out.println("result is:"+result); break;
-}
-case '/':{ result=port.div(n1, n2);
-out.println("result is:"+result); break;
-}
-}
-%>
-<%-- end web service invocation --%><hr/>
-</body>
-</html>
+namespace WindowsFormsApplication2
+{
+public partial class Form1 : Form
+    {
+        Microsoft.DirectX.Direct3D.Device device;
+public Form1()
+        {
+InitializeComponent();
+InitDevice();
+        }
 
+private void InitDevice()
+        {
+PresentParameterspp = new PresentParameters();
+pp.Windowed = true;
+pp.SwapEffect = SwapEffect.Discard;
+device = new Device(0, DeviceType.Hardware, this, CreateFlags.HardwareVertexProcessing, pp);
+        }
+private void Render()
+        {
+CustomVertex.TransformedColored[] vertexes = new CustomVertex.TransformedColored[3];
+vertexes[0].Position = new Vector4(240, 110, 0, 1.0f);
+vertexes[0].Color = System.Drawing.Color.FromArgb(0, 255, 0).ToArgb();
+vertexes[1].Position = new Vector4(380, 420, 0, 1.0f);
+vertexes[1].Color = System.Drawing.Color.FromArgb(0, 0, 255).ToArgb();
+vertexes[2].Position = new Vector4(110, 420, 0, 1.0f);
+vertexes[2].Color = System.Drawing.Color.FromArgb(255, 0, 0).ToArgb();
+device.Clear(ClearFlags.Target, Color.Cornsilk, 1.0f, 0);
+device.BeginScene();
+device.VertexFormat = CustomVertex.TransformedColored.Format;
+device.DrawUserPrimitives(PrimitiveType.TriangleList, 1, vertexes);
+device.EndScene();
+device.Present();
+        }
+private void Form1_Paint(object sender, PaintEventArgs e)
+        {
+Render();
+        }
+private void Form1_Load(object sender, EventArgs e)
+        {
+        }
+    }
+}
 
     </code>
 
