@@ -4,6 +4,7 @@
 
        // prec 1 
        Perform 2D Translation and 2D Scaling of triangle. ||
+       2D Translation
        Program Code :-
 #include <stdio.h>
 #include <conio.h>
@@ -33,7 +34,7 @@ getch();
 closegraph();
 }
 
-
+2D Scaling
 Program Code :-
 #include <stdio.h>
 #include <conio.h>
