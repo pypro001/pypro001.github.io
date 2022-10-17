@@ -1,4 +1,4 @@
-2a----single thread
+2a----single thread_______________________
 
 class Multi extends Thread{  
 public void run(){  
@@ -10,7 +10,8 @@ t1.start();
  }  
 }
 
-2b_________________
+2b_________________mutlithread
+
 
 public class MyThread2 implements Runnable  
 {    
@@ -36,6 +37,51 @@ String str = th1.getName();
 System.out.println(str);  
 }    
 }    
+______________
+
+2c fibbonaci____________________________________________________
 
 
-2c____________________________________________________
+
+import java.util.*;
+
+import java.io.*;
+
+public class Main {
+  
+  //int sum=0;
+    public static void main(String[] args) {
+      
+      
+      
+      int a=0,b=1;
+      
+      Scanner s = new Scanner(System.in);
+      System.out.println("Enter N");
+      int n =s.nextInt();
+      n=n-2;
+      System.out.print("Fibonacci Series is "+a+" "+b+" ");
+      
+      printFibonacci(n,a,b);
+  
+      
+  }
+  
+  static void printFibonacci(int n,int a, int b)
+  {
+    
+    if(n>0)
+    {
+      int sum = a+b;
+      System.out.print(sum+" ");
+      a=b;
+      b=sum;
+      printFibonacci(--n,a,b);
+      
+    }
+    else return; 
+  } 
+}
+
+
+____________________________
