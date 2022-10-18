@@ -1,0 +1,30 @@
+5 a create procedure_______
+
+create or replace procedure my_proc as
+begin
+null;
+end my_proc;
+/
+-------
+//Create a stored procedure and call it
+
+CREATE TABLE lecturer ( id	NUMBER(5)
+PRIMARY KEY,
+first_name VARCHAR2(20),
+last_name	VARCHAR2(20),
+major	VARCHAR2(30),
+current_credits NUMBER(3));
+INSERT INTO lecturer (id, first_name, last_name, major,current_credits)	VALUES (10001, 'Scott', 'Lawson','Computer Science', 11);
+INSERT INTO lecturer (id, first_name, last_name, major, current_credits)	VALUES (10002, 'Mar', 'Wells','History', 4);
+INSERT INTO lecturer (id, first_name, last_name, major,current_credits)	VALUES (10003, 'Jone', 'Bliss','Computer Science', 8);
+INSERT INTO lecturer (id, first_name, last_name, major,current_credits)	VALUES (10004, 'Man', 'Kyte','Economics', 8);
+
+CREATE OR REPLACE PROCEDURE
+AddNewStudent (	p_FirstName lecturer.first_name%TYPE,
+p_LastName lecturer.last_name%TYPE, p_Major	lecturer.major%TYPE) AS BEGIN
+INSERT INTO lecturer (ID, first_name, last_name, major, current_credits)
+VALUES (1, p_FirstName, p_LastName, p_Major, 0);
+END AddNewStudent;
+/
+
+
