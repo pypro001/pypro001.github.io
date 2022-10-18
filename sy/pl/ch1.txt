@@ -1,0 +1,45 @@
+1_____________
+1a__Sequential statements
+
+DECLARE
+num1 number;
+num2 number;
+choice number;
+begin
+num1:=&num1;
+num2:=&num2;
+dbms_output.put_line('Enter 1 for ADDITION');
+dbms_output.put_line('Enter 2 for SUBTRACTION');
+dbms_output.put_line('Enter 3 for MULTIPLICATION');
+dbms_output.put_line('Enter 4 for DIVISION');
+choice:=&choice;
+if choice=1 then
+dbms_output.put_line('Addition of two
+numbers is: '||(num1+num2));
+elsif choice=2 then
+dbms_output.put_line('subtraction of two
+numbers is: '||(num1-num2));
+elsif choice=3 then
+dbms_output.put_line('Multiplication of
+two numbers is: '||(num1*num2));
+elsif choice=4 then
+dbms_output.put_line('Divition of two
+numbers is: '||(num1/num2));
+else
+dbms_output.put_line('enter a valid choice');
+end if;
+end;
+
+_____________
+1b_unconstrained loop
+
+DECLARE
+a number(2) := 10;
+BEGIN
+WHILE a < 20 LOOP
+dbms_output.put_line('value of a: ' || a);
+a := a + 1;
+END LOOP;
+END;
+/
+_____________________
