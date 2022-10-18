@@ -1,0 +1,17 @@
+7 __Insert/Update/Delete	Trigger	using Before/After clause._________
+
+
+CREATE	TABLE "SUPPLIERS"
+(	"SUPPLIER_ID" NUMBER,
+"SUPPLIER_NAME" VARCHAR2(4000), "SUPPLIER_ADDRESS" VARCHAR2(4000)
+
+)	/
+
+
+CREATE OR REPLACE TRIGGER "SUPPLIERS_T1"
+
+BEFORE
+insert	or	update	or delete on "SUPPLIERS"
+end;
+/
+ALTER TRIGGER
