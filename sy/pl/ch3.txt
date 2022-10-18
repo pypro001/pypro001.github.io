@@ -1,0 +1,18 @@
+3__.If...then...Else,
+IF...ELSIF...ELSE... END IF
+___________
+
+declare
+num1 number:= 10;
+num2 number:= 20;
+num3 number:= 20;
+begin
+if num1 < num2 then
+dbms_output.put_line('num1 small num2');
+if num1 < num3 then
+dbms_output.put_line('num1 small num3 also');
+end if;
+end if;
+dbms_output.put_line('after end if');
+end;
+________________
