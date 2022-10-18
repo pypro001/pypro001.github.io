@@ -1,0 +1,23 @@
+=======  L  I  S  T  ==========
+
+ch1 - a.Sequential Statements 
+      b.unconstrained loop
+ch2 - Sequences:
+      (a)Creating simple Sequences with clauses like START
+	    WITH, INCREMENT BY,MAXVALUE, MINVALUE, CYCLE | NOCYCLE,
+	    CACHE | NOCACHE, ORDER | NOORECER.
+      (b)Creating and using Sequences for
+ch3 - If...then...Else,
+ch4 - a. While- loop
+      b..For-loop Statements.
+ch5 - a. Create an empty procedure and
+	    call it.
+	    b. Create a stored procedure and
+ch6 - Writing Functions in PL/SQL Block.
+	    a. Define and call a function
+	    b. Define and use function in select clause,
+ch7 - Creating and working with Insert/Update/Delete Trigger using
+ch8 - Create package
+ch9 - Create nested table and work with nested table
+
+======== ~0~0~0~0~0~0~0~ ===========
