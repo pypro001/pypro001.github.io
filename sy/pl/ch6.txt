@@ -1,0 +1,30 @@
+6.
+6a.Define and call a function______________
+create or replace function adder (n1in number, n2 in number) return number
+is
+n3 number(8);
+begin
+n3 :=n1+n2;return n3; end;
+/
+
+6b__call the function___________
+DECLARE
+n3 number(2);
+BEGIN
+n3 := adder(11,22); dbms_output.put_line('Addition is: '|| n3);
+END;
+/
+6c__Call function in dbms_output.put_line
+
+CREATE OR REPLACE FUNCTION
+squareme(thenum number) RETURN NUMBER IS
+BEGIN
+RETURN thenum * thenum; END squareme;
+/
+
+Function created.
+BEGIN
+DBMS_OUTPUT.PUT_LINE
+('9 squared is ' || squareme(9) );
+END;
+/
