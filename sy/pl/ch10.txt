@@ -32,3 +32,11 @@ CREATE TABLE customers
   CONSTRAINT customers_pk PRIMARY KEY (customer_id)
 );
 ___________________________________
+
+insert into table value _____________
+INSERT INTO people 
+VALUES (2, 'Simon', 'Fox', 'Mr')
+INSERT INTO people (person_id, given_name, family_name, title) 
+VALUES (3, 'Dave', 'Frog', (SELECT 'Mr' FROM dual))
+
+______________________________
