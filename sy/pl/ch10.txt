@@ -40,3 +40,16 @@ INSERT INTO people (person_id, given_name, family_name, title)
 VALUES (3, 'Dave', 'Frog', (SELECT 'Mr' FROM dual))
 
 ______________________________
+
+max salary______
+SELECT MAX(salary) AS "Highest Salary"
+ FROM employees;
+ _______________
+ 
+ average_____________
+ SELECT AVG(salary) AS "Avg Salary"
+FROM employees
+WHERE salary > 25000;
+_______________
+
+ 
