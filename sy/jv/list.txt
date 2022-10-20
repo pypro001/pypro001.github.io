@@ -9,3 +9,5 @@ ch4 a. List interface
 
 ch5 addition and multiplication of matrix
 ch6 switch case and inheritance 
+ch7 static method to calculate area of circle , rectangle
+ch7
