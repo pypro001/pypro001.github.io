@@ -25,40 +25,6 @@ obj.print();
 }  
 _________________________________________
 
-inheritance ________________________________
 
-class A{
- public int i,j;
- public void showBase(){
- System.out.println("i and j of base class are "+i+" and "+j);
- }
-}
-class B extends A{
- public int k;
- public void showDerived() {
- System.out.println("k of derived class is "+k);
- }
- public void addAll(){
- System.out.println("i+j+k= "+(i+j+k));
- }
-}
-public class Main {
- public static void main(String[] args){
- A a1=new A();
- B b1=new B();
- System.out.println("Using object of base class:");
- a1.i=4;
- a1.j=6;
- a1.showBase();
- System.out.println("Using object of derived class:");
- b1.i=10;
- b1.j=11;
- b1.k=12;
- b1.showBase();
- b1.showDerived();
- System.out.print("Showing addition of all: ");
- b1.addAll();
- }
-}
 
 _____________________________________________
