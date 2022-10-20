@@ -1,0 +1,70 @@
+book reward_____________________
+
+count++;
+            }
+        }
+   }
+This is the class
+/**
+*
+* @author
+*/
+public class Bookclub {
+
+    private  String studentName;
+    private int books = 0;
+    private  int rewardPoints;
+
+    public Bookclub () {
+ 
+    }
+
+    public int getBooks() {
+        return books;
+    }
+
+    public void setBooks(int books) {
+        this.books = books;
+    }
+
+    public int getCalculateRewardPoints (){
+        return rewardPoints;
+    }
+
+    public int getRewardPoints() {
+        return rewardPoints;
+    }
+
+    public void setCalculateRewardPoints (int rewardPoints) {
+        this.rewardPoints = rewardPoints;
+        if (books == 0) {
+            rewardPoints = 0;
+            System.out.println("Your points are:" + rewardPoints);
+       } else if (books == 1) {
+            rewardPoints = 5;
+       }else if (books == 2) {
+            rewardPoints = 15;//
+       }else if(books == 3) {
+            rewardPoints = 30;
+       }else if(books == 4) {
+            rewardPoints = 60;
+       } 
+    }
+
+    public void setRewardPoints(int rewardPoints) {
+        this.rewardPoints = rewardPoints;
+            if(rewardPoints == 0) {
+                rewardPoints = 0;
+            }else if(rewardPoints ==5) {
+                System.out.println("Your points are : " + rewardPoints);
+            }else if(rewardPoints == 15) {
+                System.out.println("Your points are:" + rewardPoints);
+            }else if(rewardPoints == 30) { 
+                System.out.println("Your points are:" + rewardPoints);
+            }else if(rewardPoints == 60) { 
+                System.out.println("Your points are:" + rewardPoints);
+            }  
+        }
+}
+
+______________________________________
