@@ -1,77 +1,26 @@
-static method to claculate area of circle ractangle cylender
-_______________________
-
-public class Area{
-    public static double area(double w, double l)
+ClassOverloadDemo
+{
+    void area(float x)
     {
-      //Area of rectangle
-        return l*w;
+        System.out.println("the area of the square is "+Math.pow(x, 2)+" sq units");
     }
-    public static double area(double r, double h)
+    void area(float x, float y)
     {
-      //Area of a cylinder
-        return Math.PI * (r*r) *h;
+        System.out.println("the area of the rectangle is "+x*y+" sq units");
+    }
+    void area(double x)
+    {
+        double z = 3.14 * x * x;
+        System.out.println("the area of the circle is "+z+" sq units");
     }
 }
-
-public class Area {
-
-    // Rectangle
-    public static double calculateArea(int width, int length) {
-        return width * length;
-    }
-
-    // Cylinder
-    public static double calculateArea(double radius, int height) {
-        return Math.PI * Math.pow(radius, 2) * height;
-    }
-
-    // Circle
-    public static double calculateArea(double radius) {
-        return Math.PI * Math.pow(radius, 2);
-    }
+class Overload 
+{
+     public static void main(String args[]) 
+	{
+	   OverloadDemo ob = new OverloadDemo();
+	   ob.area(5);
+	   ob.area(11,12);
+	   ob.area(2.5);
+        }
 }
-
-class Area {
-
-    static class Circle {
-        double radius;
-        Circle(double r) { radius = r; }
-    }
-
-    static Circle circle(double r) { 
-        return new Circle(r);
-    }
-
-    static double area(Circle c) {
-        return PI * c.radius * c.radius;
-    }
-
-    static class Rectangle {
-        double length, width;
-        Rectangle(double l, double w) { length = l; width = w; }
-    }
-
-    static Rectangle rectangle(double l, double w) {
-        return new Rectangle(l, w);
-    }
-
-    static double area(Rectangle r) {
-        return r.length * r.width;
-    }
-
-    static class Cylinder {
-        double radius, height;
-        Cylinder(double r, double h) { radius = r; height = h }
-    }
-
-    static Cylinder cylinder(douvle r, double h) {
-        return new Cylinder(r, h);
-    }
-
-    static double area(Cylinder c) {
-        return 2 * PI * c.radius * c.height + // side
-               PI * c.radius * c.radius * 2;  // ends
-               // see note!
-    }
-]
