@@ -1,0 +1,96 @@
+method overloading_________
+class Adder{  
+static int add(int a, int b){return a+b;}  
+static double add(double a, double b){return a+b;}  
+}  
+class TestOverloading2{  
+public static void main(String[] args){  
+System.out.println(Adder.add(11,11));  
+System.out.println(Adder.add(12.3,12.6));  
+}} 
+___________________
+constrcutor overloading
+
+public class Student {  
+//instance variables of the class  
+int id,passoutYear;  
+String name,contactNo,collegeName;  
+  
+Student(String contactNo, String collegeName, int passoutYear){  
+this.contactNo = contactNo;  
+this.collegeName = collegeName;  
+this.passoutYear = passoutYear;  
+}  
+  
+Student(int id, String name){  
+this("9899234455", "IIT Kanpur", 2018);  
+this.id = id;  
+this.name = name;  
+}  
+  
+public static void main(String[] args) {  
+//object creation  
+Student s = new Student(101, "John");  
+System.out.println("Printing Student Information: \n");  
+System.out.println("Name: "+s.name+"\nId: "+s.id+"\nContact No.: "+s.contactNo+"\nCollege Name: "+s.contactNo+"\nPassing Year: "+s.passoutYear);  
+}  
+}  
+_________________________________________
+
+static method__________________________
+// Java program to demonstrate that 
+// The static method does not have 
+// access to the instance variable 
+
+import java.io.*; 
+
+public class GFG { 
+	// static variable 
+	static int a = 40; 
+
+	// instance variable 
+	int b = 50; 
+
+	void simpleDisplay() 
+	{ 
+		System.out.println(a); 
+		System.out.println(b); 
+	} 
+
+	// Declaration of a static method. 
+	static void staticDisplay() 
+	{ 
+	System.out.println(a); 
+	} 
+
+	// main method 
+	public static void main(String[] args) 
+	{ 
+		GFG obj = new GFG(); 
+		obj.simpleDisplay(); 
+
+		// Calling static method. 
+		staticDisplay(); 
+	} 
+}
+________________________________________________
+
+
+1b. method overriding _______________
+//Java Program to illustrate the use of Java Method Overriding  
+//Creating a parent class.  
+class Vehicle{  
+  //defining a method  
+  void run(){System.out.println("Vehicle is running");}  
+}  
+//Creating a child class  
+class Bike2 extends Vehicle{  
+  //defining the same method as in the parent class  
+  void run(){System.out.println("Bike is running safely");}  
+  
+  public static void main(String args[]){  
+  Bike2 obj = new Bike2();//creating object  
+  obj.run();//calling method  
+  }  
+}  
+__________________________________________________
