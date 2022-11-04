@@ -1,131 +1,15 @@
-#doubly linked 
+
 <code>
-
-#program for linked list
-class node():
-    def __init__(self,data):
-        self.data=data
-        self.next=None
-        self.prev=None
-
-class doublylinkedlist():
-    def __init__(self):
-        self.head=None
-        self.tail=None
-        self.size=0
-
-    def insertfromhead(self,data):
-        newnode=node(data)
-        if self.head==None:
-            self.head=newnode
-            self.tail=newnode
-        else:
-            newnode.next=self.head
-            self.head.prev=newnode
-            self.head=newnode
-        print("newnode inserted at the head position")
-        self.size+=1
-        
-    def insertfromtail(self,data):
-            newnode=node(data)
-            if self.tail==None:
-               self.head=newnode
-               self.tail=newnode
-            else:
-                self.tail.next=newnode
-                newnode.prev=self.tail
-                self.tail=newnode
-            print("newnode inserted at the tail position")
-            self.size+=1
-            
-    def deletefromhead(self):
-            if self.head==None:
-                print("linked list empty")
-            else:
-                value=self.head.data
-                print("deleted node is",value)
-                self.head=self.head.next
-                self.head.prev=None
-                self.size-=1
-                
-    def deletefromtail(self):
-            if self.head==None:
-                print("linked list empty")
-            else:
-                current=self.head
-                while(current.next!=None):
-                    prevnode=current
-                    current=current.next
-                value=current.data
-                prevnode.next=None
-                print("deleted node is",value)
-                self.tail=prevnode
-                self.size-=1
-                
-    def traversaloflist(self):
-            current=self.head
-            while current!=None:
-                print(current.data)
-                current=current.next
-            print("end")
-    def search(self,value):
-            self.n=0
-            current=self.head
-            while(current!=None):
-                self.n+=1
-                if currentdata!=value:
-                    current=current.next
-                else:
-                    return true
-                return false
-    def deletevalue(self,value):
-            current=self.head
-            while(current!=None&current.data!=value):
-                prevnode=current
-                current=current.next
-            if current==None:
-                print("node not found")
-            else:
-                self.size-=1
-                if current==self.head:
-                    self.head=current.next
-                elif current==self.tail:
-                    prevnode.next=current.next
-                    self.tail=prev
-                else:
-                    prevnode.next=current.next
-                    print("value deleted successfully")
-x=doublylinkedlist()
-print("menu")
-print("1.Insert from head\n2.insert from tail\n3.delete from head\n4.delet from tail")
-print("5.search for a value\n6.delete a value\n7.display a linked list\n8.exit")
-choice=int(input("please enter your choice"))
-while(choice!=8):
-    if choice==1:
-        value=int(input("enter the value to be inserted"))
-        x.insertfromhead(value)
-    if choice==2:
-        value=int(input("enter the value to be inserted"))
-        x.insertfromtail(value)
-    if choice==3:
-        x.deletefromhead()
-    if choice==4:
-        x.deletefromtail()
-    if choice==5:
-        value=int(input("enter the value to be searched"))
-        result=x.search(value)
-        if result==true:
-            print("value found at node",x.n,"in the linked list")
-        else:
-            print("value not found")
-    if choice==6:
-        value=int(input("enter the value to be deleted"))
-        x.deletevalue(value)
-    if choice==7:
-        x.traversaloflist()
-    choice=int(input("enter your choice again"))
-        
-        
+#include<iostream>
+using namespace std;
+int main()
+{
+int num;
+cout<<"ENTER AN INTEGER = ";
+cin>>num;
+cout<<"YOU HAVE ENTERED INTEGER IS = "<<num<<endl;
+return 0;
+}
 
 
 </code>
