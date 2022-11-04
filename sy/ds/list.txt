@@ -1,14 +1,30 @@
 DS prec list
 ---------------------------------------
-1 ---  singly linked list insertion deletion traversal
-2 ---  doubly linked list
-3 ---  STACK OPRATION
-4 ---  QUEUE OPERATION
-5 ---  Priority Queue with insertion, deletion, traversal 
-6 ---  binary search tree 
-7 ---  huffmans coding 
-8 ---  graph operation
-9 --- travelling sales man
-10---
-11---Write a program to create hash table to handle collisions using overflow chaining
+1 ---  Add Two Numbers 
+2 ---  Print Numbers Entered by User 
+3 ---  Swap Two Numbers 
+4 ---  Check Whether Number is Even
+or Odd
+ 
+5 ---  Find Largest Number Among
+6 ---  Create a class for student to get
+and print details of a student | Implement inheritance
+7 ---  Implement a java program to
+display Addition of numbers
+8 ---  Implement a java program to
+accept mark from user, if marks
+greater than 40, declare the
+student has “pass” else “fail”.
+
+9 --- Implement a java program to
+Display basic calculator using
+Switch Statement
+10---Write a Java Program to
+demonstrate the use of the
+parameterized constructor
+11---Write a Java Program to
+demonstrate Method Overloading
+12 ---- Write a Java Program to
+demonstrate Multiple Inheritance
+using Interface
 
