@@ -1,45 +1,35 @@
-#hash table maintaining overflow
 
 <code>
 
-# Function to display hashtable
-def display_hash(hashTable):
-	
-	for i in range(len(hashTable)):
-		print(i, end = " ")
-		
-		for j in hashTable[i]:
-			print("-->", end = " ")
-			print(j, end = " ")
-			
-		print()
-
-# Creating Hashtable as
-# a nested list.
-HashTable = [[] for _ in range(10)]
-
-# Hashing Function to return
-# key for every value.
-def Hashing(keyvalue):
-	return keyvalue % len(HashTable)
-
-
-# Insert Function to add
-# values to the hash table
-def insert(Hashtable, keyvalue, value):
-	
-	hash_key = Hashing(keyvalue)
-	Hashtable[hash_key].append(value)
-
-# Driver Code
-insert(HashTable, 10, 'Allahabad')
-insert(HashTable, 25, 'Mumbai')
-insert(HashTable, 20, 'Mathura')
-insert(HashTable, 9, 'Delhi')
-insert(HashTable, 21, 'Punjab')
-insert(HashTable, 21, 'Noida')
-
-display_hash (HashTable)
-
+public class Sum
+{
+public void sum(int a , int b)
+{
+System.out.println(a+b);
+}
+public void sum(int a , float b)
+{
+System.out.println(a+b);
+}
+void sum(int a, float b , int c)
+{
+System.out.println(a+b+c);
+}
+double sum(double a, double b , double c)
+{
+return (a + b + c );
+}
+float sum(float a , float b )
+{
+return a + b;
+}
+}
+public static void main(String args[])
+{
+Sum s1 = new Sum();
+s1.sum(12.5F, 13.07F);
+s1.sum(34, 32.90F);
+s1.sum(12, 9);
+s1.sum(7.87D, 6.980D, 3.6574D);
 
 </code>
