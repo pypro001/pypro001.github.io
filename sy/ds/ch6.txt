@@ -57,5 +57,28 @@ Student* std = new Student();
  }
 return 0;
 }
+-----------------------------------
+#include<iostream>
+using namespace std;
+class Vehicle
+{
+ public:
+
+Vehicle()
+{
+ cout << "This is a Vehicle\n";
+}
+};
+class Car : public Vehicle
+{
+};
+int main()
+{
+Car obj;
+return 0;}
+---------------------------------
+2. Multiple Inheritance
+
+
 
 </CODE>
