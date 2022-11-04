@@ -1,29 +1,45 @@
-#STACK OPERATION 
-
-stack=[]
-def push():
-    element=input("Enter the element:")
-    stack.append(element)
-    print(stack)
-def pop_element():
-    if not stack:
-        print("stack is empty:")
-    else:
-        e=stack.pop()
-        print("remove element:",e)
-        print(stack)
-while True:
-    print("select the operation 1.push 2.pop 3.quit:")
-    choice=int(input())
-    if choice==1:
-        push()
-    elif choice==2:
-        pop_element()
-    elif choice==3:
-        break
-    else:
-            print("enter the correct operation")
-
-
-
+<code>
+#include<iostream>
+using namespace std;
+void swap(int a , int b)
+{
+int temp = a;
+a = b;
+b = temp;
+cout<<"INSIDE THE SWAP FUNCTION = "<<endl;
+cout<<"a = "<<a<<" and "<<"b = "<<b<<endl;
+}
+void swapByReference(int &a , int &b)
+{
+int temp = a;
+a = b;
+b = temp;
+}
+void swapByPointer(int *a , int *b)
+{
+int temp = *a;
+*a = *b;
+*b = temp;
+}
+int main()
+{
+int a , b;
+cout<<"ENTER INTEGER FOR SWAPPING = ";
+cin>>a>>b;
+cout<<"BEFORE SWAP NUMBERS ARE = "<<endl;
+cout<<"a = "<<a<<" and "<<"b = "<<b<<endl<<endl;
+swap(a,b); // pass by value ,
+// will not swap bcoz in function values are being copied in new
+varibales in fun defination,
+// will swaped only in function
+cout<<"OUTSIDE THE SWAP FUNCTION = "<<endl;
+cout<<"a = "<<a<<" and "<<"b = "<<b<<endl<<endl;
+cout<<"PASS BY REFRENCE "<<endl; // pass by refrence
+swapByReference(a,b);
+cout<<"a = "<<a<<" and "<<"b = "<<b<<endl<<endl;
+cout<<"PASS BY POINTER"<<endl; // pass by pointer
+swapByPointer(&a, &b);
+cout<<"a = "<<a<<" and "<<"b = "<<b<<endl<<endl;
+return 0;
+}
 </code>
