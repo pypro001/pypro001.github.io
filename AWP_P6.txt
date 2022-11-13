@@ -1,0 +1,182 @@
+Practical-6
+
+6(A):Create a Web application to bind data in a multiline textbox by querying in another textbox.
+Creating DataBase
+Web.config
+<?xml version="1.0"?>
+<!--
+  For more information on how to configure your ASP.NET application, please visit
+  https://go.microsoft.com/fwlink/?LinkId=169433
+  -->
+<configuration>
+  <system.web>
+    <compilation debug="true" targetFramework="4.7.2" />
+    <httpRuntime targetFramework="4.7.2" />
+  </system.web>
+	<connectionStrings>
+		<add name="connStr" connectionString="Data Source=(LocalDB)\MSSQLLocalDB; 
+AttachDbFilename='C:\Users\PRADHUMN VATS\source\repos\Prac6a\App_Data\Database.mdf';Integrated Security=True"/>
+	</connectionStrings>
+  <system.codedom>
+    <compilers>
+      <compiler language="c#;cs;csharp" extension=".cs" type="Microsoft.CodeDom.Providers.DotNetCompilerPlatform.CSharpCodeProvider,
+ Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" warningLevel="4" 
+compilerOptions="/langversion:default /nowarn:1659;1699;1701" />
+      <compiler language="vb;vbs;visualbasic;vbscript" extension=".vb" type="Microsoft.CodeDom.Providers.DotNetCompilerPlatform.VBCodeProvider, Microsoft.CodeDom.
+Providers.DotNetCompilerPlatform, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" 
+warningLevel="4" compilerOptions="/langversion:default /nowarn:41008 /define:_MYTYPE=\&quot;Web\&quot;
+ /optionInfer+" />
+    </compilers>
+  </system.codedom>
+</configuration>
+
+using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Data.SqlClient;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Data;
+using System.Data.SqlClient;
+using System.Configuration;
+
+
+
+public partial class _Default : System.Web.UI.Page
+{
+    protected void Page_Load(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        string connStr =ConfigurationManager.ConnectionStrings["connStr"].ConnectionString;
+        SqlConnection con = new SqlConnection(connStr);
+        con.Open();
+        SqlCommand cmd = new SqlCommand(TextBox1.Text, con);
+        SqlDataReader reader = cmd.ExecuteReader();
+        TextBox2.Text = ""; 
+        while (reader.Read())
+        {
+            TextBox2.Text += Environment.NewLine;
+            for (int i = 0; i < reader.FieldCount - 1; i++)
+            {
+                TextBox2.Text += reader[i].ToString().PadLeft(15); 
+            }
+        }
+
+        reader.Close();
+        con.Close();
+    }
+}
+
+6(B):Create a Web application to display records by using database
+using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Data.SqlClient;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+public partial class Default2 : System.Web.UI.Page
+{
+    protected void Page_Load(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        string connstr = ConfigurationManager.ConnectionStrings["connstr"].ConnectionString;
+        SqlConnection con = new SqlConnection(connstr);
+        SqlCommand cmd = new SqlCommand("Select FirstName, LastName, Country from Customer", con);
+        con.Open();
+        SqlDataReader reader = cmd.ExecuteReader();
+        while(reader.Read())
+        {
+            Label1.Text += reader["FirstName"].ToString( )+ "  " +reader["LastName"].ToString()+ "  " + reader["Country"].ToString()+ "<br>";
+
+        }
+        reader.Close();
+        con.Close();
+    }
+}
+
+6(C):Demonstrate the use of Datalist link control.
+Default.aspx
+<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="_Default" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <asp:DataList ID="DataList1" runat="server" DataKeyField="Id" DataSourceID="SqlDataSource1">
+            <ItemTemplate>
+                Id:
+                <asp:Label ID="IdLabel" runat="server" Text='<%# Eval("Id") %>' />
+                <br />
+                FirstName:
+                <asp:Label ID="FirstNameLabel" runat="server" Text='<%# Eval("FirstName") %>' />
+                <br />
+                LastName:
+                <asp:Label ID="LastNameLabel" runat="server" Text='<%# Eval("LastName") %>' />
+                <br />
+                City:
+                <asp:Label ID="CityLabel" runat="server" Text='<%# Eval("City") %>' />
+                <br />
+                Country:
+                <asp:Label ID="CountryLabel" runat="server" Text='<%# Eval("Country") %>' />
+                <br />
+                Phone:
+                <asp:Label ID="PhoneLabel" runat="server" Text='<%# Eval("Phone") %>' />
+                <br />
+<br />
+            </ItemTemplate>
+        </asp:DataList>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Customer]" ConflictDetection="CompareAllValues" DeleteCommand="DELETE FROM [Customer] WHERE [Id] = @original_Id AND (([FirstName] = @original_FirstName) OR ([FirstName] IS NULL AND @original_FirstName IS NULL)) AND (([LastName] = @original_LastName) OR ([LastName] IS NULL AND @original_LastName IS NULL)) AND (([City] = @original_City) OR ([City] IS NULL AND @original_City IS NULL)) AND (([Country] = @original_Country) OR ([Country] IS NULL AND @original_Country IS NULL)) AND (([Phone] = @original_Phone) OR ([Phone] IS NULL AND @original_Phone IS NULL))" InsertCommand="INSERT INTO [Customer] ([Id], [FirstName], [LastName], [City], [Country], [Phone]) VALUES (@Id, @FirstName, @LastName, @City, @Country, @Phone)" OldValuesParameterFormatString="original_{0}" UpdateCommand="UPDATE [Customer] SET [FirstName] = @FirstName, [LastName] = @LastName, [City] = @City, [Country] = @Country, [Phone] = @Phone WHERE [Id] = @original_Id AND (([FirstName] = @original_FirstName) OR ([FirstName] IS NULL AND @original_FirstName IS NULL)) AND (([LastName] = @original_LastName) OR ([LastName] IS NULL AND @original_LastName IS NULL)) AND (([City] = @original_City) OR ([City] IS NULL AND @original_City IS NULL)) AND (([Country] = @original_Country) OR ([Country] IS NULL AND @original_Country IS NULL)) AND (([Phone] = @original_Phone) OR ([Phone] IS NULL AND @original_Phone IS NULL))">
+            <DeleteParameters>
+                <asp:Parameter Name="original_Id" Type="Int32" />
+                <asp:Parameter Name="original_FirstName" Type="String" />
+                <asp:Parameter Name="original_LastName" Type="String" />
+                <asp:Parameter Name="original_City" Type="String" />
+                <asp:Parameter Name="original_Country" Type="String" />
+                <asp:Parameter Name="original_Phone" Type="String" />
+            </DeleteParameters>
+            <InsertParameters>
+                <asp:Parameter Name="Id" Type="Int32" />
+                <asp:Parameter Name="FirstName" Type="String" />
+                <asp:Parameter Name="LastName" Type="String" />
+                <asp:Parameter Name="City" Type="String" />
+                <asp:Parameter Name="Country" Type="String" />
+                <asp:Parameter Name="Phone" Type="String" />
+            </InsertParameters>
+            <UpdateParameters>
+                <asp:Parameter Name="FirstName" Type="String" />
+                <asp:Parameter Name="LastName" Type="String" />
+                <asp:Parameter Name="City" Type="String" />
+                <asp:Parameter Name="Country" Type="String" />
+                <asp:Parameter Name="Phone" Type="String" />
+                <asp:Parameter Name="original_Id" Type="Int32" />
+                <asp:Parameter Name="original_FirstName" Type="String" />
+                <asp:Parameter Name="original_LastName" Type="String" />
+                <asp:Parameter Name="original_City" Type="String" />
+                <asp:Parameter Name="original_Country" Type="String" />
+                <asp:Parameter Name="original_Phone" Type="String" />
+            </UpdateParameters>
+        </asp:SqlDataSource>
+        <div>
+        </div>
+    </form>
+</body>
+</html>
+
+

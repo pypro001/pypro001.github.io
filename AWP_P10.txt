@@ -1,0 +1,248 @@
+PRACTICAL 10
+
+10A
+
+<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default_A.aspx.cs" Inherits="Default_A" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <asp:Label ID="Label1" runat="server"></asp:Label>
+            <br />
+        </div>
+        <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="XML Writer" />
+        <p>
+            &nbsp;</p>
+        <asp:ListBox ID="ListBox1" runat="server" Height="343px" Width="434px"></asp:ListBox>
+        <br />
+        <br />
+        <br />
+        <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="XML Reader" />
+    </form>
+</body>
+</html>
+
+using System;
+using System.Xml;
+
+public partial class Default_A : System.Web.UI.Page
+{
+    protected void Page_Load(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        XmlTextWriter writer = new XmlTextWriter("F:\\Basil\\AWP\\test.xml", null);
+        writer.WriteStartDocument();
+        writer.WriteStartElement("Details", "");
+        writer.WriteElementString("ID", "1");
+        writer.WriteElementString("Distro", "Ubuntu");
+        writer.WriteElementString("Company", "Canonical");
+        writer.WriteElementString("Year", "2004");
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+        writer.Close();
+        Label1.Text = "Data wrote successfully!";
+    }
+
+    protected void Button2_Click(object sender, EventArgs e)
+    {
+        string xmlNode = "F:\\Basil\\AWP\\test.xml";
+        XmlReader xReader = XmlReader.Create(xmlNode);
+        while (xReader.Read())
+        {
+            switch (xReader.NodeType)
+            {
+                case XmlNodeType.Element:
+                    ListBox1.Items.Add("<" + xReader.Name + ">");
+                    break;
+                case XmlNodeType.Text:
+                    ListBox1.Items.Add(xReader.Value);
+                    break;
+                case XmlNodeType.EndElement:
+                    ListBox1.Items.Add("</" + xReader.Name + ">");
+                    break;
+            }
+        }
+    }
+}
+
+10B
+<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default_B.aspx.cs" Inherits="Default_B" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            Username :
+            <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+            <br />
+            <br />
+            Password :
+            <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+            <br />
+            <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Login" />
+            <br />
+            <asp:CheckBox ID="CheckBox1" runat="server" />
+            Check here if this is not a public computer.<br />
+            <br />
+            <asp:Label ID="Label1" runat="server"></asp:Label>
+        </div>
+    </form>
+</body>
+</html>
+
+using System;
+using System.Web.Security;
+
+public partial class Default_B : System.Web.UI.Page
+{
+    protected void Page_Load(object sender, EventArgs e)
+    {
+
+    }
+
+    protected bool authenticate(String uname, String pass)
+    {
+        if (uname == "Sonic")
+        {
+            if (pass == "son123")
+                return true;
+        }
+        if (uname == "Tails")
+        {
+            if (pass == "tai123")
+                return true;
+        }
+        if (uname == "Amy")
+        {
+            if (pass == "amy123")
+                return true;
+        }
+        return false;
+    }
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        if(authenticate(TextBox1.Text, TextBox2.Text))
+        {
+            FormsAuthentication.RedirectFromLoginPage(TextBox1.Text, CheckBox1.Checked);
+            Session["Username"] = TextBox1.Text;
+            Response.Redirect("Default_B_2.aspx");
+        }
+        else
+        {
+            Response.Write("Invalid username or password.");
+        }
+    }
+}
+
+10_B2
+
+<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default_B_2.aspx.cs" Inherits="Default_B_2" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            Hello
+            <asp:Label ID="Label1" runat="server"></asp:Label>
+            , welcome to the webpage!</div>
+    </form>
+</body>
+</html>
+
+
+using System;
+
+public partial class Default_B_2 : System.Web.UI.Page
+{
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        if (Session["Username"] != null)
+        {
+            Label1.Text = Session["Username"].ToString();
+        }
+    }
+}
+
+10C
+<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default_C.aspx.cs" Inherits="Default_C" %>
+<%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="ajaxToolkit" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <asp:ScriptManager ID="ScriptManager1" runat="server">
+            </asp:ScriptManager>
+            <br />
+            <asp:TextBox ID="TextBox1" runat="server" Columns="80" Height="362px" Rows="20" TextMode="MultiLine" Width="651px"></asp:TextBox>
+            <ajaxToolkit:HtmlEditorExtender ID="TextBox1_HtmlEditorExtender" runat="server" TargetControlID="TextBox1" EnableSanitization="false">
+                <Toolbar>
+                    <ajaxToolkit:Undo />    <ajaxToolkit:Redo />
+                    <ajaxToolkit:Bold />    <ajaxToolkit:Italic />
+                    <ajaxToolkit:Underline />   <ajaxToolkit:StrikeThrough />
+                    <ajaxToolkit:Subscript />   <ajaxToolkit:Superscript />
+                    <ajaxToolkit:JustifyLeft /> <ajaxToolkit:JustifyCenter />
+                    <ajaxToolkit:JustifyRight />    <ajaxToolkit:JustifyFull />
+                    <ajaxToolkit:InsertOrderedList />
+                    <ajaxToolkit:InsertUnorderedList />
+                    <ajaxToolkit:CreateLink />  <ajaxToolkit:UnLink />
+                    <ajaxToolkit:RemoveFormat />
+                    <ajaxToolkit:SelectAll />   <ajaxToolkit:UnSelect />
+                    <ajaxToolkit:Delete />  <ajaxToolkit:Cut />
+                    <ajaxToolkit:Copy />    <ajaxToolkit:Paste />
+                    <ajaxToolkit:BackgroundColorSelector />
+                    <ajaxToolkit:ForeColorSelector />
+                    <ajaxToolkit:FontNameSelector />
+                    <ajaxToolkit:FontSizeSelector />
+                    <ajaxToolkit:Indent />  <ajaxToolkit:Outdent />
+                    <ajaxToolkit:InsertHorizontalRule />
+                    <ajaxToolkit:HorizontalSeparator />
+                </Toolbar>
+            </ajaxToolkit:HtmlEditorExtender>
+        </div>
+    </form>
+</body>
+</html>
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+public partial class Default_C : System.Web.UI.Page
+{
+    protected void Page_Load(object sender, EventArgs e)
+    {
+
+    }
+}

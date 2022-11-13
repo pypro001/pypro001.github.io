@@ -1,0 +1,502 @@
+Practical-2
+
+2(a)Create simple application to perform following operations:
+(i)	Finding Factorial Value
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+public partial class _Default : System.Web.UI.Page
+{
+    protected void Page_Load(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        int i, fact = 1, n;
+        n = Convert.ToInt32(TextBox1.Text);
+        for (i = 1; i <= n; i++)
+        {
+            fact = fact * i;
+        }
+        Label1.Text = fact.ToString();
+    }
+}
+
+(ii)Money Conversion
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection.Emit;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+public partial class Default2 : System.Web.UI.Page
+{
+    protected void Page_Load(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        double r = Convert.ToDouble(TextBox1.Text);
+        double rate = r /79.8635;
+        Label1.Text = rate.ToString();
+    }
+
+    protected void Button2_Click(object sender, EventArgs e)
+    {
+        double r = Convert.ToDouble(TextBox1.Text);
+        double rate = r /81.344 ;
+        Label2.Text = rate.ToString();
+    }
+
+    protected void Button3_Click(object sender, EventArgs e)
+    {
+        double r = Convert.ToDouble(TextBox1.Text);
+        double rate = r / 89.62;
+        Label3.Text = rate.ToString();
+    }
+
+    protected void Button4_Click(object sender, EventArgs e)
+    {
+        double r = Convert.ToDouble(TextBox1.Text);
+        double rate = r / 0.57;
+        Label4.Text = rate.ToString();
+    }
+}
+
+(iii)Quadratic Equation
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection.Emit;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+public partial class Default3 : System.Web.UI.Page
+{
+    protected void Page_Load(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        double a, b, c, r1, r2, x;
+        double det;
+        a = Convert.ToInt32(TextBox1.Text);
+        b = Convert.ToInt32(TextBox2.Text);
+        c = Convert.ToInt32(TextBox3.Text);
+        det = (b * b) - (4 * a * c);
+        if (det > 0)
+        {
+            x = Math.Sqrt(det);
+            r1 = (-b + x) / (2 * a);
+            r2 = (-b - x) / (2 * a);
+            Label1.Text = "There are two roots :: ";
+            Label2.Text = r1.ToString();
+            Label3.Text = r2.ToString();
+        }
+        else if (det == 0)
+        {
+            x = Math.Sqrt(det);
+            r1 = (-b + x) / (2 * a);
+            Label1.Text = "There is only one root ::";
+            Label2.Text = r1.ToString();
+        }
+        else
+
+            Label1.Text = "There is no root !!!";        
+    }
+}
+
+(iv)Temperature Converter
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+public partial class Default4 : System.Web.UI.Page
+{
+    protected void Page_Load(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        tempConv s = new tempConv();
+        double n = Convert.ToDouble(TextBox1.Text);
+        double x = s.ctof(n);
+        Label1.Text = x.ToString();
+    }
+
+    protected void Button2_Click(object sender, EventArgs e)
+    {
+        tempConv s = new tempConv();
+        double n = Convert.ToDouble(TextBox2.Text);
+        double x =s.ftoc(n);
+        Label2.Text = x.ToString();
+    }
+}
+public class tempConv
+{
+    public double ctof(double temp)
+    {
+        temp = (9.0 / 5.0)* temp + 32;
+        return temp;
+    }
+    public double ftoc(double temp)
+    {
+        temp = (temp - 32) * 5 / 9;
+
+        return temp;
+    }
+}
+
+
+2(b)Create simple application to Demonstrate use of following Concepts:
+(i)	Function Overloading
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+public partial class _Default : System.Web.UI.Page
+{
+    public int add(int a)
+    {
+        return a + a;
+    }
+    public int add(int a, int b)
+    {
+        return a + b;
+    }
+    public int add(int a, int b, int c)
+    {
+        return a + b + c;
+    }
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        int x, z, y;
+        x = add(2);
+        z = add(2, 3);
+        y = add(2, 3, 4);
+        Label1.Text = x.ToString();
+        Label2.Text = z.ToString();
+        Label3.Text = y.ToString();
+    }
+}
+
+(ii)Inheritance
+1.Single Inheritance
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+public partial class Default2 : System.Web.UI.Page
+{
+    protected void Page_Load(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        B s = new B();
+        int n = Convert.ToInt32(TextBox1.Text);
+        int x = s.sqr(n);
+        int y = s.cub(n);
+        Label1.Text = x.ToString();
+        Label2.Text = y.ToString();
+    }
+}
+public class A
+{
+    public int sqr(int Val1)
+    {
+        return Val1 * Val1;
+    }
+}
+public class B : A
+{
+    public int cub(int Val1)
+    { 
+        int v1 = sqr(Val1); return v1* Val1;
+    }
+}
+
+2.Multilevel Inheritance
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection.Emit;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+public partial class Default3 : System.Web.UI.Page
+{
+    protected void Page_Load(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        C s = new C();
+        int n = Convert.ToInt32(TextBox1.Text);
+        int x = s.pow2(n);
+        int y = s.pow3(n);
+        int z = s.pow4(n);
+        Label1.Text = x.ToString();
+        Label2.Text = y.ToString();
+        Label3.Text = z.ToString();
+    }
+}
+public class A
+{
+    public int pow2(int Val1)
+    {
+        return Val1 * Val1;
+
+    }
+}
+public class B : A
+{
+    public int pow3(int Val1)
+    {
+        int v1 = pow2(Val1);
+        return v1 * Val1;
+    }
+}
+public class C : B
+{
+    public int pow4(int Val1)
+    {
+        int v1 = pow3(Val1); 
+        return v1 * Val1;
+    }
+}
+
+3.Hierarchical Inheritance
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+public partial class Default4 : System.Web.UI.Page
+{
+    protected void Page_Load(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        B s1 = new B();
+        C s2 = new C();
+        int m = Convert.ToInt32(TextBox1.Text);
+        int n = Convert.ToInt32(TextBox2.Text);
+        int x = s1.add(m, n);
+        int y = s2.sub(m, n);
+        Label1.Text = y.ToString();
+        Label2.Text = x.ToString();
+    }
+}
+public class A
+{ 
+    public int a;
+    public int b;
+}
+public class B : A
+{ 
+    public int add(int Val1, int Val2)
+    { 
+        a = Val1;
+        b = Val2;
+        return a + b;
+    }
+}
+public class C : A
+{
+    public int sub(int Val1, int Val2)
+    {
+        a = Val1;
+        b = Val2;
+        return a - b;
+    }
+}
+
+(iii)Constructor Overloading
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection.Emit;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+public partial class Default5 : System.Web.UI.Page
+{
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        add obj1 = new add(2);
+        add obj2 = new add(2, 3);
+        add obj3 = new add(2, 3, 4);
+        Label1.Text = obj1.r.ToString();
+        Label2.Text = obj2.r.ToString();
+        Label3.Text = obj3.r.ToString();
+
+    }
+}
+public class add
+{
+    public int r;
+    public add(int a)
+    {
+        r = a + a;
+    }
+    public add(int a, int b)
+    {
+        r = a + b;
+    }
+    public add(int a, int b, int c)
+    {
+        r = a + b + c;
+    }
+}
+
+(iv)Interfaces
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+public partial class Default6 : System.Web.UI.Page
+{
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        Rect r1 = new Rect();
+        double x = r1.show(3, 4);
+        Circle c1 = new Circle();
+        double y = c1.show(3, 4);
+        Label1.Text = x.ToString();
+        Label2.Text = y.ToString();
+    }
+}
+interface Area
+{
+    double show(double s, double t);
+}
+class Rect : Area
+{ 
+    public double show(double s, double t)
+    {
+        return s * t;
+    }
+}
+
+class Circle : Area
+{
+    public double show(double s, double t)
+    {
+        return (3.14 * s * s);
+    }
+
+}
+
+2(C)Create simple application to Demonstrate use of following Concepts:
+(i)Using Delegates and events
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+public partial class _Default : System.Web.UI.Page
+{
+    public delegate string dele();
+    public static string display1()
+    {
+        string s1 = "Hema";
+        return s1;
+    }
+    public static string display2()
+    {
+        string s2 = "Nalawade";
+        return s2;
+    }
+
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        dele d1 = new dele(display1);
+        d1();
+        dele d2 = new dele(display2);
+        d2();
+        Label1.Text = d1();
+        Label2.Text = d2();
+    }
+}
+
+(ii)Exception Handling
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection.Emit;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+public partial class Default2 : System.Web.UI.Page
+{
+    protected void Page_Load(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            int a = Convert.ToInt32(TextBox1.Text);
+            int[] b = { 12, 23, 331 };
+            int result;
+            result = (b[3] / a);
+            Label1.Text = "The result is : " + result.ToString();
+        }
+        catch (System.DivideByZeroException ex)
+        {
+            Label1.Text = ex.ToString();
+        }
+
+        catch (System.IndexOutOfRangeException ex)
+        { 
+            Label1.Text = ex.ToString();
+
+        }
+    }
+}
+

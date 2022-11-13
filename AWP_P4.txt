@@ -1,0 +1,79 @@
+Practical-4
+
+4(A):Create a Registration form to demonstrate use of various Validation Controls.
+<script runat="server">
+        void Button1_Click(object sender, EventArgs e)
+        {
+            if (Page.IsValid)
+            {
+                Label1.Text = "Thank You!";
+            }
+            else
+            {
+                Label1.Text = "The text must be exactly 8 charcters Long";
+            }
+            void ServerValidation(object source,ServerValidateEventArgs e)
+            {
+                if(e.Value.Length==8)
+                {
+                    e.IsValid = true;
+                }
+                else
+                {
+                    e.IsValid = false;
+                }
+            }
+        }
+    </script>
+
+Web.config
+<?xml version="1.0"?>
+<!--
+  For more information on how to configure your ASP.NET application, please visit
+  https://go.microsoft.com/fwlink/?LinkId=169433
+  -->
+<configuration>
+	<appSettings>
+		<add key="ValidationSettings:UnobtrusiveValidationMode" value="None"/>
+	</appSettings>
+  <system.web>
+    <compilation debug="true" targetFramework="4.7.2" />
+    <httpRuntime targetFramework="4.7.2" />
+  </system.web>
+  <system.codedom>
+    <compilers>
+      <compiler language="c#;cs;csharp" extension=".cs" type="Microsoft.CodeDom.Providers.DotNetCompilerPlatform.CSharpCodeProvider, Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" warningLevel="4" compilerOptions="/langversion:default /nowarn:1659;1699;1701" />
+      <compiler language="vb;vbs;visualbasic;vbscript" extension=".vb" type="Microsoft.CodeDom.Providers.DotNetCompilerPlatform.VBCodeProvider, Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" warningLevel="4" compilerOptions="/langversion:default /nowarn:41008 /define:_MYTYPE=\&quot;Web\&quot; /optionInfer+" />
+    </compilers>
+  </system.codedom>
+</configuration>
+
+4(B):Create Web Form to demonstrate use of Adrotator Controls.
+<?xml version="1.0" encoding="utf-8" ?>
+<Advertisements>
+	<Ad>
+		<ImageUrl>download.jpg</ImageUrl>
+		<AlternateText>Invalid</AlternateText>
+		<NavigateUrl></NavigateUrl>
+		<Keyword>Computer</Keyword>
+	</Ad>
+</Advertisements>
+
+4(C):Create Web form to demonstrate use user Controls.
+<table>
+<tr>
+<td align="center" style="font-family:Cambria; background-color:#00CCFF; font-size:14px; text-decoration:blink; color:#FF0000; font-weight:bold;">
+New User Control</td>
+</tr>
+</table>
+
+footer.ascx
+<table>
+<tr>
+<td align="center" style="font-family:Cambria; background-color:#00CCFF; font-size:14px; text-decoration:blink; color:#FF0000; font-weight:bold;">
+New User Control</td>
+</tr>
+</table>
+
+
+

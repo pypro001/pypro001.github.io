@@ -1,0 +1,246 @@
+Practical-1
+
+1(A).Create an application that obtains four int values from the user and displays the product
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection.Emit;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+public partial class _Default : System.Web.UI.Page
+{
+    protected void Page_Load(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        int r;
+        r = Convert.ToInt32(TextBox1.Text)*Convert.ToInt32(TextBox2.Text)*Convert.ToInt32(TextBox3.Text)*Convert.ToInt32(TextBox4.Text);
+        Label1.Text = "Result:" + r.ToString();
+    }
+
+    protected void Button2_Click(object sender, EventArgs e)
+    {
+        TextBox1.Text = "";
+        TextBox2.Text = "";
+        TextBox3.Text = "";
+        TextBox4.Text = "";
+        Label1.Text = "";
+    }
+}
+
+1(B).Create an application to demonstrate string operations.
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection.Emit;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+public partial class Default2 : System.Web.UI.Page
+{
+    protected void Page_Load(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        string s=TextBox1.Text;
+
+        Label1.Text = "String length: " + s.Length;
+        Label2.Text = "Substring: " + s.Substring(4,3);
+        Label3.Text = "Upper String: " + s.ToUpper();
+        Label4.Text = "Lower String: " + s.ToLower();
+        string rev = "";
+        for (int i = s.Length - 1; i >= 0; i--)
+        { 
+            rev = rev + s[i];
+        }
+        Label5.Text = "Reverse String: " + rev.ToString(); 
+        Label6.Text = "Replace's' by 't' in String: " + s.Replace('s', 't');
+        Label7.Text = "Insert 'u' in String: " + s.Insert(3, "u");
+        Label8.Text = "String Truncate: " + s.Trim();
+        Label9.Text = "Remove String: " + s.Remove(4);
+        Label10.Text = "Index of String: " + s.IndexOf('e');
+    }
+
+    protected void Button2_Click(object sender, EventArgs e)
+    {
+        Label1.Text = "";
+        Label2.Text = "";
+        Label3.Text = "";
+        Label4.Text = "";
+        Label5.Text = "";
+        Label6.Text = "";
+        Label7.Text = "";
+        Label8.Text = "";
+        Label9.Text = "";
+        Label10.Text = "";
+        TextBox1.Text = "";
+    }
+}
+
+1(C).Create an application that receives the information from a set of students. 
+The application should also
+ display the information of all the students once the data entered
+using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
+using System.Reflection.Emit;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+public partial class Default3 : System.Web.UI.Page
+{
+    protected void Page_Load(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        Label1.Text = "Student Id:" + TextBox1.Text;
+        Label2.Text = "Student Name:" + TextBox2.Text;
+        Label3.Text ="Course Name:" +TextBox3.Text;
+
+        Label4.Text = "Date of Birth: " + Calendar1.SelectedDate.ToShortDateString();
+    }
+
+    protected void Button2_Click(object sender, EventArgs e)
+    {
+        Label1.Text = "";
+        Label2.Text = "";
+        Label3.Text = "";
+        Label4.Text = "";
+        TextBox1.Text = ""; 
+        TextBox2.Text = "";
+        TextBox3.Text = "";
+        Calendar1.SelectedDates.Clear();
+    }
+}
+
+1(D).Create an application to demonstrate following operations:
+(i)	Generate  Fibonacci series.
+(ii)	Test for prime numbers
+(iii)	Test for vowels
+(iv)	Use of foreach loop with arrays
+(v)	Reverse a number and find sum of digits of number
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection.Emit;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+public partial class Default4 : System.Web.UI.Page
+{
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        Label6.Text = "";
+
+        string[] ColorNames = new string[] { "Red", "Yellow", "Black", "Green", "Blue", "Pink" };
+        foreach (string ColorName in ColorNames)
+        Label6.Text = Label6.Text +" "+ColorName.ToString();
+
+    }
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        int a, b, c, i, n;
+        a = 0;
+        b = 1;
+        Label1.Text = a.ToString() + b.ToString();
+        n = Convert.ToInt32(TextBox1.Text);
+        for (i = 1; i < n; ++i)
+        {
+            c = a + b;
+            Label1.Text = Label1.Text + c.ToString();
+            a = b;
+            b = c;
+        }
+    }
+
+    protected void Button2_Click(object sender, EventArgs e)
+    {
+        int i, c=0,j, num;
+        num = Convert.ToInt32(TextBox2.Text);
+        for (j = 1; j <= num; j++)
+        {
+            i = num % j;
+            if (i == 0)
+            {
+                c = c + 1;
+            }
+            if (c == 2)
+                Label2.Text = "The given number is prime";
+            else
+                Label2.Text = "The given number is not prime";
+        }
+    }
+
+    protected void Button3_Click(object sender, EventArgs e)
+    {
+        long num, i, sum=0; 
+        num = Convert.ToInt32(TextBox3.Text);
+        while (num > 0)
+        {
+
+            i = num % 10;
+            sum = i + sum * 10;
+            num = num / 10;
+        }
+        Label3.Text=sum.ToString();
+   
+    }
+
+    protected void Button4_Click(object sender, EventArgs e)
+    {
+        long num, i, sum = 0;
+        num=Convert.ToInt32(TextBox4.Text);
+        while (num > 0)
+        {
+
+            i = num % 10;
+            sum = i + sum * 10;
+            num = num / 10;
+        }
+        Label4.Text = sum.ToString();
+    }
+
+    protected void Button5_Click(object sender, EventArgs e)
+    {
+        char c = Convert.ToChar(TextBox5.Text);
+        switch (c)
+        {
+            case 'a':
+                Label5.Text = "a is vowel";
+                break;
+            case 'e':
+                Label5.Text = "e is vowel"; break;
+            case 'i':
+                Label5.Text = "i is vowel";
+                break;
+            case 'o':
+                Label5.Text = "o is vowel";
+                break;
+            case 'u':
+                Label5.Text = "u is vowel";
+                break;
+            default:
+                Label5.Text = "It is not vowel"; break;
+
+        }
+    }
+}
+
+
