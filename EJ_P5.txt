@@ -1,0 +1,201 @@
+PRACTICAL 5
+IMPLEMENT THE FOLLOWING JSP JSTL 
+AND EL APPLICATIONS.
+
+PART A
+AIM: Create a registration servlet in Java using JDBC. Accept 
+the details such as Username, Password, Email, and Country 
+from the user using HTML Form and store the registration 
+details in the database.
+index.html:
+<!DOCTYPE html>
+<html>
+ <head>
+ <title>Update data demo</title>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ </head>
+ <body>
+ <form action="UpdateEmp.jsp">
+ Enter employee number <input type="text" name="txtEno"><br>
+ Enter salary to update <input type="text" name="txtSal"><br>
+ <input type="reset"><input type="submit">
+ </form>
+ </body>
+</html>
+UpdateEmp.jsp:
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="java.sql.ResultSet" %>
+<%@page import="java.sql.PreparedStatement" %>
+<%@page import="java.sql.DriverManager" %>
+<%@page import="java.sql.Connection" %>
+<!DOCTYPE html>
+<html>
+ <head>
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <title>Result</title>
+ </head>
+ <body>
+ <h1>Updating Employee Record</h1>
+ <%
+ String eno=request.getParameter("txtEno");
+ String sal=request.getParameter("txtSal");
+ try{
+ Class.forName("com.mysql.jdbc.Driver");
+ Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/empdb","root","B
+Emariadb");
+ PreparedStatement stmt=con.prepareStatement("select * from emp where eno=?");
+ stmt.setString(1, eno);
+ ResultSet rs=stmt.executeQuery();
+ if(rs.next()){
+ out.println("<h1>Employee "+rs.getString(3)+" exists!</h1>");
+ PreparedStatement pst=con.prepareStatement("update emp set salary=? where eno=?");
+ pst.setString(1, sal);
+ pst.setString(2, eno);
+ pst.executeUpdate();
+ out.println("<h1>Employee record updated!!</h1>");
+ }
+ else{
+ out.println("<h1>Employee record doesn't exist.</h1>");
+ }
+ }
+ catch(Exception e){
+ out.println(e);
+ }
+ %>
+ </body>
+</html>
+
+PART B
+AIM: Create a JSP page to demonstrate the use of Expression 
+language.
+index.jsp:
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+ <head>
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <title>EL demo</title>
+ </head>
+ <body>
+ <h1>Welcome to index page</h1>
+ <%
+ Cookie ck = new Cookie("color", "Blue");
+ response.addCookie(ck);
+ %>
+ <%
+ application.setAttribute("name", "Basil");
+ session.setAttribute("country", "India");
+ %>
+ <form action="ExpLang.jsp">
+ Enter Name:<input type="text" name="name" /><br/><br/>
+ <input type="submit" value="Submit"/>
+ </form>
+ </body>
+</html>
+ExpLang.jsp:
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+ <head>
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <title>EL tags</title>
+ </head>
+ <body>
+ <h1>Accessing Attribute: Application Level </h1>
+ Welcome ${ applicationScope.name }
+ <h1>Accessing Attributes: Session Level </h1>
+ Country of Residence: ${ sessionScope.country}
+ <h1>Accessing Cookie </h1>
+ Cookie Color has Value: ${cookie.color.value}
+ <%-- arithmetic operators --%>
+ <h1> Arithmetic Operators </h1>
+ 5*5+4: ${5*5+4} <br>
+ 1.4E4+1.4: ${1.4E4+1.4}<br>
+ 10 mod 4: ${10 mod 4}<br>
+ 15 div 3: ${15 div 3}<br>
+ <%-- Logical Operator --%>
+ <h1> Logical Operators </h1>
+ true and true: ${true and true}<br>
+ true && false: ${true && false}<br>
+ true or true: ${true or true}<br>
+ true || false: ${true || false}<br>
+ not true: ${not true}<br>
+ !false: ${!false}
+ <%-- RelationalOperator --%>
+ <h1>Relational Operators</h1>
+ 10.0==10: ${10.0==10} <br>
+ 10.0 eq 10: ${10.0 eq 10} <br>
+ ((20*10)!= 200): ${((20*10)!= 200)} <br>
+ 3 ne 3: ${3 ne 3} <br>
+ 3.2>=2: ${3.2>=2} <br>
+ 3.2 ge 2: ${3.2 ge 2} <br>
+ 2<3: ${2<3} <br>
+ 4 lt 6: ${4 lt 6} <br>
+ 2 <= 4: ${2 <= 4} <br>
+ 4 le 2: ${4 le 2}
+ <%-- Conditonal Operator --%>
+ <h1>Conditional Operator</h1>
+ The result of 100>200 is: "${(100>200)?'greater':'lesser'}"
+ <%-- Empty Operator --%>
+ <H1>Empty Operator Example</H1>
+ The Value for the Empty operator--> "${empty "data"}" is :: ${empty "data"} <br>
+ The Value for the Empty operator--> "${empty ""}" is:: ${empty ""}
+ </body>
+</html>
+
+PART C
+AIM: Create a JSP application to demonstrate the use of JSTL.
+index.html:
+<!DOCTYPE html>
+<html>
+ <head>
+ <title>JSTL tags demo</title>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ </head>
+ <body>
+ <form action="JSTLDemo.jsp">
+ User first name : <input type="text" name="ufname"><br/><br/>
+ User last name : <input type="text" name="ulname"><br/><br/>
+ Enter input : <input type="number" name="input"/><br><br/>
+ <input type="submit"><br/>
+ </form>
+ </body>
+</html>
+JSTLDemo.jsp:
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
+<!DOCTYPE html>
+<html>
+ <head>
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <title>JSTL Demo</title>
+ </head>
+ <body>
+ First name : <b><c:out value="${param.ufname}"></c:out></b><br>
+ Last name : <b><c:out value="${param.ulname}"></c:out></b><br><br>
+ You have chosen the number : <c:out value="${param.input}"></c:out><br><br>
+ Use of If : <c:set var="mycount"></c:set>
+ 
+ <c:if test="${param.input ge 25}">
+ <b><c:out value="Your count is greater than or equal to 25"></c:out></b>
+ </c:if><br><br>
+ Use of choose, when and otherwise : <br>
+ <c:choose>
+ <c:when test="${param.input < 25}">
+ <c:out value="Your count is less than 25."></c:out>
+ </c:when>
+ <c:when test="${param.input > 25}">
+ <c:out value="Your count is greater than 25."></c:out>
+ </c:when>
+ <c:otherwise>
+ <c:out value="Your count is equal to 25."></c:out>
+ </c:otherwise>
+ </c:choose>
+ <br> Use of for each :
+ <c:forEach var="count" begin="10" end="50" step="5">
+ <b><c:out value="${count}"></c:out></b>
+ </c:forEach>
+ </body>
+</html>
