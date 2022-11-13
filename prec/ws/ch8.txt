@@ -1,9 +1,0 @@
-<html>
-
-    <code>
-
-       // prec 8
-
-    </code>
-
-</html>
