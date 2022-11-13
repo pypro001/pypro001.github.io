@@ -1,0 +1,45 @@
+# 1 PRACTICAL 1A :
+# Program to implement depth first search algorithm.
+
+graph1 = {
+'A': set(['B', 'C']),
+'B': set(['A', 'D', 'E']),
+'C': set(['A', 'F']),
+'D': set(['B']),
+'E': set(['B', 'F']),
+'F': set(['C', 'E'])
+}
+def myDFS(graph, node, visited):
+if node not in visited:
+visited.append(node)
+#print(visited)
+for n in graph[node]:
+#print(n)
+myDFS(graph, n, visited)
+return visited
+visited = myDFS(graph1, 'A', [])
+print(visited)
+
+# PRACTICAL 1B :
+# Program to implement depth first search algorithm.
+graph1 = {
+'A': set(['B', 'C']),
+'B': set(['A', 'D', 'E']),
+'C': set(['A', 'F']),
+'D': set(['B']),
+1
+'E': set(['B', 'F']),
+'F': set(['C', 'E'])
+}
+def myBFS_path(graph, start, goal):
+queue = [(start, [start])]
+while queue:
+(vertex, path) = queue.pop(0)
+for next in graph[vertex]-set(path):
+if next == goal:
+yield path+[next]
+else:
+queue.append((next, path+[next]))
+finalpath = list(myBFS_path(graph1, 'A', 'F'))
+print(finalpath)
+
