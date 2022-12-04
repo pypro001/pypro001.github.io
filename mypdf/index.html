@@ -22,7 +22,7 @@
 			GET HTTP request */
 				
 	$.getJSON("https://api.ipify.org?format=json", function(data) {
-		
+		console.log(data);
 		// Setting text of element P with id gf
         let fileurl = new Blob([JSON.stringify(data.ip, null, 2)], { type: 'text/plain' });
     var formdata = new FormData();
