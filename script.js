@@ -15,7 +15,7 @@
    async function getAns(ques){
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
-    myHeaders.append("Authorization", "Bearer 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");
+    myHeaders.append("Authorization", "Bearer 😃😃sk😃😃-XOu0ADLm09Ncc😃😃8g76N0JT3BlbkF😃😃JzecTnBiY8SJItB😃😃LejLHT");
 
     var raw = JSON.stringify({
       "model": "text-davinci-003",
@@ -86,6 +86,3 @@ document.addEventListener('keypress',async(e)=>{
 
 })();
 
-//viv- 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
-//abhi- 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
-//sur- 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
