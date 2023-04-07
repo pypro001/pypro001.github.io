@@ -1,0 +1,48 @@
+Design a program for accepting decimal number divisible by 2. in python
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+
+def is_divisible_by_two(decimal_number):
+    last_digit = int(decimal_number[-1])
+    return last_digit % 2 == 0
+
+decimal_number = input("Enter a decimal number: ")
+
+if is_divisible_by_two(decimal_number):
+    print("The decimal number is divisible by 2.")
+else:
+    print("The decimal number is not divisible by 2.")
+
+
+
+<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+// Check if the decimal number is divisible by 2
+bool is_divisible_by_two(string decimal_number) {
+    int last_digit = decimal_number[decimal_number.length() - 1] - '0';
+    return last_digit % 2 == 0;
+}
+
+int main() {
+    string decimal_number;
+    cout << "Enter a decimal number: ";
+    cin >> decimal_number;
+
+    if (is_divisible_by_two(decimal_number)) {
+        cout << "The decimal number is divisible by 2." << endl;
+    } else {
+        cout << "The decimal number is not divisible by 2." << endl;
+    }
+
+    return 0;
+}
+
+
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>

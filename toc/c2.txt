@@ -1,0 +1,73 @@
+#Write a program for generating regular expressions for regular grammar>
+>>>>>>>>>>>>>>>>
+
+import re
+string1='1 2 this is sarvesh  17'
+pattern1='\d+'
+result=re.findall(pattern1,string1)
+print(result)
+
+#split function
+
+string2='tweleve 12 eighty nine 89'
+pattern2='\d+'
+result=re.split(pattern2,string2)
+print(result)
+
+#remove whitespaces
+string3='this is a program to remove white spaces'
+pattern3='\s+'
+replace=' '
+new_string=re.sub(pattern3,replace,string3)
+print(new_string)
+
+code>>>>>>>>>>>>>>>>>>
+
+c++()<<<<<<<<<<<>>>>>>>>>>>>>>
+
+#include <iostream>
+#include <vector>
+#include <unordered_map>
+#include <regex>
+
+using namespace std;
+
+// Generate regular expression for a given regular grammar
+string generate_regex(vector<string> grammar) {
+    unordered_map<char, string> regex_map;
+
+    // Iterate through the grammar rules to build the regex_map
+    for (string rule : grammar) {
+        char lhs = rule[0];
+        string rhs = rule.substr(3);
+        if (rhs.size() == 1 && islower(rhs[0])) {
+            regex_map[lhs] = rhs;
+        } else {
+            string regex_str = "";
+            for (char symbol : rhs) {
+                if (islower(symbol)) {
+                    regex_str += symbol;
+                } else {
+                    regex_str += "(" + regex_map[symbol] + ")";
+                }
+            }
+            regex_map[lhs] = regex_str;
+        }
+    }
+
+    // Return the regular expression for the start symbol
+    return regex_map[grammar[0][0]];
+}
+
+int main() {
+    vector<string> grammar = {"S -> aS", "S -> bA", "A -> cA", "A -> d"};
+
+    string regex = generate_regex(grammar);
+
+    cout << regex << endl;
+
+    return 0;
+}
+
+
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>

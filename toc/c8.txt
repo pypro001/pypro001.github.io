@@ -1,0 +1,57 @@
+#Design a program for creating a machine which count number of 1’s and 0’s in a given
+
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+#string.
+def count_zeros_ones(input_string):
+    zeros = 0
+    ones = 0
+    for char in input_string:
+        if char == '0':
+            zeros += 1
+        elif char == '1':
+            ones += 1
+    return (zeros, ones)
+
+# Example usage
+input_str = input("Enter a string to count the number of 0's and 1's: ")
+count = count_zeros_ones(input_str)
+print(f"Number of 0's: {count[0]}")
+print(f"Number of 1's: {count[1]}")
+
+<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+// Count the number of 1's and 0's in the string
+pair<int, int> count_ones_zeros(string str) {
+    int ones_count = 0, zeros_count = 0;
+    for (char c : str) {
+        if (c == '1') {
+            ones_count++;
+        } else if (c == '0') {
+            zeros_count++;
+        }
+    }
+    return make_pair(ones_count, zeros_count);
+}
+
+int main() {
+    string str;
+    cout << "Enter a string: ";
+    cin >> str;
+
+    pair<int, int> counts = count_ones_zeros(str);
+
+    cout << "Number of 1's: " << counts.first << endl;
+    cout << "Number of 0's: " << counts.second << endl;
+
+    return 0;
+}
+
+
+<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>

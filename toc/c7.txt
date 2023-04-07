@@ -1,0 +1,60 @@
+#Design a program for creating a machine which accepts string having equal no. of 1’s
+#and 0’s.
+
+<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+def string_machine(input_string):
+    # Count the number of 0's and 1's in the input string
+    zeros = input_string.count('0')
+    ones = input_string.count('1')
+
+    # Check if the number of 0's and 1's are equal
+    if zeros == ones:
+        return True
+    else:
+        return False
+
+# Example usage
+input_str = input("Enter a string with equal number of 0's and 1's: ")
+if string_machine(input_str):
+    print("The string is accepted by the machine.")
+else:
+    print("The string is not accepted by the machine.")
+
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>
+
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+// Check if the string has an equal number of 1's and 0's
+bool is_equal_ones_zeros(string str) {
+    int ones_count = 0, zeros_count = 0;
+    for (char c : str) {
+        if (c == '1') {
+            ones_count++;
+        } else if (c == '0') {
+            zeros_count++;
+        }
+    }
+    return ones_count == zeros_count;
+}
+
+int main() {
+    string str;
+    cout << "Enter a string: ";
+    cin >> str;
+
+    if (is_equal_ones_zeros(str)) {
+        cout << "The string has an equal number of 1's and 0's." << endl;
+    } else {
+        cout << "The string does not have an equal number of 1's and 0's." << endl;
+    }
+
+    return 0;
+}
+
+
+><<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>
