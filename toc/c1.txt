@@ -1,0 +1,14 @@
+<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
+import re
+
+def tokenize(input_string):
+    # Remove all non-alphanumeric characters and split the string into a list of words
+    words = re.findall(r'\w+', input_string.lower())
+    return words
+
+# Example usage
+input_string = "Hello, world! This is an example string."
+tokens = tokenize(input_string)
+print(tokens)
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
