@@ -1,0 +1,288 @@
+#Design a program for creating a machine which accepts string paving equal no. of 1’s
+#and 0’s.
+def string_machine(input_string):
+    # Count the number of 0's and 1's in the input string
+    zeros = input_string.count('0')
+    ones = input_string.count('1')
+
+    # Check if the number of 0's and 1's are equal
+    if zeros == ones:
+        return True
+    else:
+        return False
+
+# Example usage
+input_str = input("Enter a string with equal number of 0's and 1's: ")
+if string_machine(input_str):
+    print("The string is accepted by the machine.")
+else:
+    print("The string is not accepted by the machine.")
+
+<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+#Design a Program for creating machine that accepts the string always ending with 101.
+class FSM:
+    def __init__(self):
+        self.current_state = 'q0'
+
+    def transition(self, input):
+        if self.current_state == 'q0' and input == '1':
+            self.current_state = 'q1'
+        elif self.current_state == 'q1' and input == '0':
+            self.current_state = 'q2'
+        elif self.current_state == 'q2' and input == '1':
+            self.current_state = 'q3'
+            print("Accepted")
+        elif input == '0':
+            self.current_state = 'q0'
+        else:
+            self.current_state = 'q1'
+
+# create FSM object
+fsm = FSM()
+
+# test input strings
+input_strings = ['001101', '101101', '11101101', '1111101']
+
+# feed input strings to FSM
+for string in input_strings:
+    for char in string:
+        fsm.transition(char)
+
+<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+#Write a program for generating derivation sequence / language for the given sequence of
+#productions
+def generate_sequence(string,productions):
+    new_string=""
+    for char in string:
+        if char in productions:
+            new_string+=productions[char]
+        else:
+            new_string+=char
+    return new_string
+productions={'s':'aAb','A':'aAb'}
+string ='s'
+for i in range(4):
+    print(string)
+    string=generate_sequence(string,productions)
+    x=string.replace("A","");
+    print("final output :"+x)
+<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+#Design a PDA to accept WCWR where w is any string and WR is reverse of that string
+#and C is a Special symbol
+class PDA:
+    def __init__(self, transitions, start_state, accept_states):
+        self.transitions = transitions
+        self.start_state = start_state
+        self.accept_states = accept_states
+
+    def accepts(self, input_str):
+        stack = []
+        current_state = self.start_state
+        input_str = input_str + '#' # '#' symbol to represent the bottom of the stack
+
+        for char in input_str:
+            if (current_state, char, stack[-1] if stack else None) in self.transitions:
+                new_state, new_char, pop_char, push_chars = self.transitions[(current_state, char, stack[-1] if stack else None)]
+
+                if pop_char:
+                    stack.pop()
+
+                if push_chars:
+                    stack += push_chars
+
+                current_state = new_state
+
+                if current_state in self.accept_states and not input_str:
+                    return True
+            else:
+                return False
+        return False
+
+# Define the PDA transitions
+transitions = {
+    ('q0', '0', None): ('q0', '0', None, ['0']),
+    ('q0', '1', None): ('q0', '1', None, ['1']),
+    ('q0', 'C', None): ('q1', 'C', None, ['#']),
+    ('q1', '0', '0'): ('q1', '0', '0', []),
+    ('q1', '1', '1'): ('q1', '1', '1', []),
+    ('q1', '#', '#'): ('q2', '#', '#', []),
+    ('q2', '0', '0'): ('q2', '0', '0', []),
+    ('q2', '1', '1'): ('q2', '1', '1', []),
+    ('q2', None, '#'): ('q3', None, '#', []),
+    ('q3', '0', '0'): ('q3', '0', '0', []),
+    ('q3', '1', '1'): ('q3', '1', '1', []),
+    ('q3', '#', '#'): ('q4', '#', '#', []),
+    ('q4', None, None): ('q5', None, None, []),
+}
+
+# Define the PDA start state and accept state(s)
+start_state = 'q0'
+accept_states = {'q5'}
+
+# Create a PDA object and test it with some input strings
+pda = PDA(transitions, start_state, accept_states)
+
+input_str1 = '101C101'
+input_str2 = '000'
+input_str3 = '011C110'
+input_str4 = '10C01'
+
+print(f"Input string {input_str1} is accepted: {pda.accepts(input_str1)}")
+print(f"Input string {input_str2} is accepted: {pda.accepts(input_str2)}")
+print(f"Input string {input_str3} is accepted: {pda.accepts(input_str3)}")
+print(f"Input string {input_str4} is accepted: {pda.accepts(input_str4)}")
+
+
+<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+#Design a program for creating a machine which count number of 1’s and 0’s in a given
+#string.
+def count_zeros_ones(input_string):
+    zeros = 0
+    ones = 0
+    for char in input_string:
+        if char == '0':
+            zeros += 1
+        elif char == '1':
+            ones += 1
+    return (zeros, ones)
+
+# Example usage
+input_str = input("Enter a string to count the number of 0's and 1's: ")
+count = count_zeros_ones(input_str)
+print(f"Number of 0's: {count[0]}")
+print(f"Number of 1's: {count[1]}")
+
+<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+#Design a Program for creating machine that accepts three consecutive one
+class FSM:
+    def __init__(self):
+        self.current_state = 'q0'
+
+    def transition(self, input):
+        if self.current_state == 'q0' and input == '1':
+            self.current_state = 'q1'
+        elif self.current_state == 'q1' and input == '1':
+            self.current_state = 'q2'
+        elif self.current_state == 'q2' and input == '1':
+            self.current_state = 'q3'
+            print("Accepted")
+        else:
+            self.current_state = 'q0'
+
+# create FSM object
+fsm = FSM()
+
+# test input strings
+input_strings = ['0011101', '1011110', '1110000', '1111111']
+
+# feed input strings to FSM
+for string in input_strings:
+    for char in string:
+        fsm.transition(char)
+
+<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+import nltk
+nltk.download
+#sentence tokenization
+from nltk.tokenize import sent_tokenize
+text = "hello. I am sonu"
+sent_tokenize(text)
+
+#word tokenization
+from nltk.tokenize import word_tokenize
+text = "hello. I am sonu"
+word_tokenize(text)
+
+from nltk.tokenize import RegexpTokenizer
+tokenizer  = RegexpTokenizer("("\w")+")
+text = "hello. I am sonu"
+tokenizer.tokenize(text)
+
+from nltk.tokenize import WordPunctTokenizer
+tokenizer  = WordPunctTokenizer()
+text = "hello. I am sonu"
+tokenizer.tokenize(text)
+
+#split a string into a python list using a loop 
+text = "this is sonu"
+lst = []
+from letters in text:
+	lst.append(letter)
+print(lst)
+
+def split(word):
+	return list(word)
+word = "sonu penwala"
+print(split(word))
+
+
+<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+from turing_machine import TuringMachine
+
+# Define the transition function
+transition_function = {
+    ('q0', 'a'): ('q1', 'X', 'R'),
+    ('q1', 'a'): ('q1', 'a', 'R'),
+    ('q1', 'b'): ('q2', 'Y', 'R'),
+    ('q2', 'b'): ('q2', 'b', 'R'),
+    ('q2', 'c'): ('q3', 'Z', 'R'),
+    ('q3', 'c'): ('q3', 'c', 'R'),
+    ('q3', ' '): ('q4', ' ', 'L'),
+    ('q4', 'Z'): ('q4', 'Z', 'L'),
+    ('q4', 'Y'): ('q5', 'Y', 'L'),
+    ('q5', 'Y'): ('q5', 'Y', 'L'),
+    ('q5', 'X'): ('q6', 'X', 'L'),
+    ('q6', 'X'): ('q6', 'X', 'L'),
+    ('q6', ' '): ('q0', ' ', 'R')
+}
+
+# Create the Turing machine object
+tm = TuringMachine(
+    states={'q0', 'q1', 'q2', 'q3', 'q4', 'q5', 'q6'},
+    symbols={'a', 'b', 'c', 'X', 'Y', 'Z', ' '},
+    tape_symbols={'a', 'b', 'c', ' '},
+    blank_symbol=' ',
+    input_symbols={'a', 'b', 'c'},
+    initial_state='q0',
+    accepting_states={'q4'},
+    transition_function=transition_function
+)
+
+# Run the Turing machine with input 'aaabbbccc'
+print(tm.run('aaabbbccc'))
+
+
+
+<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+#Write a program for generating regular expressions for regular grammar
+import re
+string1='1 2 this is sarvesh  17'
+pattern1='\d+'
+result=re.findall(pattern1,string1)
+print(result)
+
+#split function
+
+string2='tweleve 12 eighty nine 89'
+pattern2='\d+'
+result=re.split(pattern2,string2)
+print(result)
+
+#remove whitespaces
+string3='this is a program to remove white spaces'
+pattern3='\s+'
+replace=' '
+new_string=re.sub(pattern3,replace,string3)
+print(new_string)
+
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
