@@ -1,0 +1,88 @@
+practical 05(RIP-v1)
+
+1)router(1941) -03
+2)switch(2960-24TT) -03
+3)pc - 09
+4)for router turn off copy (HWC-2T) and turn off for all router
+to connect plan wire with gigabit(0/0)
+5) connect router to router we take topology (Red zigzak) wire with (serial 0/0) and second one (serial 0/1)
+6)we have to fill ipv4 Adrress(10.0.0.2),(0.3),(0.4)
+			default gateway(10.0.0.1)
+
+	LIKE that all pc have to fill (20.0.0.2),(0.3)(0.4)
+	(30.0.0.2), (0.3)...................like that
+
+(router 0)
+Router>en
+Router>enable
+Router#
+Router#configure terminal
+Enter configuration commands, one per line. End with CNTL/Z. Router(config)#interface gigabitEthernet 0/0
+Router(config-if)#ip address 10.0.0.1 255.0.0.0
+Router(config-if)#no shutdown
+Router(config-if)#exit
+Router(config)#interface serial 0/1/0
+Router(config-if)#ip address 192.168.0.1 255.255.255.0
+Router(config-if)#no shutdown
+Router(config-if)#exit
+Router(config)#
+Router#
+
+ 
+(router 1)
+Router>enable
+Router#configure terminal
+Router(config)#interface gigabitEthernet 0/0
+Router(config-if)#ip address 20.0.0.1 255.0.0.0
+Router(config-if)#no shutdown
+Router(config-if)#exit
+Router(config)#interface serial 0/1/0
+Router(config-if)#ip address 192.168.0.2 255.255.255.0
+Router(config-if)#no shutdown
+Router(config-if)#exit
+Router(config)#interface serial 0/1/1
+Router(config-if)#ip address 192.168.1.1 255.255.255.0
+Router(config-if)#no shutdown
+
+(router 2)
+Router>enable
+Router#configure terminal
+Router(config)#interface gigabitEthernet 0/0
+Router(config-if)#ip address 30.0.0.1 255.0.0.0
+Router(config-if)#no shutdown
+Router(config-if)#exit
+Router(config)#interface serial 0/1/1
+Router(config-if)#ip address 192.168.1.2 255.255.255.0
+Router(config-if)#no shutdown
+
+  
+Setting the RIPv1 on Router 0
+Router>enable
+Router#configure terminal
+Router(config)#router rip
+Router(config-router)#network 10.0.0.0
+Router(config-router)#network 192.168.0.0
+Router(config-router)#exit
+
+
+Setting the RIPv1 on Router 1
+Router>enable
+Router#configure terminal
+Enter configuration commands, one per line. End with CNTL/Z. Router(config)#router rip
+Router(config-router)#network 192.168.0.0
+Router(config-router)#network 20.0.0.0
+Router(config-router)#network 192.168.1.0
+Router(config-router)#exit
+Router(config)#
+Router#
+
+Setting the RIPv1 on Router 2
+Router>enable
+Router#configure terminal
+Router(config)#router rip
+Router(config-router)#network 192.168.1.0
+Router(config-router)#network 30.0.0.0
+Router(config-router)#exit
+Router(config)#
+
+checking connectivity: ping 30.0.0.4
