@@ -1,0 +1,11 @@
+c1
+srs
+
+*introduction
+*funtional requirment
+*non-funtional requirment
+*system architechture
+*data management'
+*user interface
+*testing and validation
+*system manatance
