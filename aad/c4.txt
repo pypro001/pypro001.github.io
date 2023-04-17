@@ -1,0 +1,29 @@
+<<<<<<<<<<<<<<<<<<<<<Write a program to create and implement modules and controllers
+in Angular JS>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>MVC model view Control in Angular JS</title>
+<script
+src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.m
+in.js"></script>
+</head>
+<body>
+<h1 >Subjects</h1>
+<script>
+var app = angular.module("subjects",[]);
+app.controller("my_ctrl",function($scope){
+$scope.name=["English","Maths","Economics"];
+});
+</script>
+<div ng-app="subjects" ng-controller="my_ctrl">
+<ul>
+<li ng-repeat="var in name">{{var}}</li>
+</ul>
+</div>
+</body>
+</html>
+
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>

@@ -1,0 +1,13 @@
+list
+
+c1=	Write a program to connect to MongoDB
+	Write a program for mongoDB connection using mongoose
+	Mongoose:
+c2=	Write a program to implement CRUD operations on MongoDB
+c3=	Write a program to perform validation of a form using AngularJS
+c4=	Write a program to create and implement modules and controllers
+	in Angular JS
+c5=	Create an application for Customer / Students records using
+	AngularJS
+c6=	Create a simple HTML “Hello World” Project using AngularJS
+	Framework and apply ng-controller, ng-model and expressions

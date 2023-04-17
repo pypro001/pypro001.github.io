@@ -1,0 +1,28 @@
+<<<<<<<<<<<<<<<<<<<==========Create a simple HTML “Hello World” Project using AngularJS
+Framework and apply ng-controller, ng-model and expressions=================>>>>>>>>>>>>>>>>>>>>>>>>>
+
+Step:1 Create a new folder and open it in visual code.
+Step:2 Now install the angular module into it.
+npm install -g @angular/cli
+Step:3 Now write ng new student-form and select yes for routing.
+Press Enter on CSS. It will install all required packages and folder.
+
+
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+<meta charset="utf 8">
+<title>Practical 8</title>
+</head>
+<body>
+
+<h1 ng-controller="HelloWorldCtrl">{{message}}</h1>
+<script src="https://code.angularjs.org/1.6.9/angular.js"></script>
+<script>
+angular.module("app", []).controller("HelloWorldCtrl",
+function($scope) {
+$scope.message="Hello World"
+} )
+</script>
+</body>
+</html>

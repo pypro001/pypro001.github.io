@@ -1,0 +1,57 @@
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Write a program to implement CRUD operations on MongoDB>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+Create Operations –
+Create a database
+Syntax- use database_name
+
+Operation- Create a collection within a database
+Syntax- db.createCollection(name)
+Code:
+
+Operation- Insert a document
+
+Syntax- db.collection.insert({‘key_a’:’value_a’, ‘key_b’:’value_b’})
+Code:
+
+Operation- Insert multiple documents
+Syntax- db.collection.insertMany([{“key1_a”:”value1_a”,”key1_b”:”
+value1_b”}, {“key2_a”:”value2_a”, “key2_b”:”value2_b”}])
+Code:
+db.studentdata.insert({'name':'Sam','class':'SYCS',
+'rollno':'18'},{'name':'John','class':'SYCS','rollno'
+:'26'})
+
+READ OPERATION
+
+db.studentdata.find()
+{
+_id: ObjectId("642f0ff1588e7d0797c3a609"),
+name: 'Sachin',
+class: 'SYCS',
+rollno: '15'
+}
+{
+_id: ObjectId("642f10e3588e7d0797c3a60a"),
+name: 'Sam',
+class: 'SYCS',
+rollno: '18'
+}
+
+db.studentdata.findOne()
+
+{
+_id: ObjectId("642f0ff1588e7d0797c3a609"),
+name: 'Sachin',
+class: 'SYCS',
+rollno: '15'
+}
+UPDATE OPERATION
+db.COLLECTION_NAME.update(SELECTION_CRITERIA,
+UPDATED_DATA)
+
+DELETE OPERATION
+Synatx: db.collection.deleteOne({condition})
+
+Deletemany()
+
+<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>

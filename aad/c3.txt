@@ -1,0 +1,24 @@
+<<<<<<<<<<<<<<<<<<<<<Write a program to perform validation of a form using AngularJS>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>This is an angular JS form Validation</title>
+<script
+src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.m
+in.js"></script>
+</head>
+<body ng-app="">
+
+<h1>Program No 3</h1>
+<h3>AngularJs Form validation</h3>
+<form name="form1">
+<p>Name:
+<input name="username" ng-model="username" required>
+<span ng-show="form1.username.$dirty &&
+form1.username.$invalid">The name is required</span>
+</p>
+<p>Address:<input name="useraddress" ngmodel="useraddress" required></p>
+</form>
+</body>
+</html>
