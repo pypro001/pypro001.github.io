@@ -1,8 +1,15 @@
 ---- eh index ------
-prec1 == dedc
-prec2 ==
-prec3 == 
-prec4 == 
+prec1 == Use Google and Whois for Reconnaissance. 
+prec2 ==a) Use CrypTool to encrypt and decrypt 
+          passwords using RC4 algorithm. 
+        b) Use Cain and Abel for cracking Windows 
+          account password using Dictionary attack and 
+          to decode wireless network passwords
+prec3 == a) Run and analyze the output of the commands on 
+           Linux – ifconfig, ping, netstat, traceroute 
+         b) Perform ARP Poisoning in Windows.
+prec4 == Use NMAP scanner to perform port 
+         scanning of various forms
 prec5 == 
 prec6 == 
 prec7 == 
