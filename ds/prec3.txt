@@ -1,0 +1,277 @@
+use tycs
+switched to db tycs
+create a collection user and insert a document in it.
+tycs > db.createCollection(‘user’)
+{ ok: 1 }
+tycs > db.user.insert({name : “Your_name” , age : Your_Age}) e.g., db.user.insert({name :"Akash" , age : 21})
+{
+acknowledged: true,
+insertedIds: { '0': ObjectId("63636f30e0231d7dfed52a2b") }
+}
+tycs > show dbs admin	40.00 KiB
+config 108.00 KiB
+local	72.00 KiB
+tycs	40.00 KiB
+
+
+
+MongoDB drop Database The syntax to drop Database is: tycs > db.dropDatabase()
+{ ok: 1, dropped: 'tycs' } tycs > show dbs
+admin	40.00 KiB
+config 108.00 KiB
+local	72.00 KiB
+
+
+Create Collection in MongoDB
+Method 1: Creating the Collection in MongoDB on the fly test > use tycs
+switched to db tycs / already on db tycs
+tycs > db.tycs.insert({name:"Akash",age:21,website:"www.google.com"})
+{
+acknowledged: true,
+insertedIds: { '0': ObjectId("63637411e0231d7dfed52a2c") }
+}
+Syntax: db.collection_name.find() tycs > db.tycs.find()
+[
+{
+_id: ObjectId("63637411e0231d7dfed52a2c"), name: 'Akash',
+age: 21,
+website: 'www.google.com'
+}
+]
+tycs > show collections
+
+tycs
+
+
+
+
+MongoDB Drop Collections
+tycs > show collections tycs
+tycs > db.createCollection('students')
+{ ok: 1 }
+tycs > show collections students
+tycs
+tycs > db.students.drop() true
+tycs > show collections tycs
+
+
+
+MongoDB Insert Documents
+tycs> db.tycs.insert(
+... {
+... name:'Saloni',
+... age:20,
+... email:'saloni@gmail.com',
+... cource:[{name:"Mongodb", duration: 7},{name:"Java",duration:30}]
+... }
+... )
+{
+acknowledged: true,
+insertedIds: { '0': ObjectId("6364cb5aa38d561af9f1af52") }
+}
+
+Verification:
+Syntax: db.collection_name.find() tycs> db.tycs.find()
+[
+{
+_id: ObjectId("63637411e0231d7dfed52a2c"), name: 'Akash',
+age: 21,
+
+website: 'www.google.com'
+},
+{
+_id: ObjectId("6364cb5aa38d561af9f1af52"), name: 'Saloni',
+age: 20,
+email: 'saloni@gmail.com', cource: [
+{ name: 'Mongodb', duration: 7 },
+{ name: 'Java', duration: 30 }
+]
+}
+]
+
+MongoDB query Document
+a.Using find() method.
+Querying all the documents in JSON format tycs > db.students.find()pretty()
+[
+{
+_id: ObjectId("63637411e0231d7dfed52a2c"), name: 'Akash',
+age: 21,
+website: 'www.google.com'
+},
+{
+_id: ObjectId("6364cb5aa38d561af9f1af52"), name: 'Saloni',
+age: 20,
+email: 'saloni@gmail.com', cource: [
+{ name: 'Mongodb', duration: 7 },
+{ name: 'Java', duration: 30 }
+]
+}
+]
+b.Based on criteria
+tycs > db.tycs.find({name:'Akash'}).pretty() [
+{
+_id: ObjectId("63637411e0231d7dfed52a2c"), name: 'Akash',
+age: 21,
+website: 'www.google.com'
+}
+]
+
+
+
+Updating Document using update() method.
+Syntax:
+db.collection_name.update(criteria, update_data) tycs> db.tycs.find()
+[
+{
+_id: ObjectId("63637411e0231d7dfed52a2c"), name: 'Akash',
+age: 21,
+website: 'www.google.com'
+},
+
+{
+_id: ObjectId("6364cb5aa38d561af9f1af52"), name: 'Saloni',
+age: 20,
+email: 'saloni@gmail.com', cource: [
+{ name: 'Mongodb', duration: 7 },
+{ name: 'Java', duration: 30 }
+]
+}
+]
+
+tycs> db.tycs.update(
+... {
+... name: 'Akash'},
+... {$set:
+... {name:'Ramesh'}
+... }
+... )
+DeprecationWarning: Collection.update() is deprecated. Use updateOne, updateMany, or bulkWrite.
+{
+acknowledged: true, insertedId: null, matchedCount: 1,
+modifiedCount: 1,
+upsertedCount: 0
+}
+
+tycs> db.tycs.find()
+[
+{
+_id: ObjectId("63637411e0231d7dfed52a2c"), name: 'Ramesh',
+age: 21,
+website: 'www.google.com'
+
+},
+{
+_id: ObjectId("6364cb5aa38d561af9f1af52"), name: 'Saloni',
+age: 20,
+email: 'saloni@gmail.com', cource: [
+{ name: 'Mongodb', duration: 7 },
+{ name: 'Java', duration: 30 }
+]
+}
+]
+
+
+
+
+MongoDB Delete Document from Collection Syntax:
+db.collection_name.remove(delete_criteria) tycs> db.got.find()
+[
+{
+_id: ObjectId("636511d723a73624667593ec"), First_Name: 'Radhika',
+Last_Name: 'Sharma', Date_Of_Birth: '1995-09-26',
+e_mail: 'radhika_sharma.123@gmail.com', phone: '9848022338'
+},
+{
+_id: ObjectId("63651c4f23a73624667593ed"), First_Name: 'Rohit',
+Last_Name: 'Sharma', Date_Of_Birth: '1987-04-30',
+e_mail: 'rohit_sharma.123@gmail.com', phone: '9848022348'
+}
+]
+
+tycs> db.got.remove({First_Name:"Radhika"})
+
+DeprecationWarning: Collection.remove() is deprecated. Use deleteOne, deleteMany, findOneAndDelete, or bulkWrite.
+{ acknowledged: true, deletedCount: 1 } tycs> db.got.find()
+[
+{
+_id: ObjectId("63651c4f23a73624667593ed"), First_Name: 'Rohit',
+Last_Name: 'Sharma', Date_Of_Birth: '1987-04-30',
+e_mail: 'rohit_sharma.123@gmail.com', phone: '9848022348'
+}
+]
+
+
+Remove all Documents Syntax: db.collection_name.remove({}) tycs> db.got.remove({})
+{ acknowledged: true, deletedCount: 1 } tycs> db.got.find()
+
+
+MongoDB Projections Syntax:
+db.collection_name.find({},{field_key:1 or 0}) tycs> db.got.find().pretty()
+[
+{
+_id: ObjectId("507f191e810c19729de860e1"), title: 'MongoDB Overview'
+},
+{
+_id: ObjectId("507f191e810c19729de860e2"), title: 'NoSQL Overview'
+},
+{
+_id: ObjectId("507f191e810c19729de860e3"), title: 'Tutorials Point Overview'
+}
+]
+tycs> db.got.find({},{"title":1,_id:0}) [
+{ title: 'MongoDB Overview' },
+{ title: 'NoSQL Overview' },
+{ title: 'Tutorials Point Overview' }
+]
+
+
+
+
+
+MongoDB limit() and skip() method Syntax for limit() method: db.COLLECTION_NAME.find().limit(NUMBER) Syntax for skip() method:
+db.COLLECTION_NAME.find().limit(NUMBER).skip(NUMBER) tycs> db.got.find({},{"title":1,_id:0}).limit(2)
+[ { title: 'MongoDB Overview' }, { title: 'NoSQL Overview' } ] tycs> db.got.find({},{"title":1,_id:0}).limit(1).skip(1)
+[ { title: 'NoSQL Overview' } ]
+
+
+
+
+MongoDB Sorting of Document Syntax: db.COLLECTION_NAME.find().sort({KEY:1}) tycs> db.got.find().pretty()
+[
+{
+_id: ObjectId("507f191e810c19729de860e1"), title: 'MongoDB Overview'
+},
+{
+_id: ObjectId("507f191e810c19729de860e2"), title: 'NoSQL Overview'
+},
+{
+_id: ObjectId("507f191e810c19729de860e3"), title: 'Tutorials Point Overview'
+}
+]
+tycs> db.got.find({},{"title":1,_id:0}).sort({"title":-1}) [
+{ title: 'Tutorials Point Overview' },
+{ title: 'NoSQL Overview' },
+{ title: 'MongoDB Overview' }
+]
+
+
+
+
+MongoDB Indexing Syntax:
+db.COLLECTION_NAME.createIndex({KEY:1}) The value 1 is for ascending order and
+-1 is for descending order.
+Let’s create the index on student_name field in ascending order: tycs> db.got.createIndex({"title":1})
+title_1
+tycs> db.got.getIndexes() [
+{ v: 2, key: { _id: 1 }, name: '_id_' },
+{ v: 2, key: { title: 1 }, name: 'title_1' }
+]
+tycs> db.got.dropIndexes()
+
+{
+nIndexesWas: 2,
+msg: 'non-_id indexes dropped for collection', ok: 1
+}
+tycs> db.got.getIndexes()
+[ { v: 2, key: { _id: 1 }, name: '_id_' } ]
+
