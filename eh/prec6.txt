@@ -1,0 +1,15 @@
+Practical No:-6
+Aim :- Simulate persistent cross-site scripting attack Cross-site scripting attack: 
+Steps: Step-1) Download and install the xampp server and DVWA using below links Xampp -> https://www.apachefriends.org/download. 
+html DVWA -> https://dvwa.co.uk/
+Step-2) Open the xampp server then start MySql and Apache
+Step-3) Extract the DVWA file in xampp ->htdocs and rename as dvwa. Open dvwa folder -> config. Copy the config.inc.php.dist which is the default file and rename it as config,inc.php as shown below
+Step-4) Open the config.inc.php.dist file and clear the password and give username „root‟
+Then save it as config.inc.php 
+Step-5) Then go to browser and give the link http://www.localhost/dvwa/setup.php it will open the below window. 
+Step-6)Click on Create/Reset Database it will open the below window in that window give the username „Admin‟ and and password „password‟. 
+Click on Login 
+Step-7) Now go to DVWA Security and set as low Click on submit 
+Step-8) Now go to XSS(Stored) Give the name that you want and Message in html format i.e., given below 
+Click on Sign Guestbook after that in the below window the o/p of message will shown in bold. 
+Click OK 
