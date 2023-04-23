@@ -1,9 +1,0 @@
-from time import sleep
-from picamera import PiCamera
-from = PiCamera()
-camera.reSoluttion=(1280,720)
-camera.Start_preview()
-
-sleep(2)
-camera.capture('/home/pi/Pictures/newImage;Pg')
-camera.stop_preview()
