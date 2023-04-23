@@ -1,0 +1,21 @@
+Practical No:-3.1
+Aim : Run and Analyze the output of the commands on Linux – ifconfig, ping, netstat, traceroute.
+1. Ifconfig :
+Command : ~$ ifconfig 
+2. Ping : 
+Command : ~$ ping www.google.com
+3. Netstat :
+Command :~$ netstat –r
+4. Traceroute :
+Command :~$ traceroute 4.2.2.2
+
+
+Practical No:-3.2
+Aim : Perform ARP Poisoning in window.
+$ arp –a
+$ ifconfig /all
+$ arp –s 192.168.137.1 8c-89-a5-91-d6-3f 
+ $ arp –a
+$ arp –d 192.168.137.1 
+$ arp –a 
+
