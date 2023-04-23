@@ -1,18 +1,14 @@
 ---- eh index ------
 prec1 == Use Google and Whois for Reconnaissance. 
-prec2 ==a) Use CrypTool to encrypt and decrypt 
-          passwords using RC4 algorithm. 
-        b) Use Cain and Abel for cracking Windows 
-          account password using Dictionary attack and 
-          to decode wireless network passwords
-prec3 == a) Run and analyze the output of the commands on 
-           Linux – ifconfig, ping, netstat, traceroute 
+prec2 ==a) Use CrypTool to encrypt and decrypt passwords using RC4 algorithm. 
+        b) Use Cain and Abel for cracking Windows account password using Dictionary attack and to decode wireless network passwords
+prec3 == a) Run and analyze the output of the commands on Linux – ifconfig, ping, netstat, traceroute 
          b) Perform ARP Poisoning in Windows.
-prec4 == Use NMAP scanner to perform port 
-         scanning of various forms
-prec5 == 
-prec6 == 
-prec7 == 
-prec8 == 
-prec9 == 
-prec10 == 
+prec4 == Use NMAP scanner to perform port scanning of various forms
+prec5 == a) Use Wireshark (Sniffer) to capture network traffic and analyze 
+         b) Use Nemesis to launch DoS
+prec6 == Simulate persistent cross-site scripting attack
+prec7 == Session impersonation using Firefox and Tamper Data add-on
+prec8 == Perform SQL injection attack
+prec9 == Create a simple keylogger using python.
+prec10 == Using Metasploit to exploit (Kali Linux)
