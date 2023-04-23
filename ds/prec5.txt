@@ -1,0 +1,20 @@
+> data("USArrests")
+> df<-scale(USArrests)
+> head(df,n=3)
+> install.packages("factoextra")
+> library(factoextra)
+>fviz_nbclust(df,kmeans,method="wss")+geom_vline(xintercept=4,linetype=2)
+> set.seed(123)
+> km.res<-kmeans(df,4,nstart=25)
+> print(km.res)
+> aggregate(USArrests,by=list(cluster=km.res$cluster),mean)
+> dd<-cbind(USArrests,cluster=km.res$cluster)
+> head(dd)
+> km.res$cluster
+> head(km.res$cluster,4)
+> km.res$size
+> km.res$centers
+> fviz_cluster(km.res,df,geom="point",ellipse.type="norm")
+> hc.cut<-hcut(df,k=3,hc_method="complete")
+> fviz_dend(hc.cut,show_labels=FALSE,rect=TRUE)
+> fviz_cluster(hc.cut,ellipse.type="convex")
