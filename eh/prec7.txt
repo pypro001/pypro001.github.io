@@ -1,0 +1,18 @@
+Practical No:-7
+Aim :- Session impersonation using Firefox and Tamper Data add-on. 
+STEPS: 1. Open Mozilla Firefox. And go. 
+2.Then search for “tamper data” . 
+4. Click on Add to Firefox 
+5. Open new tab and search for www.razorba.com
+5. Open new tab and search for www.razorba.com
+6. Select any item
+7. Click on “Add to Cart” 
+8. Then click on “Proceed to checkout”.
+9. Now click on “One Day” 
+10. Then click on the blue icon at the right side of the page
+11. Now click on “Yes” 
+12. Click on “PayPal” 
+13. Click “Ok”.
+14. Again Click “Ok”. 
+15. Click “Ok”. 
+
