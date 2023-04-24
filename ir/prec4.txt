@@ -1,36 +1,52 @@
-Program Code :-
-
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
-  
-# X = input("Enter first string: ").lower()
-# Y = input("Enter second string: ").lower()
-X ="I love horror movies"
-Y ="Lights out is a horror movie"
-  
-# tokenization
-X_list = word_tokenize(X) 
-Y_list = word_tokenize(Y)
-  
-# sw contains the list of stopwords
-sw = stopwords.words('english') 
-l1 =[];l2 =[]
-  
-# remove stop words from the string
-X_set = {w for w in X_list if not w in sw} 
-Y_set = {w for w in Y_list if not w in sw}
-  
-# form a set containing keywords of both strings 
-rvector = X_set.union(Y_set) 
-for w in rvector:
-    if w in X_set: l1.append(1) # create a vector
-    else: l1.append(0)
-    if w in Y_set: l2.append(1)
-    else: l2.append(0)
-c = 0
-  
-# cosine formula 
-for i in range(len(rvector)):
-        c+= l1[i]*l2[i]
-cosine = c / float((sum(l1)*sum(l2))**0.5)
-print("similarity: ", cosine)
+import numpy as np
+import nltk
+
+def process(file):
+    raw = open(file).read()
+    tokens = word_tokenize(raw)
+    words = [w.lower() for w in tokens]
+    porter = nltk.PorterStemmer()
+    stemmed_tokens = [porter.stem(t) for t in words]
+
+    # removing stop words
+    stop_words = set(stopwords.words('english'))
+    filtered_tokens = [w for w in stemmed_tokens if not w in stop_words]
+
+    # count words
+    count = nltk.defaultdict(int)
+    for word in filtered_tokens:
+        count[word] += 1
+    
+    return count
+
+def cos_sim(a, b):
+    dot_product = np.dot(a, b)
+    norm_a = np.linalg.norm(a)
+    norm_b = np.linalg.norm(b)
+    return dot_product / (norm_a * norm_b)
+
+def get_similarity(dict1, dict2):
+    all_words_list = []
+    for key in dict1:
+        all_words_list.append(key)
+    for key in dict2:
+        all_words_list.append(key)
+
+    all_words_list_size = len(all_words_list)
+    v1 = np.zeros(all_words_list_size, dtype=int)
+    v2 = np.zeros(all_words_list_size, dtype=int)
+    i = 0
+
+    for key in all_words_list:
+        v1[i] = dict1.get(key, 0)
+        v2[i] = dict2.get(key, 0)
+        i += 1
+    
+    return cos_sim(v1, v2)
+
+if _name_ == '_main_':
+    dict1 = process('C:/New folder/1.txt')
+    dict2 = process('C:/New folder/2.txt')
+    print("Similarity:", get_similarity(dict1, dict2))
