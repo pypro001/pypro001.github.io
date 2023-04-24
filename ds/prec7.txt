@@ -16,7 +16,60 @@ $Species)], main="Iris Data", xlab="Sepal Width", ylab="Sepal Length")
 
 > summary(lm(Sepal.Length ~ Sepal.Width, data=iris))
 
+>	plot(iris$Sepal.Width, iris$Sepal.Length, pch=21, bg=c("red","green3","blue")[unclass(iris
+$Species)], main="Iris Data", xlab="Sepal Width", ylab="Sepal Length")
+
+>	abline(lm(Sepal.Length ~ Sepal.Width, data=iris)$coefficients, col="black")
+
+summary(lm(Sepal.Length ~ Sepal.Width, data=iris))
+
+lm(formula = Sepal.Length ~ Sepal.Width, data = iris)
+
+>	plot(iris$Sepal.Width, iris$Sepal.Length, pch=21, bg=c("red","green3","blue")[unclass(iris
+$Species)], main="Iris Data", xlab="Petal length", ylab="Sepal length")
+
+>	abline(lm(Sepal.Length ~ Sepal.Width, data=iris)$coefficients, col="black")
+
+>	abline(lm(Sepal.Length ~ Sepal.Width,data=iris[which(iris$Species=="setosa"),])$coeffici ents, col="red")
+
+>	abline(lm(Sepal.Length ~ Sepal.Width, data=iris[which(iris$Species=="versicolor"),])$coe fficients, col="green3")
+
+>	abline(lm(Sepal.Length ~ Sepal.Width,data=iris[which(iris$Species=="virginica"),])$coeffi cients, col="blue")
+
+>	lm(Sepal.Length ~ Sepal.Width,data=iris[which(iris$Species=="setosa"),])$coefficients 
+
+>	lm(Sepal.Length ~ Sepal.Width, data=iris[which(iris$Species=="versicolor"),])$coefficient s
+
+>	lm(Sepal.Length ~ Sepal.Width,data=iris[which(iris$Species=="virginica"),])$coefficients 
+
+>	lm(Sepal.Length ~ Sepal.Width:Species + Species - 1, data=iris)$coefficients 
+
+>	summary(lm(Sepal.Length ~ Sepal.Width:Species + Species - 1, data=iris))
+
+lm(formula = Sepal.Length ~ Sepal.Width + Species, data = iris)
+
+>	summary(lm(Sepal.Length ~ Sepal.Width:Species * Species , data=iris))
+
+Practical 6.B:
 
 
+>	input <- mtcars[,c("mpg","disp","hp","wt")]
+>	model <- lm(mpg~disp+hp+wt, data = input)
+>	print(model)
+
+>	cat("# # # # The Coefficient Values # # # ","\n") 
+# # # # The Coefficient Values # # #
+>	a <- coef(model)[1]
+>	print(a) 
+
+>	Xdisp <- coef(model)[2]
+>	Xhp <- coef(model)[3]
+>	Xwt <- coef(model)[4]
+>
+>	print(Xdisp) 
+
+>	print(Xhp) 
+
+>	print(Xwt) 
 
 
