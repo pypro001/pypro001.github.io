@@ -1,0 +1,44 @@
+DOWNLOAD THE COUCH DB BY THIS LINK : https://apache-
+couchdb.software.informer.com/download/#downloading
+Download version 1.6.1 apache couchdb
+
+CALL THE LIBRARY FOR SOFA 
+Library(sofa)
+
+CREATE THE CONNECTION OBJECT
+
+#create connection object
+x<-Cushion$new()
+#to check whether object connected
+x$Sping
+
+NOW, CREATE THE DATABASE
+db_create(x,dbname=’ty’)
+
+db_list(x)
+
+CREATE JSON DOC  
+
+doc1<-’{“rollno”:”02”.”name”:”surya”,”grade”:”A”}’
+doc_create(x,doc1,dname=”ty”, docid=”a_1”)
+
+doc_create(x,doc1,dname=”tty”, docid=”a_1”)
+
+HERE, we have created JSON DOC successfully .
+NOW , we have to change the feed 
+
+db_changes(x,”tty”)
+
+
+WE ARE CHANGING THE FEED NOW ,
+
+doc_create(x,doc1,dname=”ty”, docid=”a_2”)
+doc_create(x,doc1,dname=”ty”, docid=”a_2”)
+
+doc1<-’{“rollno”:”02”.”name”:”surya”,”grade”:”A”,”remark”:”PASS”}’
+doc_create(x,doc1,dname=”ty”, docid=”a_2”)
+
+db_changes(x,”tty”)
+
+SEARCH FOR ID > NULL SO ALL DOCS WILL DISPLAY .
+
