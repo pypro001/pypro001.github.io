@@ -1,0 +1,20 @@
+1. Click File, and then Create Disk Image, or click the button on the
+tool bar.
+2. Select the source evidence type you want to make an image of and
+click Next
+3. Select the source evidence file with path .
+Click on “add” to add image destination
+4. In the Image Destination Folder field, type the location path where
+you want to save the image file, or click Browse to find to the desired
+location
+5. After adding the image destination path click on finish and start the
+image processing.
+6. After the images are successfully created, click Image Summary to
+view detailed file information, including MD5 and SHA1
+checksums.
+
+Analyze Forensic Image:
+Click on Add Evidence Item to add evidence from disk, image file or folder.
+Now select the source evidence type as image file.
+Open the created evidence image file
+Now select Evidence Tree and analyze the image file 
