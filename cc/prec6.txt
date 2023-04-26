@@ -1,0 +1,22 @@
+Aim :- Study Cloud Security management
+Objectives :- From this experiment, the student will be able,
+ To understand the security features of Cloud.
+ To learn the technique of application security management and its complexity
+ To understand the importance of cloud security management from application point of view
+Outcomes :- The learner will be able to
+ Student can study and implement single-sign-on.
+ To use current techniques, skills, and tools necessary for computing practice.
+ To match the industry requirements in the domains of Database management, Programming
+and Networking with the required management skills.
+Steps :-
+1. Go to Auth0(https://auth0.com/) and create an account
+2. Select account type as others and click on next.
+3. Give tenant domain name, select the region and click on Create Account.
+4. After creating your Account Go to Security Select Multi factor Authentication Enable all
+Factors and click on Save
+5. Once you click on save You will receive a Verification Email on your registered E–mail ID
+Click on “verify your account”
+
+Conclusion :- We have studied how to secure the cloud and its data. Amazon EWS provides the best
+security with its extended facilities and services like MFA device. It also gives you the ability to add
+your own permissions and policies for securing data more encrypted
