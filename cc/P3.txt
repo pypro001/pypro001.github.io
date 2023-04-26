@@ -1,0 +1,159 @@
+PRACTICAL 3
+PROGRAMMING ACTIVITIES AND FRAGMENTS
+PART A
+AIM : To demonstrate the Life Cycle methods of Android Activity in Android.
+PROGRAM :
+MainActivity.java
+package com.sonic.pract_3a;
+import androidx.appcompat.app.AppCompatActivity;
+import android.util.Log;
+import android.os.Bundle;
+public class MainActivity extends AppCompatActivity {
+String tag="Lifecycle";
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+super.onCreate(savedInstanceState);
+setContentView(R.layout.activity_main);
+Log.d(tag, "In onCreate() event");
+}
+@Override
+protected void onStart() {
+super.onStart();
+Log.d(tag, "In onStart() event");
+}
+protected void onRestart(){
+super.onRestart();
+Log.d(tag, "In onRestart() event");
+} 
+protected void onResume(){ 
+super.onResume(); 
+Log.d(tag, "In onResume() event"); 
+} 
+protected void onPause(){ 
+super.onPause(); 
+Log.d(tag, "In onPause() event"); 
+} 
+@Override 
+protected void onStop() { 
+super.onStop(); 
+Log.d(tag, "In onStop() event"); 
+} 
+@Override 
+protected void onDestroy() { 
+super.onDestroy(); 
+Log.d(tag, "In onDestroy() event"); 
+} 
+}
+
+ PART B
+AIM : To create a Fragment in Android.
+PROGRAM :
+LifeOfFragment.java
+package com.sonic.pract_3b;
+import android.content.Context;
+import android.os.Bundle;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+/**
+* A simple {@link Fragment} subclass.
+* Use the {@link LifeOfFragment#newInstance} factory method to
+* create an instance of this fragment.
+*/
+public class LifeOfFragment extends Fragment {
+String tag="Lifecycle";
+// TODO: Rename parameter arguments, choose names that match
+// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+private static final String ARG_PARAM1 = "param1";
+private static final String ARG_PARAM2 = "param2";
+// TODO: Rename and change types of parameters
+private String mParam1;
+private String mParam2;
+public LifeOfFragment() {
+// Required empty public constructor
+}
+/**
+* Use this factory method to create a new instance of 
+* this fragment using the provided parameters. 
+* 
+* @param param1 Parameter 1. 
+* @param param2 Parameter 2. 
+* @return A new instance of fragment LifeOfFragment. 
+*/ 
+// TODO: Rename and change types and number of parameters 
+public static LifeOfFragment newInstance(String param1, String param2) { 
+LifeOfFragment fragment = new LifeOfFragment(); 
+Bundle args = new Bundle(); 
+args.putString(ARG_PARAM1, param1); 
+args.putString(ARG_PARAM2, param2); 
+fragment.setArguments(args); 
+return fragment; 
+} 
+@Override 
+public View onCreateView(LayoutInflater inflater, ViewGroup container, 
+Bundle savedInstanceState) { 
+// Inflate the layout for this fragment 
+return inflater.inflate(R.layout.fragment_life_of, container, false); 
+} 
+@Override 
+public void onAttach(@NonNull Context context) { 
+super.onAttach(context); 
+Log.d(tag, "onAttach() event"); 
+} 
+@Override 
+public void onCreate(Bundle savedInstanceState) { 
+super.onCreate(savedInstanceState); 
+Log.d(tag, "onCreate() event"); 
+} 
+@Override 
+public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) { 
+super.onViewCreated(view, savedInstanceState); 
+Log.d(tag, "onViewCreated() event"); 
+} 
+@Override 
+public void onActivityCreated(@Nullable Bundle savedInstanceState) { 
+super.onActivityCreated(savedInstanceState);
+Log.d(tag, "onActivityCreated() event"); 
+} 
+@Override 
+public void onStart() { 
+super.onStart(); 
+Log.d(tag, "onStart() event"); 
+} 
+@Override 
+public void onResume() { 
+super.onResume(); 
+Log.d(tag, "onResume() event"); 
+} 
+@Override 
+public void onPause() { 
+super.onPause(); 
+Log.d(tag, "onPause() event"); 
+} 
+@Override 
+public void onStop() { 
+super.onStop(); 
+Log.d(tag, "onStop() event"); 
+} 
+@Override 
+public void onDestroyView() { 
+super.onDestroyView(); 
+Log.d(tag, "onDestroyView() event"); 
+} 
+@Override 
+public void onDestroy() { 
+super.onDestroy(); 
+Log.d(tag, "onDestroy() event"); 
+} 
+@Override 
+public void onDetach() { 
+super.onDetach(); 
+Log.d(tag, "onDetach() event"); 
+} 
+}
+
+

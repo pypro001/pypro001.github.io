@@ -1,0 +1,150 @@
+PRACTICAL 8
+PROGRAMS ON SERVICES, NOTIFICATION AND BROADCAST RECEIVERS
+PART A
+AIM : To demonstrate programs on Services in Android.
+PROGRAM :
+MyServices.java
+package com.sonic.pract_8a;
+import android.app.Service;
+import android.content.Intent;
+import android.os.IBinder;
+import android.widget.Toast;
+import androidx.annotation.Nullable;
+public class MyServices extends Service {
+@Override
+public void onCreate() {
+super.onCreate();
+}
+@Override
+public int onStartCommand(Intent intent, int flags, int startId) {
+Toast.makeText(this, "Services started...", Toast.LENGTH_LONG).show();
+return START_STICKY;
+}
+@Override
+public void onDestroy() {
+Toast.makeText(this, "Services destroyed...", Toast.LENGTH_LONG).show();
+}
+@Nullable
+@Override
+public IBinder onBind(Intent intent) {
+return null;
+}
+}
+MainActivity.java
+package com.sonic.pract_8a;
+import androidx.appcompat.app.AppCompatActivity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+public class MainActivity extends AppCompatActivity {
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+super.onCreate(savedInstanceState);
+setContentView(R.layout.activity_main);
+}
+public void startService(View view){
+Intent intent=new Intent(this, MyServices.class);
+startService(intent);
+}
+public void stopService(View view){
+Intent intent=new Intent(this, MyServices.class);
+stopService(intent);
+}
+}
+
+
+PART B
+AIM : To demonstrate programs on Notification in Android.
+PROGRAM :
+MainActivity.java
+package com.sonic.pract_8b;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.content.Context;
+import android.os.Build;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Toast;
+public class MainActivity extends AppCompatActivity {
+public final String CHANNEL_ID="personal_notification";
+public final int NOTIFICATION_ID=001;
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+super.onCreate(savedInstanceState);
+setContentView(R.layout.activity_main);
+}
+public void displayNotification(View view) {
+createNotificationChannel();
+Toast.makeText(getApplicationContext(), "Hi", Toast.LENGTH_LONG).show();
+NotificationCompat.Builder builder = new NotificationCompat.Builder(this, CHANNEL_ID);
+builder.setSmallIcon(R.drawable.ic_launcher_foreground);
+builder.setContentTitle("Simple Notification");
+builder.setContentText("This is a test Notification");
+builder.setPriority(NotificationCompat.PRIORITY_DEFAULT);
+NotificationManagerCompat notificationManagerCompat=NotificationManagerCompat.from(this);
+notificationManagerCompat.notify(NOTIFICATION_ID, builder.build());
+}
+private void createNotificationChannel(){
+if (Build.VERSION.SDK_INT>=Build.VERSION_CODES.O){
+CharSequence name="Personal Notification";
+String description="This is description";
+int importance= NotificationManager.IMPORTANCE_DEFAULT;
+NotificationChannel notificationChannel=new NotificationChannel(CHANNEL_ID, name, importance);
+notificationChannel.setDescription(description);
+NotificationManager notificationManager=(NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+notificationManager.createNotificationChannel(notificationChannel);
+}
+}
+}
+
+
+
+
+PART C
+AIM : To demonstrate programs on Broadcast receivers in Android.
+PROGRAM :
+NumberReceiver.java
+package com.example.brodcast;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.telephony.TelephonyManager;
+public class NumberReceiver extends BroadcastReceiver {
+static String allnumber="";
+@Override
+public void onReceive(Context context,Intent intent){
+String state= intent.getStringExtra(TelephonyManager.EXTRA_STATE);
+if(state.equals(TelephonyManager.EXTRA_STATE_RINGING))
+{
+String number=intent.getExtras().getString(TelephonyManager.EXTRA_INCOMING_NUMBER);
+allnumber=allnumber+"\n"+number;
+MainActivity.getInstance().myMethod(allnumber);
+}
+}
+}
+MainActivity.java
+package com.example.brodcast;
+import androidx.appcompat.app.AppCompatActivity;
+import android.os.Bundle;
+import android.widget.TextView;
+public class MainActivity extends AppCompatActivity {
+TextView textView;
+private static MainActivity instance;
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+super.onCreate(savedInstanceState);
+setContentView(R.layout.activity_main);
+instance = this;
+}
+public static MainActivity getInstance(){
+return instance;
+}
+public void myMethod(String Str){
+textView=(TextView)findViewById(R.id.txtmsg);
+textView.setText(Str);
+}
+}
+
