@@ -42,6 +42,7 @@ and then click the Deleted Items folder.
 Select any message say Message0001 right click and select option Launch.
 Detached Viewer and you can see detail of deleted message.
 For analyzing header follow following
+
 steps:
 Click the E-Mail tab. In the tree view, click to expand all folders, and
 then click the Inbox folder.
