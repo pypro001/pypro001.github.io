@@ -1,66 +1,17 @@
-Aim: To study and implementation of Infrastructure as a Service
-1. Objectives: From this experiment, the student will be able to,
- Understand concepts of virtualization and to use cloud as Infrastructure as a
-services.
- Learn the technique and its complexity
- Understand the importance of this technique from application point of view
-2. Outcomes: The learner will be able,
- To match the industry requirements in the domains of Database management,
-Programming and Networking with limited infrastructure.
- To analyze the local and global impact of computing on individuals,
-organizations, and society.
- To use current techniques, skills, and tools necessary for computing practice.
-3. Hardware / Software Required: Ubuntu operating system, Virtual machine,
-WAMP/ZAMP server, Any tool or technology can be used for implementation of web
-application e.g., JAVA, PHP, etc.
-4. Theory:
-5. Procedure:
-Installation Steps: (https://docs.openstack.org/devstack/latest/guides/single-machine.html)
-Add user
-useradd -s /bin/bash -d /opt/stack -m stack
-apt-get install sudo -y
-echo "stack ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
-login as stack user
-Download DevStack
-sudo apt-get install git -y || sudo yum install -y git
-git clone https://git.openstack.org/openstack-dev/devstack
-cd devstack
-Run DevStack
-Now to configure stack.sh. DevStack includes a sample in devstack/samples/local.conf.
-Create local.conf as shown below to do the following:
- Set FLOATING_RANGE to a range not used on the local network, i.e.
-192.168.1.224/27. This configures IP addresses ending in 225-254 to be used as
-floating IPs.
- Set FIXED_RANGE and FIXED_NETWORK_SIZE to configure the internal
-address space used by the instances.
- Set FLAT_INTERFACE to the Ethernet interface that connects the host to your
-local network. This is the interface that should be configured with the static IP address
-mentioned above.
- Set the administrative password. This password is used for
-the admin and demo accounts set up as OpenStack users.
- Set the MySQL administrative password. The default here is a random hex string
-which is inconvenient if you need to look at the database directly for anything.
- Set the RabbitMQ password.
- Set the service password. This is used by the OpenStack services (Nova, Glance, etc)
-to authenticate with Keystone.
-local.conf should look something like this:
-[[local|localrc]]
-FLOATING_RANGE=192.168.1.224/27
-FIXED_RANGE=10.11.12.0/24
-FIXED_NETWORK_SIZE=256
-FLAT_INTERFACE=eth0
-ADMIN_PASSWORD=supersecret
-DATABASE_PASSWORD=iheartdatabases
-RABBIT_PASSWORD=flopsymopsy
-Run DevStack:
-SERVICE_PASSWORD=iheartksl
-./stack.sh
-A seemingly endless stream of activity ensues. When complete you will see a summary
-of stack.sh’s work, including the relevant URLs, accounts and passwords to poke at your
-shiny new OpenStack.
-Using OpenStack
-At this point you should be able to access the dashboard from other computers on the local
-network. In this example that would be http://192.168.43.29/ for the dashboard (aka
-Horizon). Launch VMs and if you give them floating IPs and security group access those
-VMs will be accessible from other machines on your network
-
+AIM: Study and implementation of Infrastructure as a Service.
+Step1:First go to Amazon AWS Website(https://aws.amazon.com/)
+Create an AWS Account if you don’t have one, Login In if you already have an 
+account.
+Step2: Search for EC2 in the search bar and select it.
+Step3: You will see this type of interface.
+Click on Launch Instance.
+Step4: Fill the required Columns or Configurations.
+After completely configuring required specifications. Click on Launch Instance.
+If instance is created successfully it will show success prompt and id of instance, 
+click on instance Id it will redirect you to instance dashboard.
+Step 5: Check the checkbox to see the instance details.
+You can play with the tabs to know a specific detailed description of instance, 
+such as:
+Security:
+Networking:
+Storage:
