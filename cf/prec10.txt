@@ -1,0 +1,19 @@
+Aim: Web Browser Forensics .
+-Web Browser working
+-Forensics activities on browser
+-Cache / Cookies analysis
+-Last Internet activity
+
+Steps:
+1. Open BrowserHistoryExaminer.
+2. Click on file > Capture History
+3. Select the capture folder and click on next.
+4.Enter the destination to capture the data
+5.The History is been extracting.
+6.The data has been retrieved.
+7. On the left panel click on bookmarks.
+8. On the left panel click on cached files.
+9. On the left panel click on cached images.
+10. On the left panel click on cookies.
+11. To Create Reports. Click on file > Report and save the report as pdf or
+html page
