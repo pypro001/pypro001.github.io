@@ -33,3 +33,4 @@ the Excel format and click on next.
 
 Step 16: Now Report is Generated So click on close Button .we can see
 the Report on Report Node
+Step 17: Now open the Report folder and Open Excel File
