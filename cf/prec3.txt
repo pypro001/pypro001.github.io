@@ -1,3 +1,9 @@
+Step 1 : Open Autopsy
+Step 2 : Click on new case
+Step 3 : Enter details regarding the case and click on next button.
+Step 4 : Enter the furture detail and click on next button
+Step 5 : Now here we have to select Type of data source to add , in our case disk
+image or VM file and click on next
 
 Step 6 : Now we have to select image file and click on next button
 
@@ -24,3 +30,4 @@ format and click on next
 Step 16 : This window will appear
 Step 17 : Now report is generated so click on close button. We can see the
 Report on Report Node
+Step 18 : Click on report
