@@ -15,6 +15,8 @@ drive.
 To process this investigation, we need to examine the Jim_shu’s.pst file,
 locate the message, and export it for further analysis of its header to see how
 Jim might have received it.
+
+start
 Recovering Email
 Start AccessData FTK and click Start a new case, then click OK.
 Click Next until you reach the Refine Case - Default dialog box Click
