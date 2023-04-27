@@ -23,3 +23,6 @@ $sudo apt-get install virt-manager
 10.Browse the location OS type -> TinyCore and choose OS ->Generic defalt click on Forward
 11.Then click on forward
 12.Now our virtual machine will started and press Enter
+Conclusion :- Installation and configuration of KVM have been done successfully onto Ubuntu and 
+users added. Like this we can create as many virtual machines as possible on OS and can install any 
+windows onto it.
