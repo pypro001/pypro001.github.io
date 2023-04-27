@@ -14,3 +14,5 @@ Step 7 : the cluster view is seen from the cluster view in left panel.
 Step 8 : We can also view gallery view by Right Click.
 Step 9: Keyword search. Click on Search in left pane and Enter the file
 name to be searched in the image created.
+Step 10 : Output of Keyword search.
+Step 11 : Click on view>Report
