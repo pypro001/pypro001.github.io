@@ -1,4 +1,0 @@
-Aim: Use Google and Whois for Reconnaissance.
-Step1: Open the Whois
-Step2: Enter the Website name hit the Enter button. 
-Step3: Show the information about www.prestashop.com
