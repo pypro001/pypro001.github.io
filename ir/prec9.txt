@@ -1,9 +1,0 @@
-Python code:-
-import requests
-from bs4 import BeautifulSoup
-url=(&quot;www.amazon.in&quot;)
-code=requests.get(&quot;https://&quot;+url)
-plain=code.text
-s=BeautifulSoup(plain)
-for link in s.find_all(&#39;a&#39;):
-    print(link.get(&#39;href&#39;))
